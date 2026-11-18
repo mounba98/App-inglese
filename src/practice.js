@@ -28,3 +28,10 @@ export function pickPractice(state, content, rng = Math.random, n = 8) {
   }
   return out;
 }
+
+// Alternanza: prima scritta, poi dettato. `prevSlot` è il turno precedente (vero = era turno di dettato)
+// e avanza sempre, anche senza audio; il dettato parte solo se c'è l'audio.
+export function nextMode(prevSlot, audioOk) {
+  const slot = !prevSlot;
+  return { dictation: slot && audioOk, slot };
+}

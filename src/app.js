@@ -4,7 +4,7 @@ import { createProgress } from './progress.js';
 import { createLessonFlow } from './lesson.js';
 import { dueCards, todayLocal } from './srs.js';
 import { numberItems } from './numbers.js';
-import { pickPractice } from './practice.js';
+import { pickPractice, nextMode } from './practice.js';
 import { hasSpeech, whenVoicesReady, speak } from './speech.js';
 
 const REVIEW_MAX = 8;
@@ -17,7 +17,7 @@ let levels = [];
 let topics = [];
 let progress;
 let audioOk = hasSpeech(window);
-let lastDictation = false; // alterna: una sessione scritta, poi una a dettato
+let lastSlot = true; // alterna: prima una sessione scritta, poi una a dettato (vedi nextMode)
 let session = null; // { lesson, flow, feedback, recorded }
 
 function safeStorage() {
@@ -139,8 +139,8 @@ function startNumbers() {
 function startTraining() {
   const items = pickPractice(progress.get(), { levels, topics });
   if (items.length === 0) return renderHome();
-  const dictation = audioOk && !lastDictation;
-  lastDictation = dictation;
+  const { dictation, slot } = nextMode(lastSlot, audioOk);
+  lastSlot = slot;
   startLesson({ id: 'allenamento', title: 'Allenamento libero', isTraining: true, dictation, items });
 }
 
@@ -255,6 +255,7 @@ function renderLesson() {
         h('p', { class: 'feedback retry' }, 'Non ancora.'),
         h('p', { class: 'solution', lang: 'en' }, `La risposta è: ${c.item.en}`),
         c.dictation ? h('p', { class: 'it' }, `Significa: ${c.item.it}`) : null,
+        c.dictation ? listenBlock(c.item) : null,
       ),
       h('button', { onclick: () => { flow.advance(); renderLesson(); } }, 'Avanti'),
     );
@@ -296,7 +297,7 @@ function renderLesson() {
   }
   input.focus();
   // Dettato: la frase parte da sola una volta; sui tentativi successivi c'è il pulsante.
-  if (c.dictation && session.feedback !== 'retry') speak(c.item.en, window);
+  if (c.dictation && session.feedback !== 'retry') Promise.resolve(speak(c.item.en, window)).catch(() => {});
 }
 
 function renderDone() {

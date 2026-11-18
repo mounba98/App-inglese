@@ -64,3 +64,15 @@ test('dettato: il passo write ha dictation true', () => {
   assert.equal(f.submit('hello'), true);
   assert.equal(f.current().step, 'done');
 });
+
+import { nextMode } from '../src/practice.js';
+test('nextMode: scritta, dettato, scritta; il giro avanza anche senza audio', () => {
+  let slot = true; // stato iniziale: come se il precedente fosse un dettato
+  const seq = [];
+  for (let i = 0; i < 4; i++) { const m = nextMode(slot, true); seq.push(m.dictation); slot = m.slot; }
+  assert.deepEqual(seq, [false, true, false, true]);
+  slot = true;
+  for (let i = 0; i < 4; i++) { const m = nextMode(slot, false); assert.equal(m.dictation, false); slot = m.slot; }
+  assert.equal(slot, true); // dopo 4 giri senza audio il giro è avanzato 4 volte
+  assert.equal(nextMode(true, false).slot, false);
+});
