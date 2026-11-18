@@ -654,5 +654,1014 @@
     ]
    }
   ]
+ },
+ {
+  "id": "l3",
+  "title": "Saluti e presentarsi",
+  "lessons": [
+   {
+    "id": "l3-01",
+    "title": "Salutare",
+    "items": [
+     {
+      "id": "l3-01-hello",
+      "en": "Hello",
+      "it": "Ciao (per salutare)",
+      "accept": [
+       "Hello",
+       "Hi"
+      ]
+     },
+     {
+      "id": "l3-01-good-morning",
+      "en": "Good morning",
+      "it": "Buongiorno"
+     },
+     {
+      "id": "l3-01-good-afternoon",
+      "en": "Good afternoon",
+      "it": "Buon pomeriggio"
+     },
+     {
+      "id": "l3-01-good-evening",
+      "en": "Good evening",
+      "it": "Buonasera"
+     },
+     {
+      "id": "l3-01-good-night",
+      "en": "Good night",
+      "it": "Buonanotte"
+     },
+     {
+      "id": "l3-01-goodbye",
+      "en": "Goodbye",
+      "it": "Arrivederci",
+      "accept": [
+       "Goodbye",
+       "Good bye",
+       "Bye"
+      ]
+     },
+     {
+      "id": "l3-01-see-you-later",
+      "en": "See you later",
+      "it": "A più tardi",
+      "accept": [
+       "See you later",
+       "See you"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l3-02",
+    "title": "Come stai?",
+    "items": [
+     {
+      "id": "l3-02-how-are-you",
+      "en": "How are you?",
+      "it": "Come stai?"
+     },
+     {
+      "id": "l3-02-im-fine",
+      "en": "I'm fine, thank you",
+      "it": "Sto bene, grazie",
+      "accept": [
+       "I'm fine, thank you",
+       "I'm fine thank you",
+       "I am fine, thank you",
+       "I am fine thank you",
+       "I'm fine, thanks",
+       "I'm fine thanks",
+       "I am fine, thanks",
+       "I am fine thanks"
+      ]
+     },
+     {
+      "id": "l3-02-and-you",
+      "en": "And you?",
+      "it": "E tu?"
+     },
+     {
+      "id": "l3-02-not-bad",
+      "en": "Not bad",
+      "it": "Non c'è male"
+     },
+     {
+      "id": "l3-02-how-do-you-feel-today",
+      "en": "How do you feel today?",
+      "it": "Come ti senti oggi?"
+     }
+    ]
+   },
+   {
+    "id": "l3-03",
+    "title": "Presentarsi",
+    "items": [
+     {
+      "id": "l3-03-my-name-is",
+      "en": "My name is Anna",
+      "it": "Mi chiamo Anna",
+      "accept": [
+       "My name is Anna",
+       "My name's Anna"
+      ]
+     },
+     {
+      "id": "l3-03-whats-your-name",
+      "en": "What's your name?",
+      "it": "Come ti chiami?",
+      "accept": [
+       "What's your name?",
+       "What is your name?"
+      ]
+     },
+     {
+      "id": "l3-03-nice-to-meet-you",
+      "en": "Nice to meet you",
+      "it": "Piacere di conoscerti"
+     },
+     {
+      "id": "l3-03-nice-to-meet-you-too",
+      "en": "Nice to meet you too",
+      "it": "Piacere anche a me"
+     },
+     {
+      "id": "l3-03-im-a-nurse",
+      "en": "I'm a nurse",
+      "it": "Sono un'infermiera",
+      "accept": [
+       "I'm a nurse",
+       "I am a nurse"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l3-04",
+    "title": "Da dove vieni?",
+    "items": [
+     {
+      "id": "l3-04-where-are-you-from",
+      "en": "Where are you from?",
+      "it": "Di dove sei?"
+     },
+     {
+      "id": "l3-04-im-from-italy",
+      "en": "I'm from Italy",
+      "it": "Vengo dall'Italia",
+      "accept": [
+       "I'm from Italy",
+       "I am from Italy",
+       "I come from Italy"
+      ]
+     },
+     {
+      "id": "l3-04-im-italian",
+      "en": "I'm Italian",
+      "it": "Sono italiana",
+      "accept": [
+       "I'm Italian",
+       "I am Italian"
+      ]
+     },
+     {
+      "id": "l3-04-welcome",
+      "en": "Welcome",
+      "it": "Benvenuto (o benvenuta)"
+     }
+    ]
+   },
+   {
+    "id": "l3-05",
+    "title": "Parole gentili",
+    "items": [
+     {
+      "id": "l3-05-please",
+      "en": "Please",
+      "it": "Per favore"
+     },
+     {
+      "id": "l3-05-thank-you",
+      "en": "Thank you",
+      "it": "Grazie",
+      "accept": [
+       "Thank you",
+       "Thanks"
+      ]
+     },
+     {
+      "id": "l3-05-thank-you-very-much",
+      "en": "Thank you very much",
+      "it": "Grazie mille",
+      "accept": [
+       "Thank you very much",
+       "Thanks a lot"
+      ]
+     },
+     {
+      "id": "l3-05-youre-welcome",
+      "en": "You're welcome",
+      "it": "Prego (risposta a grazie)",
+      "accept": [
+       "You're welcome",
+       "You are welcome"
+      ]
+     },
+     {
+      "id": "l3-05-sorry",
+      "en": "Sorry",
+      "it": "Scusa, mi dispiace"
+     },
+     {
+      "id": "l3-05-excuse-me",
+      "en": "Excuse me",
+      "it": "Mi scusi (per attirare l'attenzione)"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "l4",
+  "title": "Essere e avere",
+  "lessons": [
+   {
+    "id": "l4-01",
+    "title": "Essere: io, tu, lui, lei",
+    "items": [
+     {
+      "id": "l4-01-im-happy",
+      "en": "I'm happy",
+      "it": "Sono contenta",
+      "accept": [
+       "I'm happy",
+       "I am happy"
+      ]
+     },
+     {
+      "id": "l4-01-im-tired",
+      "en": "I'm tired",
+      "it": "Sono stanca",
+      "accept": [
+       "I'm tired",
+       "I am tired"
+      ]
+     },
+     {
+      "id": "l4-01-im-hungry",
+      "en": "I'm hungry",
+      "it": "Ho fame",
+      "accept": [
+       "I'm hungry",
+       "I am hungry"
+      ]
+     },
+     {
+      "id": "l4-01-youre-kind",
+      "en": "You're kind",
+      "it": "Tu sei gentile (a una persona)",
+      "accept": [
+       "You're kind",
+       "You are kind"
+      ]
+     },
+     {
+      "id": "l4-01-hes-my-friend",
+      "en": "He's my friend",
+      "it": "Lui è mio amico",
+      "accept": [
+       "He's my friend",
+       "He is my friend"
+      ]
+     },
+     {
+      "id": "l4-01-shes-my-friend",
+      "en": "She's my friend",
+      "it": "Lei è la mia amica",
+      "accept": [
+       "She's my friend",
+       "She is my friend"
+      ]
+     },
+     {
+      "id": "l4-01-its-a-nice-day",
+      "en": "It's a nice day",
+      "it": "È una bella giornata",
+      "accept": [
+       "It's a nice day",
+       "It is a nice day"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l4-02",
+    "title": "Essere: noi e loro, e il negativo",
+    "items": [
+     {
+      "id": "l4-02-were-friends",
+      "en": "We're friends",
+      "it": "Noi siamo amici",
+      "accept": [
+       "We're friends",
+       "We are friends"
+      ]
+     },
+     {
+      "id": "l4-02-theyre-nurses",
+      "en": "They're nurses",
+      "it": "Loro sono infermieri",
+      "accept": [
+       "They're nurses",
+       "They are nurses"
+      ]
+     },
+     {
+      "id": "l4-02-im-not-tired",
+      "en": "I'm not tired",
+      "it": "Non sono stanca",
+      "accept": [
+       "I'm not tired",
+       "I am not tired"
+      ]
+     },
+     {
+      "id": "l4-02-hes-not-here",
+      "en": "He isn't here",
+      "it": "Lui non è qui",
+      "accept": [
+       "He isn't here",
+       "He is not here",
+       "He's not here"
+      ]
+     },
+     {
+      "id": "l4-02-shes-not-here",
+      "en": "She isn't here",
+      "it": "Lei non è qui",
+      "accept": [
+       "She isn't here",
+       "She is not here",
+       "She's not here"
+      ]
+     },
+     {
+      "id": "l4-02-its-not-far",
+      "en": "It isn't far",
+      "it": "Non è lontano",
+      "accept": [
+       "It isn't far",
+       "It is not far",
+       "It's not far"
+      ]
+     },
+     {
+      "id": "l4-02-youre-not-alone",
+      "en": "You aren't alone",
+      "it": "Tu non sei sola (a una donna)",
+      "accept": [
+       "You aren't alone",
+       "You are not alone",
+       "You're not alone"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l4-03",
+    "title": "Essere: le domande",
+    "items": [
+     {
+      "id": "l4-03-are-you-ok",
+      "en": "Are you OK?",
+      "it": "Stai bene? (a una persona)",
+      "accept": [
+       "Are you OK?",
+       "Are you okay"
+      ]
+     },
+     {
+      "id": "l4-03-are-you-tired",
+      "en": "Are you tired?",
+      "it": "Sei stanco o stanca? (a una persona)"
+     },
+     {
+      "id": "l4-03-are-you-hungry",
+      "en": "Are you hungry?",
+      "it": "Hai fame?"
+     },
+     {
+      "id": "l4-03-is-he-your-friend",
+      "en": "Is he your friend?",
+      "it": "È tuo amico?"
+     },
+     {
+      "id": "l4-03-where-is-the-bathroom",
+      "en": "Where is the bathroom?",
+      "it": "Dov'è il bagno?",
+      "accept": [
+       "Where is the bathroom?",
+       "Where's the bathroom",
+       "Where is the bathroom"
+      ]
+     },
+     {
+      "id": "l4-03-how-old-are-you",
+      "en": "How old are you?",
+      "it": "Quanti anni hai?"
+     }
+    ]
+   },
+   {
+    "id": "l4-04",
+    "title": "Avere",
+    "items": [
+     {
+      "id": "l4-04-i-have-a-dog",
+      "en": "I have a dog",
+      "it": "Ho un cane"
+     },
+     {
+      "id": "l4-04-i-have-two-children",
+      "en": "I have two children",
+      "it": "Ho due figli"
+     },
+     {
+      "id": "l4-04-you-have-a-nice-smile",
+      "en": "You have a nice smile",
+      "it": "Hai un bel sorriso"
+     },
+     {
+      "id": "l4-04-he-has-a-car",
+      "en": "He has a car",
+      "it": "Lui ha una macchina"
+     },
+     {
+      "id": "l4-04-she-has-a-sister",
+      "en": "She has a sister",
+      "it": "Lei ha una sorella"
+     },
+     {
+      "id": "l4-04-we-have-time",
+      "en": "We have time",
+      "it": "Abbiamo tempo"
+     }
+    ]
+   },
+   {
+    "id": "l4-05",
+    "title": "Avere: negativo e domande",
+    "items": [
+     {
+      "id": "l4-05-i-dont-have-a-car",
+      "en": "I don't have a car",
+      "it": "Non ho la macchina",
+      "accept": [
+       "I don't have a car",
+       "I do not have a car"
+      ]
+     },
+     {
+      "id": "l4-05-she-doesnt-have-time",
+      "en": "She doesn't have time",
+      "it": "Lei non ha tempo",
+      "accept": [
+       "She doesn't have time",
+       "She does not have time"
+      ]
+     },
+     {
+      "id": "l4-05-do-you-have-children",
+      "en": "Do you have children?",
+      "it": "Hai figli?",
+      "accept": [
+       "Do you have children?",
+       "Do you have any children"
+      ]
+     },
+     {
+      "id": "l4-05-do-you-have-a-dog",
+      "en": "Do you have a dog?",
+      "it": "Hai un cane?"
+     },
+     {
+      "id": "l4-05-does-he-have-a-car",
+      "en": "Does he have a car?",
+      "it": "Lui ha una macchina?"
+     },
+     {
+      "id": "l4-05-i-have-a-question",
+      "en": "I have a question",
+      "it": "Ho una domanda"
+     },
+     {
+      "id": "l4-05-do-you-have-time",
+      "en": "Do you have time?",
+      "it": "Hai tempo?"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "l5",
+  "title": "Verbi di tutti i giorni",
+  "lessons": [
+   {
+    "id": "l5-01",
+    "title": "Go e want",
+    "items": [
+     {
+      "id": "l5-01-i-go-to-work",
+      "en": "I go to work",
+      "it": "Vado al lavoro"
+     },
+     {
+      "id": "l5-01-she-goes-to-the-store",
+      "en": "She goes to the store",
+      "it": "Lei va al negozio"
+     },
+     {
+      "id": "l5-01-i-want-a-coffee",
+      "en": "I want a coffee",
+      "it": "Voglio un caffè"
+     },
+     {
+      "id": "l5-01-he-wants-a-tea",
+      "en": "He wants a tea",
+      "it": "Lui vuole un tè",
+      "accept": [
+       "He wants a tea",
+       "He wants tea"
+      ]
+     },
+     {
+      "id": "l5-01-do-you-want-tea",
+      "en": "Do you want tea?",
+      "it": "Vuoi del tè?",
+      "accept": [
+       "Do you want tea?",
+       "Do you want some tea"
+      ]
+     },
+     {
+      "id": "l5-01-i-want-to-go-home",
+      "en": "I want to go home",
+      "it": "Voglio andare a casa"
+     }
+    ]
+   },
+   {
+    "id": "l5-02",
+    "title": "Like e eat",
+    "items": [
+     {
+      "id": "l5-02-i-like-pizza",
+      "en": "I like pizza",
+      "it": "Mi piace la pizza"
+     },
+     {
+      "id": "l5-02-do-you-like-coffee",
+      "en": "Do you like coffee?",
+      "it": "Ti piace il caffè?"
+     },
+     {
+      "id": "l5-02-she-likes-to-cook",
+      "en": "She likes to cook",
+      "it": "A lei piace cucinare"
+     },
+     {
+      "id": "l5-02-i-dont-like-fish",
+      "en": "I don't like fish",
+      "it": "Non mi piace il pesce",
+      "accept": [
+       "I don't like fish",
+       "I do not like fish"
+      ]
+     },
+     {
+      "id": "l5-02-i-eat-fruit",
+      "en": "I eat fruit",
+      "it": "Mangio frutta"
+     },
+     {
+      "id": "l5-02-he-eats-a-lot",
+      "en": "He eats a lot",
+      "it": "Lui mangia molto"
+     },
+     {
+      "id": "l5-02-what-do-you-like-to-eat",
+      "en": "What do you like to eat?",
+      "it": "Che cosa ti piace mangiare?"
+     }
+    ]
+   },
+   {
+    "id": "l5-03",
+    "title": "Live e work",
+    "items": [
+     {
+      "id": "l5-03-i-live-in-italy",
+      "en": "I live in Italy",
+      "it": "Vivo in Italia"
+     },
+     {
+      "id": "l5-03-where-do-you-live",
+      "en": "Where do you live?",
+      "it": "Dove abiti?"
+     },
+     {
+      "id": "l5-03-she-lives-with-her-sister",
+      "en": "She lives with her sister",
+      "it": "Lei vive con sua sorella"
+     },
+     {
+      "id": "l5-03-i-work-in-a-hospital",
+      "en": "I work in a hospital",
+      "it": "Lavoro in un ospedale"
+     },
+     {
+      "id": "l5-03-where-do-you-work",
+      "en": "Where do you work?",
+      "it": "Dove lavori?"
+     },
+     {
+      "id": "l5-03-he-works-a-lot",
+      "en": "He works a lot",
+      "it": "Lui lavora molto"
+     },
+     {
+      "id": "l5-03-what-do-you-do",
+      "en": "What do you do?",
+      "it": "Che lavoro fai?",
+      "accept": [
+       "What do you do?",
+       "What do you do for work",
+       "What do you do for a living",
+       "What's your job",
+       "What is your job"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l5-04",
+    "title": "Need e have",
+    "items": [
+     {
+      "id": "l5-04-i-need-help",
+      "en": "I need help",
+      "it": "Ho bisogno di aiuto"
+     },
+     {
+      "id": "l5-04-do-you-need-help",
+      "en": "Do you need help?",
+      "it": "Hai bisogno di aiuto?"
+     },
+     {
+      "id": "l5-04-she-needs-time",
+      "en": "She needs time",
+      "it": "Lei ha bisogno di tempo",
+      "accept": [
+       "She needs time",
+       "She needs some time"
+      ]
+     },
+     {
+      "id": "l5-04-i-need-water",
+      "en": "I need water",
+      "it": "Ho bisogno d'acqua",
+      "accept": [
+       "I need water",
+       "I need some water"
+      ]
+     },
+     {
+      "id": "l5-04-i-have-lunch-at-one",
+      "en": "I have lunch at one",
+      "it": "Pranzo all'una",
+      "accept": [
+       "I have lunch at one",
+       "I have lunch at 1",
+       "I have lunch at one o'clock",
+       "I have lunch at 1 o'clock"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l5-05",
+    "title": "See e speak",
+    "items": [
+     {
+      "id": "l5-05-i-see-you",
+      "en": "I see you",
+      "it": "Ti vedo"
+     },
+     {
+      "id": "l5-05-do-you-see-my-phone",
+      "en": "Do you see my phone?",
+      "it": "Vedi il mio telefono?"
+     },
+     {
+      "id": "l5-05-she-sees-her-friend",
+      "en": "She sees her friend",
+      "it": "Lei vede la sua amica"
+     },
+     {
+      "id": "l5-05-i-speak-italian",
+      "en": "I speak Italian",
+      "it": "Parlo italiano"
+     },
+     {
+      "id": "l5-05-i-speak-a-little-english",
+      "en": "I speak a little English",
+      "it": "Parlo un po' di inglese"
+     },
+     {
+      "id": "l5-05-do-you-speak-italian",
+      "en": "Do you speak Italian?",
+      "it": "Parli italiano?"
+     },
+     {
+      "id": "l5-05-do-you-speak-english",
+      "en": "Do you speak English?",
+      "it": "Parli inglese?"
+     },
+     {
+      "id": "l5-05-he-speaks-english",
+      "en": "He speaks English",
+      "it": "Lui parla inglese"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "l6",
+  "title": "Frasi più lunghe e domande utili",
+  "lessons": [
+   {
+    "id": "l6-01",
+    "title": "Non ho capito",
+    "items": [
+     {
+      "id": "l6-01-can-you-repeat",
+      "en": "Can you repeat, please?",
+      "it": "Puoi ripetere, per favore?",
+      "accept": [
+       "Can you repeat, please?",
+       "Can you repeat please?",
+       "Can you repeat that, please",
+       "Can you repeat that please",
+       "Can you repeat that"
+      ]
+     },
+     {
+      "id": "l6-01-can-you-speak-slowly",
+      "en": "Can you speak slowly, please?",
+      "it": "Puoi parlare lentamente, per favore?",
+      "accept": [
+       "Can you speak slowly, please?",
+       "Can you speak slowly please?",
+       "Can you speak more slowly, please",
+       "Can you speak more slowly please"
+      ]
+     },
+     {
+      "id": "l6-01-i-dont-understand",
+      "en": "I don't understand",
+      "it": "Non capisco",
+      "accept": [
+       "I don't understand",
+       "I do not understand"
+      ]
+     },
+     {
+      "id": "l6-01-i-understand",
+      "en": "I understand",
+      "it": "Capisco"
+     },
+     {
+      "id": "l6-01-what-does-it-mean",
+      "en": "What does it mean?",
+      "it": "Che cosa significa?",
+      "accept": [
+       "What does it mean?",
+       "What does that mean"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l6-02",
+    "title": "Altre domande utili",
+    "items": [
+     {
+      "id": "l6-02-how-do-you-spell-that",
+      "en": "How do you spell that?",
+      "it": "Come si scrive?"
+     },
+     {
+      "id": "l6-02-how-do-you-say-this-in-english",
+      "en": "How do you say this in English?",
+      "it": "Come si dice questo in inglese?"
+     },
+     {
+      "id": "l6-02-just-a-moment",
+      "en": "Just a moment, please",
+      "it": "Un attimo, per favore",
+      "accept": [
+       "Just a moment, please",
+       "Just a moment please",
+       "One moment, please",
+       "One moment please"
+      ]
+     },
+     {
+      "id": "l6-02-im-learning-english",
+      "en": "I'm learning English",
+      "it": "Sto imparando l'inglese",
+      "accept": [
+       "I'm learning English",
+       "I am learning English"
+      ]
+     },
+     {
+      "id": "l6-02-my-english-is-not-good",
+      "en": "My English isn't very good",
+      "it": "Il mio inglese non è molto buono",
+      "accept": [
+       "My English isn't very good",
+       "My English is not very good",
+       "My English is not good",
+       "My English isn't good"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l6-03",
+    "title": "Posso aiutarti?",
+    "items": [
+     {
+      "id": "l6-03-can-i-help-you",
+      "en": "Can I help you?",
+      "it": "Posso aiutarti?"
+     },
+     {
+      "id": "l6-03-can-you-help-me",
+      "en": "Can you help me?",
+      "it": "Puoi aiutarmi?"
+     },
+     {
+      "id": "l6-03-can-i-ask-you-a-question",
+      "en": "Can I ask you a question?",
+      "it": "Posso farti una domanda?"
+     },
+     {
+      "id": "l6-03-yes-of-course",
+      "en": "Yes, of course",
+      "it": "Sì, certo",
+      "accept": [
+       "Yes, of course",
+       "Yes of course",
+       "Of course"
+      ]
+     },
+     {
+      "id": "l6-03-no-problem",
+      "en": "No problem",
+      "it": "Nessun problema"
+     },
+     {
+      "id": "l6-03-i-dont-know",
+      "en": "I don't know",
+      "it": "Non lo so",
+      "accept": [
+       "I don't know",
+       "I do not know"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l6-04",
+    "title": "Frasi con and e but",
+    "items": [
+     {
+      "id": "l6-04-tired-and-hungry",
+      "en": "I'm tired and hungry",
+      "it": "Sono stanca e affamata",
+      "accept": [
+       "I'm tired and hungry",
+       "I am tired and hungry"
+      ]
+     },
+     {
+      "id": "l6-04-tea-and-coffee",
+      "en": "I like tea and coffee",
+      "it": "Mi piacciono il tè e il caffè"
+     },
+     {
+      "id": "l6-04-pizza-but-pasta",
+      "en": "I like pizza, but I don't like pasta",
+      "it": "Mi piace la pizza, ma non la pasta",
+      "accept": [
+       "I like pizza, but I don't like pasta",
+       "I like pizza but I don't like pasta",
+       "I like pizza, but I do not like pasta",
+       "I like pizza but I do not like pasta"
+      ]
+     },
+     {
+      "id": "l6-04-tired-but-happy",
+      "en": "I'm tired, but I'm happy",
+      "it": "Sono stanca, ma contenta",
+      "accept": [
+       "I'm tired, but I'm happy",
+       "I'm tired but I'm happy",
+       "I'm tired, but I am happy",
+       "I'm tired but I am happy",
+       "I am tired, but I'm happy",
+       "I am tired but I'm happy",
+       "I am tired, but I am happy",
+       "I am tired but I am happy"
+      ]
+     },
+     {
+      "id": "l6-04-i-speak-english-but",
+      "en": "I understand English, but I don't speak it well",
+      "it": "Capisco l'inglese, ma non lo parlo bene",
+      "accept": [
+       "I understand English, but I don't speak it well",
+       "I understand English but I don't speak it well",
+       "I understand English, but I do not speak it well",
+       "I understand English but I do not speak it well"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l6-05",
+    "title": "Frasi con because e when",
+    "items": [
+     {
+      "id": "l6-05-why",
+      "en": "Why?",
+      "it": "Perché? (domanda)"
+     },
+     {
+      "id": "l6-05-because-its-good",
+      "en": "Because it's good",
+      "it": "Perché è buono",
+      "accept": [
+       "Because it's good",
+       "Because it is good"
+      ]
+     },
+     {
+      "id": "l6-05-tired-because-work",
+      "en": "I'm tired because I work a lot",
+      "it": "Sono stanca perché lavoro molto",
+      "accept": [
+       "I'm tired because I work a lot",
+       "I am tired because I work a lot"
+      ]
+     },
+     {
+      "id": "l6-05-when-do-you-work",
+      "en": "When do you work?",
+      "it": "Quando lavori?"
+     },
+     {
+      "id": "l6-05-eat-when-hungry",
+      "en": "I eat when I'm hungry",
+      "it": "Mangio quando ho fame",
+      "accept": [
+       "I eat when I'm hungry",
+       "I eat when I am hungry"
+      ]
+     },
+     {
+      "id": "l6-05-when-are-you-free",
+      "en": "When are you free?",
+      "it": "Quando sei libero?"
+     },
+     {
+      "id": "l6-05-happy-when-here",
+      "en": "I'm happy when you're here",
+      "it": "Sono contenta quando sei qui",
+      "accept": [
+       "I'm happy when you're here",
+       "I'm happy when you are here",
+       "I am happy when you're here",
+       "I am happy when you are here"
+      ]
+     }
+    ]
+   }
+  ]
  }
 ]
