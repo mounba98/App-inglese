@@ -2,7 +2,7 @@
 import { isCorrect } from './check.js';
 
 // startAt: 'write' salta learn e repeat (ripasso: prima si prova a scrivere).
-export function createLessonFlow(lesson, { startAt = 'learn' } = {}) {
+export function createLessonFlow(lesson, { startAt = 'learn', dictation = false } = {}) {
   const firstStep = startAt === 'write' ? 'write' : 'learn';
   const items = lesson.items;
   let index = 0;
@@ -22,7 +22,10 @@ export function createLessonFlow(lesson, { startAt = 'learn' } = {}) {
       locked = false;
       if (index >= items.length) return { step: 'done' };
       const c = { step, item: items[index] };
-      if (step === 'write') c.showSolution = wrong >= 2;
+      if (step === 'write') {
+        c.showSolution = wrong >= 2;
+        if (dictation) c.dictation = true;
+      }
       return c;
     },
     advance() {

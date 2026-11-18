@@ -4,6 +4,7 @@ import { createProgress } from './progress.js';
 import { createLessonFlow } from './lesson.js';
 import { dueCards, todayLocal } from './srs.js';
 import { numberItems } from './numbers.js';
+import { pickPractice } from './practice.js';
 import { hasSpeech, whenVoicesReady, speak } from './speech.js';
 
 const REVIEW_MAX = 8;
@@ -16,6 +17,7 @@ let levels = [];
 let topics = [];
 let progress;
 let audioOk = hasSpeech(window);
+let lastDictation = false; // alterna: una sessione scritta, poi una a dettato
 let session = null; // { lesson, flow, feedback, recorded }
 
 function safeStorage() {
@@ -109,6 +111,13 @@ function renderHome() {
       h('button', { class: 'secondary', onclick: startNumbers }, 'Numeri senza fine'),
     ));
   }
+  if (progress.get().completed.length > 0) {
+    nodes.push(h('div', { class: 'card' },
+      h('h2', {}, 'Allenamento libero'),
+      h('p', {}, '8 parole già studiate, scelte a caso.'),
+      h('button', { class: 'secondary', onclick: startTraining }, 'Allenati'),
+    ));
+  }
   if (!isStandalone()) {
     nodes.push(h('p', { class: 'hint' }, 'Consiglio: aggiungi l\'app alla schermata Home, così i progressi restano salvati.'));
   }
@@ -124,6 +133,15 @@ function level2Complete() {
 // Sessione di numeri casuali: non entra nel ripasso e non completa nessuna lezione.
 function startNumbers() {
   startLesson({ id: 'numeri', title: 'Numeri senza fine', isPractice: true, items: numberItems(8) });
+}
+
+// Allenamento libero: registra le risposte come il ripasso, ma non completa lezioni.
+function startTraining() {
+  const items = pickPractice(progress.get(), { levels, topics });
+  if (items.length === 0) return renderHome();
+  const dictation = audioOk && !lastDictation;
+  lastDictation = dictation;
+  startLesson({ id: 'allenamento', title: 'Allenamento libero', isTraining: true, dictation, items });
 }
 
 function isStandalone() {
@@ -163,7 +181,7 @@ function renderTopic(topic) {
 }
 
 function startLesson(lesson, topic = null) {
-  session = { lesson, topic, flow: createLessonFlow(lesson, (lesson.isReview || lesson.isPractice) ? { startAt: 'write' } : undefined), feedback: null, recorded: false, lastAnswer: '' };
+  session = { lesson, topic, flow: createLessonFlow(lesson, (lesson.isReview || lesson.isPractice || lesson.isTraining) ? { startAt: 'write', dictation: !!lesson.dictation } : undefined), feedback: null, recorded: false, lastAnswer: '' };
   renderLesson();
 }
 
@@ -233,9 +251,10 @@ function renderLesson() {
     return show(
       exitButton(),
       h('div', { class: 'card' },
-        h('p', { class: 'it' }, c.item.it),
+        c.dictation ? null : h('p', { class: 'it' }, c.item.it),
         h('p', { class: 'feedback retry' }, 'Non ancora.'),
         h('p', { class: 'solution', lang: 'en' }, `La risposta è: ${c.item.en}`),
+        c.dictation ? h('p', { class: 'it' }, `Significa: ${c.item.it}`) : null,
       ),
       h('button', { onclick: () => { flow.advance(); renderLesson(); } }, 'Avanti'),
     );
@@ -264,9 +283,9 @@ function renderLesson() {
   show(
     exitButton(),
     h('div', { class: 'card' },
-      h('p', { class: 'prompt' }, 'Scrivi in inglese'),
-      h('p', { class: 'it' }, c.item.it),
-      lesson.isReview ? listenBlock(c.item) : null,
+      h('p', { class: 'prompt' }, c.dictation ? 'Ascolta e scrivi' : 'Scrivi in inglese'),
+      c.dictation ? null : h('p', { class: 'it' }, c.item.it),
+      (lesson.isReview || c.dictation) ? listenBlock(c.item) : null,
       fb,
     ),
     form,
@@ -276,6 +295,8 @@ function renderLesson() {
     input.select();
   }
   input.focus();
+  // Dettato: la frase parte da sola una volta; sui tentativi successivi c'è il pulsante.
+  if (c.dictation && session.feedback !== 'retry') speak(c.item.en, window);
 }
 
 function renderDone() {
@@ -285,7 +306,7 @@ function renderDone() {
     if (!lesson.isPractice) {
       const today = todayLocal();
       for (const [id, ok] of Object.entries(flow.results())) progress.recordAnswer(id, ok, today);
-      if (!lesson.isReview) progress.completeLesson(lesson.id);
+      if (!lesson.isReview && !lesson.isTraining) progress.completeLesson(lesson.id);
     }
   }
   const lastOk = session.feedback === 'ok';
@@ -293,12 +314,13 @@ function renderDone() {
   show(
     h('div', { class: 'card' },
       lastOk && h('p', { class: 'feedback ok' }, 'Giusto!'),
-      h('p', { class: 'prompt' }, lesson.isPractice ? 'Numeri finiti. Bravissima!' : lesson.isReview ? 'Ripasso finito. Bravissima!' : 'Lezione finita. Bravissima!'),
+      h('p', { class: 'prompt' }, lesson.isPractice ? 'Numeri finiti. Bravissima!' : lesson.isTraining ? 'Allenamento finito. Bravissima!' : lesson.isReview ? 'Ripasso finito. Bravissima!' : 'Lezione finita. Bravissima!'),
       h('p', { class: 'muted' }, 'Puoi fermarti qui o continuare.'),
     ),
     lesson.isPractice ? h('button', { onclick: startNumbers }, 'Altri numeri') : null,
+    lesson.isTraining ? h('button', { onclick: startTraining }, 'Ancora') : null,
     session.topic ? h('button', { onclick: () => renderTopic(session.topic) }, 'Torna all\'argomento') : null,
-    h('button', { class: (session.topic || lesson.isPractice) ? 'secondary' : '', onclick: renderHome }, lesson.isPractice ? 'Torna all\'inizio' : 'Torna alla home'),
+    h('button', { class: (session.topic || lesson.isPractice || lesson.isTraining) ? 'secondary' : '', onclick: renderHome }, (lesson.isPractice || lesson.isTraining) ? 'Torna all\'inizio' : 'Torna alla home'),
   );
 }
 
