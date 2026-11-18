@@ -106,7 +106,12 @@
        "H - house",
        "H-house",
        "H house",
-       "house"
+       "house",
+       "home",
+       "H — home",
+       "H - home",
+       "H-home",
+       "H home"
       ]
      },
      {
@@ -352,7 +357,7 @@
      {
       "id": "l2-01-0",
       "en": "zero",
-      "it": "0 — zero",
+      "it": "0",
       "accept": [
        "zero"
       ]
@@ -720,7 +725,11 @@
      {
       "id": "l3-02-how-are-you",
       "en": "How are you?",
-      "it": "Come stai?"
+      "it": "Come stai?",
+      "accept": [
+       "How are you?",
+       "How are you doing?"
+      ]
      },
      {
       "id": "l3-02-im-fine",
@@ -734,7 +743,15 @@
        "I'm fine, thanks",
        "I'm fine thanks",
        "I am fine, thanks",
-       "I am fine thanks"
+       "I am fine thanks",
+       "I'm well, thank you",
+       "I'm well thank you",
+       "I am well, thank you",
+       "I am well thank you",
+       "I'm well, thanks",
+       "I'm well thanks",
+       "I am well, thanks",
+       "I am well thanks"
       ]
      },
      {
@@ -764,7 +781,9 @@
       "it": "Mi chiamo Anna",
       "accept": [
        "My name is Anna",
-       "My name's Anna"
+       "My name's Anna",
+       "I'm Anna",
+       "I am Anna"
       ]
      },
      {
@@ -779,12 +798,24 @@
      {
       "id": "l3-03-nice-to-meet-you",
       "en": "Nice to meet you",
-      "it": "Piacere di conoscerti"
+      "it": "Piacere di conoscerti",
+      "accept": [
+       "Nice to meet you",
+       "Pleased to meet you",
+       "It's nice to meet you",
+       "It is nice to meet you"
+      ]
      },
      {
       "id": "l3-03-nice-to-meet-you-too",
       "en": "Nice to meet you too",
-      "it": "Piacere anche a me"
+      "it": "Piacere anche a me",
+      "accept": [
+       "Nice to meet you too",
+       "Nice to meet you, too",
+       "Pleased to meet you too",
+       "Pleased to meet you, too"
+      ]
      },
      {
       "id": "l3-03-im-a-nurse",
@@ -804,7 +835,11 @@
      {
       "id": "l3-04-where-are-you-from",
       "en": "Where are you from?",
-      "it": "Di dove sei?"
+      "it": "Di dove sei?",
+      "accept": [
+       "Where are you from?",
+       "Where do you come from?"
+      ]
      },
      {
       "id": "l3-04-im-from-italy",
@@ -856,7 +891,10 @@
       "it": "Grazie mille",
       "accept": [
        "Thank you very much",
-       "Thanks a lot"
+       "Thanks a lot",
+       "Thank you so much",
+       "Thanks so much",
+       "Thanks very much"
       ]
      },
      {
@@ -871,7 +909,12 @@
      {
       "id": "l3-05-sorry",
       "en": "Sorry",
-      "it": "Scusa, mi dispiace"
+      "it": "Mi dispiace (per chiedere scusa)",
+      "accept": [
+       "Sorry",
+       "I'm sorry",
+       "I am sorry"
+      ]
      },
      {
       "id": "l3-05-excuse-me",
@@ -896,7 +939,9 @@
       "it": "Sono contenta",
       "accept": [
        "I'm happy",
-       "I am happy"
+       "I am happy",
+       "I'm glad",
+       "I am glad"
       ]
      },
      {
@@ -923,7 +968,9 @@
       "it": "Tu sei gentile (a una persona)",
       "accept": [
        "You're kind",
-       "You are kind"
+       "You are kind",
+       "You're nice",
+       "You are nice"
       ]
      },
      {
@@ -950,7 +997,11 @@
       "it": "È una bella giornata",
       "accept": [
        "It's a nice day",
-       "It is a nice day"
+       "It is a nice day",
+       "It's a beautiful day",
+       "It is a beautiful day",
+       "It's a great day",
+       "It is a great day"
       ]
      }
     ]
@@ -1038,13 +1089,18 @@
       "it": "Stai bene? (a una persona)",
       "accept": [
        "Are you OK?",
-       "Are you okay"
+       "Are you okay",
+       "Are you all right?",
+       "Are you alright?"
       ]
      },
      {
       "id": "l4-03-are-you-tired",
       "en": "Are you tired?",
-      "it": "Sei stanco o stanca? (a una persona)"
+      "it": "Sei stanca? (a una persona)",
+      "accept": [
+       "Are you tired?"
+      ]
      },
      {
       "id": "l4-03-are-you-hungry",
@@ -1063,7 +1119,10 @@
       "accept": [
        "Where is the bathroom?",
        "Where's the bathroom",
-       "Where is the bathroom"
+       "Where is the bathroom",
+       "Where is the restroom?",
+       "Where's the restroom",
+       "Where is the restroom"
       ]
      },
      {
@@ -1085,12 +1144,21 @@
      {
       "id": "l4-04-i-have-two-children",
       "en": "I have two children",
-      "it": "Ho due figli"
+      "it": "Ho due figli",
+      "accept": [
+       "I have two children",
+       "I have two kids"
+      ]
      },
      {
       "id": "l4-04-you-have-a-nice-smile",
       "en": "You have a nice smile",
-      "it": "Hai un bel sorriso"
+      "it": "Hai un bel sorriso",
+      "accept": [
+       "You have a nice smile",
+       "You have a beautiful smile",
+       "You have a lovely smile"
+      ]
      },
      {
       "id": "l4-04-he-has-a-car",
@@ -1116,7 +1184,7 @@
      {
       "id": "l4-05-i-dont-have-a-car",
       "en": "I don't have a car",
-      "it": "Non ho la macchina",
+      "it": "Non ho una macchina",
       "accept": [
        "I don't have a car",
        "I do not have a car"
@@ -1137,7 +1205,9 @@
       "it": "Hai figli?",
       "accept": [
        "Do you have children?",
-       "Do you have any children"
+       "Do you have any children",
+       "Do you have kids?",
+       "Do you have any kids"
       ]
      },
      {
@@ -1180,12 +1250,20 @@
      {
       "id": "l5-01-she-goes-to-the-store",
       "en": "She goes to the store",
-      "it": "Lei va al negozio"
+      "it": "Lei va al negozio",
+      "accept": [
+       "She goes to the store",
+       "She goes to the shop"
+      ]
      },
      {
       "id": "l5-01-i-want-a-coffee",
       "en": "I want a coffee",
-      "it": "Voglio un caffè"
+      "it": "Voglio un caffè",
+      "accept": [
+       "I want a coffee",
+       "I want coffee"
+      ]
      },
      {
       "id": "l5-01-he-wants-a-tea",
@@ -1202,7 +1280,10 @@
       "it": "Vuoi del tè?",
       "accept": [
        "Do you want tea?",
-       "Do you want some tea"
+       "Do you want some tea",
+       "Do you want a tea",
+       "Would you like tea",
+       "Would you like some tea"
       ]
      },
      {
@@ -1229,7 +1310,11 @@
      {
       "id": "l5-02-she-likes-to-cook",
       "en": "She likes to cook",
-      "it": "A lei piace cucinare"
+      "it": "A lei piace cucinare",
+      "accept": [
+       "She likes to cook",
+       "She likes cooking"
+      ]
      },
      {
       "id": "l5-02-i-dont-like-fish",
@@ -1253,7 +1338,11 @@
      {
       "id": "l5-02-what-do-you-like-to-eat",
       "en": "What do you like to eat?",
-      "it": "Che cosa ti piace mangiare?"
+      "it": "Che cosa ti piace mangiare?",
+      "accept": [
+       "What do you like to eat?",
+       "What do you like eating?"
+      ]
      }
     ]
    },
@@ -1279,7 +1368,11 @@
      {
       "id": "l5-03-i-work-in-a-hospital",
       "en": "I work in a hospital",
-      "it": "Lavoro in un ospedale"
+      "it": "Lavoro in un ospedale",
+      "accept": [
+       "I work in a hospital",
+       "I work at a hospital"
+      ]
      },
      {
       "id": "l5-03-where-do-you-work",
@@ -1312,12 +1405,20 @@
      {
       "id": "l5-04-i-need-help",
       "en": "I need help",
-      "it": "Ho bisogno di aiuto"
+      "it": "Ho bisogno di aiuto",
+      "accept": [
+       "I need help",
+       "I need some help"
+      ]
      },
      {
       "id": "l5-04-do-you-need-help",
       "en": "Do you need help?",
-      "it": "Hai bisogno di aiuto?"
+      "it": "Hai bisogno di aiuto?",
+      "accept": [
+       "Do you need help?",
+       "Do you need some help?"
+      ]
      },
      {
       "id": "l5-04-she-needs-time",
@@ -1345,7 +1446,15 @@
        "I have lunch at one",
        "I have lunch at 1",
        "I have lunch at one o'clock",
-       "I have lunch at 1 o'clock"
+       "I have lunch at 1 o'clock",
+       "I have lunch at 1 pm",
+       "I have lunch at one pm",
+       "I eat lunch at one",
+       "I eat lunch at 1",
+       "I eat lunch at 1 pm",
+       "I eat lunch at one pm",
+       "I eat lunch at one o'clock",
+       "I eat lunch at 1 o'clock"
       ]
      }
     ]
@@ -1357,12 +1466,20 @@
      {
       "id": "l5-05-i-see-you",
       "en": "I see you",
-      "it": "Ti vedo"
+      "it": "Ti vedo",
+      "accept": [
+       "I see you",
+       "I can see you"
+      ]
      },
      {
       "id": "l5-05-do-you-see-my-phone",
       "en": "Do you see my phone?",
-      "it": "Vedi il mio telefono?"
+      "it": "Vedi il mio telefono?",
+      "accept": [
+       "Do you see my phone?",
+       "Can you see my phone?"
+      ]
      },
      {
       "id": "l5-05-she-sees-her-friend",
@@ -1415,7 +1532,12 @@
        "Can you repeat please?",
        "Can you repeat that, please",
        "Can you repeat that please",
-       "Can you repeat that"
+       "Can you repeat that",
+       "Could you repeat, please",
+       "Could you repeat please",
+       "Could you repeat that, please",
+       "Could you repeat that please",
+       "Could you repeat that"
       ]
      },
      {
@@ -1426,7 +1548,13 @@
        "Can you speak slowly, please?",
        "Can you speak slowly please?",
        "Can you speak more slowly, please",
-       "Can you speak more slowly please"
+       "Can you speak more slowly please",
+       "Can you speak slower, please",
+       "Can you speak slower please",
+       "Could you speak slowly, please",
+       "Could you speak slowly please",
+       "Could you speak slower, please",
+       "Could you speak slower please"
       ]
      },
      {
@@ -1461,12 +1589,24 @@
      {
       "id": "l6-02-how-do-you-spell-that",
       "en": "How do you spell that?",
-      "it": "Come si scrive?"
+      "it": "Come si scrive?",
+      "accept": [
+       "How do you spell that?",
+       "How do you spell it?",
+       "How do you spell this?",
+       "How is that spelled?"
+      ]
      },
      {
       "id": "l6-02-how-do-you-say-this-in-english",
       "en": "How do you say this in English?",
-      "it": "Come si dice questo in inglese?"
+      "it": "Come si dice questo in inglese?",
+      "accept": [
+       "How do you say this in English?",
+       "How do you say that in English?",
+       "How do I say this in English?",
+       "How do I say that in English?"
+      ]
      },
      {
       "id": "l6-02-just-a-moment",
@@ -1476,7 +1616,15 @@
        "Just a moment, please",
        "Just a moment please",
        "One moment, please",
-       "One moment please"
+       "One moment please",
+       "Just a second",
+       "One second",
+       "Just a minute, please",
+       "Just a minute please",
+       "Just a second, please",
+       "Just a second please",
+       "One second, please",
+       "One second please"
       ]
      },
      {
@@ -1508,17 +1656,29 @@
      {
       "id": "l6-03-can-i-help-you",
       "en": "Can I help you?",
-      "it": "Posso aiutarti?"
+      "it": "Posso aiutarti?",
+      "accept": [
+       "Can I help you?",
+       "May I help you?"
+      ]
      },
      {
       "id": "l6-03-can-you-help-me",
       "en": "Can you help me?",
-      "it": "Puoi aiutarmi?"
+      "it": "Puoi aiutarmi?",
+      "accept": [
+       "Can you help me?",
+       "Could you help me?"
+      ]
      },
      {
       "id": "l6-03-can-i-ask-you-a-question",
       "en": "Can I ask you a question?",
-      "it": "Posso farti una domanda?"
+      "it": "Posso farti una domanda?",
+      "accept": [
+       "Can I ask you a question?",
+       "May I ask you a question?"
+      ]
      },
      {
       "id": "l6-03-yes-of-course",
@@ -1527,7 +1687,13 @@
       "accept": [
        "Yes, of course",
        "Yes of course",
-       "Of course"
+       "Of course",
+       "Yes, sure",
+       "Yes sure",
+       "Sure",
+       "Yes, certainly",
+       "Yes certainly",
+       "Certainly"
       ]
      },
      {
@@ -1553,10 +1719,14 @@
      {
       "id": "l6-04-tired-and-hungry",
       "en": "I'm tired and hungry",
-      "it": "Sono stanca e affamata",
+      "it": "Sono stanca e ho fame",
       "accept": [
        "I'm tired and hungry",
-       "I am tired and hungry"
+       "I am tired and hungry",
+       "I'm tired and I'm hungry",
+       "I'm tired and I am hungry",
+       "I am tired and I'm hungry",
+       "I am tired and I am hungry"
       ]
      },
      {
@@ -1572,7 +1742,9 @@
        "I like pizza, but I don't like pasta",
        "I like pizza but I don't like pasta",
        "I like pizza, but I do not like pasta",
-       "I like pizza but I do not like pasta"
+       "I like pizza but I do not like pasta",
+       "I like pizza, but not pasta",
+       "I like pizza but not pasta"
       ]
      },
      {
@@ -1587,7 +1759,11 @@
        "I am tired, but I'm happy",
        "I am tired but I'm happy",
        "I am tired, but I am happy",
-       "I am tired but I am happy"
+       "I am tired but I am happy",
+       "I'm tired, but happy",
+       "I'm tired but happy",
+       "I am tired, but happy",
+       "I am tired but happy"
       ]
      },
      {
@@ -1598,7 +1774,11 @@
        "I understand English, but I don't speak it well",
        "I understand English but I don't speak it well",
        "I understand English, but I do not speak it well",
-       "I understand English but I do not speak it well"
+       "I understand English but I do not speak it well",
+       "I understand English, but I don't speak it very well",
+       "I understand English but I don't speak it very well",
+       "I understand English, but I do not speak it very well",
+       "I understand English but I do not speak it very well"
       ]
      }
     ]
@@ -1615,7 +1795,7 @@
      {
       "id": "l6-05-because-its-good",
       "en": "Because it's good",
-      "it": "Perché è buono",
+      "it": "Perché è buono (una cosa)",
       "accept": [
        "Because it's good",
        "Because it is good"
@@ -1647,7 +1827,11 @@
      {
       "id": "l6-05-when-are-you-free",
       "en": "When are you free?",
-      "it": "Quando sei libero?"
+      "it": "Quando sei libera? (a una donna)",
+      "accept": [
+       "When are you free?",
+       "When are you available?"
+      ]
      },
      {
       "id": "l6-05-happy-when-here",
