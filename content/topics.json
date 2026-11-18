@@ -168,7 +168,9 @@
       "accept": [
        "I lost my keys",
        "I've lost my keys",
-       "I have lost my keys"
+       "I have lost my keys",
+       "I lost the keys",
+       "I've lost the keys"
       ]
      }
     ]
@@ -241,7 +243,16 @@
        "Please take out the rubbish",
        "Take out the rubbish please",
        "Take out the rubbish, please",
-       "Please take the rubbish out"
+       "Please take the rubbish out",
+       "Please, take out the trash",
+       "Please, take out the rubbish",
+       "Take the trash out please",
+       "Take the trash out, please",
+       "Take the rubbish out please",
+       "Take the rubbish out, please",
+       "Take out the garbage please",
+       "Take out the garbage, please",
+       "Please take out the garbage"
       ]
      },
      {
@@ -308,7 +319,9 @@
       "it": "Cosa vorresti per cena?",
       "accept": [
        "What would you like for dinner?",
-       "What do you want for dinner?"
+       "What do you want for dinner?",
+       "What would you like to eat for dinner?",
+       "What would you like to have for dinner?"
       ]
      },
      {
@@ -378,7 +391,9 @@
        "Could I have a coffee please?",
        "Could I have a coffee, please?",
        "A coffee please",
-       "A coffee, please"
+       "A coffee, please",
+       "I'll have a coffee please",
+       "I'll have a coffee, please"
       ]
      },
      {
@@ -445,7 +460,9 @@
        "The check please",
        "The check, please",
        "Check please",
-       "Check, please"
+       "Check, please",
+       "Could I have the bill please?",
+       "Could I have the bill, please?"
       ]
      },
      {
@@ -480,7 +497,9 @@
        "It was very nice thank you",
        "It was very nice, thank you",
        "It was great thank you",
-       "It was great, thank you"
+       "It was great, thank you",
+       "It was very good thanks",
+       "It was very good, thanks"
       ]
      }
     ]
@@ -525,7 +544,9 @@
        "My mother is a teacher",
        "My mom is a teacher",
        "My mum is a teacher",
-       "My mother's a teacher"
+       "My mother's a teacher",
+       "My mom's a teacher",
+       "My mum's a teacher"
       ]
      },
      {
@@ -608,7 +629,10 @@
        "My son is five years old",
        "My son is 5 years old",
        "My son is five",
-       "My son is 5"
+       "My son is 5",
+       "My son's five years old",
+       "My son's five",
+       "My son's 5"
       ]
      },
      {
@@ -777,7 +801,12 @@
       "accept": [
        "It will rain tomorrow",
        "It's going to rain tomorrow",
-       "It is going to rain tomorrow"
+       "It is going to rain tomorrow",
+       "It'll rain tomorrow",
+       "Tomorrow it will rain",
+       "Tomorrow it'll rain",
+       "Tomorrow it is going to rain",
+       "Tomorrow it's going to rain"
       ]
      },
      {
@@ -1141,7 +1170,8 @@
        "My coworkers are very nice",
        "My colleagues are very kind",
        "My coworkers are very kind",
-       "My colleagues are really nice"
+       "My colleagues are really nice",
+       "My coworkers are really nice"
       ]
      }
     ]
