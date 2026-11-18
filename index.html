@@ -4,10 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Imparo l'inglese</title>
+  <meta name="theme-color" content="#1f5f8b">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main id="app" aria-live="polite"><p class="msg">Caricamento…</p></main>
   <script type="module" src="src/app.js"></script>
+  <script>
+    // Uso offline: solo in contesto sicuro (https o localhost); un errore non rompe l'app.
+    if ('serviceWorker' in navigator && (window.isSecureContext || location.hostname === 'localhost')) {
+      window.addEventListener('load', () => {
+        try { navigator.serviceWorker.register('./sw.js').catch(() => {}); } catch (e) { /* ignora */ }
+      });
+    }
+  </script>
 </body>
 </html>
