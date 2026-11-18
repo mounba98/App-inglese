@@ -91,3 +91,7 @@ input[type="text"] {
 .stack { display: flex; flex-direction: column; gap: 0.9375rem; }
 .note { font-size: 1.25rem; background: var(--soft); border-radius: 10px; padding: 0.75rem 1rem; }
 .progress { font-size: 1.25rem; color: var(--muted); }
+
+.topics-locked { text-align: center; padding: 0.5rem 0; }
+.lesson-btn { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; text-align: left; }
+.done-mark { font-size: 1.25rem; font-weight: 500; color: var(--ok); white-space: nowrap; }

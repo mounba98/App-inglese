@@ -10,6 +10,7 @@ const LOCK_MS = 300;
 
 const root = document.getElementById('app');
 let levels = [];
+let topics = [];
 let progress;
 let audioOk = hasSpeech(window);
 let session = null; // { lesson, flow, feedback, recorded }
@@ -60,6 +61,7 @@ function reviewItems() {
   const ids = dueCards(progress.get().cards, todayLocal());
   const byId = new Map();
   for (const { lesson } of allLessons()) for (const it of lesson.items) byId.set(it.id, it);
+  for (const t of topics) for (const lesson of t.lessons) for (const it of lesson.items) byId.set(it.id, it);
   return ids.map((id) => byId.get(id)).filter(Boolean);
 }
 
@@ -95,16 +97,49 @@ function renderHome() {
       h('button', { class: 'secondary', onclick: () => startLesson({ id: 'ripasso', title: 'Ripasso', isReview: true, items: review.slice(0, REVIEW_MAX) }) }, 'Ripassa'),
     ));
   }
+  nodes.push(topicsBlock());
   show(...nodes);
 }
 
-function startLesson(lesson) {
-  session = { lesson, flow: createLessonFlow(lesson), feedback: null, recorded: false };
+function topicsBlock() {
+  if (!progress.topicsUnlocked(levels) || topics.length === 0) {
+    return h('p', { class: 'muted topics-locked' }, 'Argomenti: si sbloccano dopo i livelli 1-6');
+  }
+  return h('div', { class: 'card' },
+    h('h2', {}, 'Scegli un argomento'),
+    topics.map((t) => h('button', { class: 'secondary', onclick: () => renderTopic(t) }, t.title)),
+  );
+}
+
+function renderTopic(topic) {
+  session = null;
+  const done = progress.get().completed;
+  show(
+    h('h1', {}, topic.title),
+    h('div', { class: 'card' },
+      topic.lessons.map((lesson) => h('button', {
+        class: 'secondary lesson-btn',
+        onclick: () => startLesson(lesson, topic),
+      },
+      h('span', {}, lesson.title),
+      done.includes(lesson.id) ? h('span', { class: 'done-mark' }, 'fatta') : null)),
+    ),
+    h('button', { onclick: renderHome }, 'Indietro'),
+  );
+}
+
+function startLesson(lesson, topic = null) {
+  session = { lesson, topic, flow: createLessonFlow(lesson), feedback: null, recorded: false };
   renderLesson();
 }
 
+function leave() {
+  if (session && session.topic) renderTopic(session.topic);
+  else renderHome();
+}
+
 function exitButton() {
-  return h('button', { class: 'exit secondary', onclick: renderHome }, 'Esci');
+  return h('button', { class: 'exit secondary', onclick: leave }, 'Esci');
 }
 
 function listenBlock(item) {
@@ -214,13 +249,14 @@ function renderDone() {
       h('p', { class: 'prompt' }, lesson.isReview ? 'Ripasso finito. Bravissima!' : 'Lezione finita. Bravissima!'),
       h('p', { class: 'muted' }, 'Puoi fermarti qui o continuare.'),
     ),
-    h('button', { onclick: renderHome }, 'Torna alla home'),
+    session.topic ? h('button', { onclick: () => renderTopic(session.topic) }, 'Torna all\'argomento') : null,
+    h('button', { class: session.topic ? 'secondary' : '', onclick: renderHome }, 'Torna alla home'),
   );
 }
 
 async function main() {
   try {
-    ({ levels } = await loadContent());
+    ({ levels, topics } = await loadContent());
   } catch (err) {
     console.error(err);
     show(h('p', { class: 'error' }, 'Non riesco a caricare le lezioni. Controlla la connessione e riapri la pagina.'));

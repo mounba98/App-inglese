@@ -1,1 +1,1456 @@
-[]
+[
+ {
+  "id": "casa",
+  "title": "La casa",
+  "lessons": [
+   {
+    "id": "casa-01",
+    "title": "Le stanze",
+    "items": [
+     {
+      "id": "casa-01-kitchen",
+      "en": "This is the kitchen",
+      "it": "Questa è la cucina",
+      "accept": [
+       "This is the kitchen",
+       "It is the kitchen",
+       "It's the kitchen"
+      ]
+     },
+     {
+      "id": "casa-01-bedroom",
+      "en": "My bedroom is small",
+      "it": "La mia camera da letto è piccola",
+      "accept": [
+       "My bedroom is small",
+       "My bedroom is little"
+      ]
+     },
+     {
+      "id": "casa-01-bathroom",
+      "en": "Where is the bathroom?",
+      "it": "Dov'è il bagno?",
+      "accept": [
+       "Where is the bathroom?",
+       "Where's the bathroom?",
+       "Where is the toilet?",
+       "Where's the toilet?"
+      ]
+     },
+     {
+      "id": "casa-01-welcome",
+      "en": "Welcome to my home",
+      "it": "Benvenuto a casa mia",
+      "accept": [
+       "Welcome to my home",
+       "Welcome to my house"
+      ]
+     },
+     {
+      "id": "casa-01-garden",
+      "en": "We have a small garden",
+      "it": "Abbiamo un piccolo giardino",
+      "accept": [
+       "We have a small garden",
+       "We have a little garden",
+       "We've got a small garden",
+       "We have got a small garden"
+      ]
+     },
+     {
+      "id": "casa-01-floor",
+      "en": "I live on the second floor",
+      "it": "Vivo al secondo piano",
+      "accept": [
+       "I live on the second floor",
+       "I live on the 2nd floor"
+      ]
+     },
+     {
+      "id": "casa-01-flat",
+      "en": "I live in a flat",
+      "it": "Vivo in un appartamento",
+      "accept": [
+       "I live in a flat",
+       "I live in an apartment"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "casa-02",
+    "title": "Le cose di casa",
+    "items": [
+     {
+      "id": "casa-02-door",
+      "en": "Please close the door",
+      "it": "Per favore, chiudi la porta",
+      "accept": [
+       "Please close the door",
+       "Close the door please",
+       "Close the door, please",
+       "Please, close the door",
+       "Close the door"
+      ]
+     },
+     {
+      "id": "casa-02-window",
+      "en": "Can I open the window?",
+      "it": "Posso aprire la finestra?",
+      "accept": [
+       "Can I open the window?",
+       "Could I open the window?",
+       "May I open the window?"
+      ]
+     },
+     {
+      "id": "casa-02-light",
+      "en": "Turn on the light",
+      "it": "Accendi la luce",
+      "accept": [
+       "Turn on the light",
+       "Turn the light on",
+       "Switch on the light",
+       "Switch the light on",
+       "Please turn on the light"
+      ]
+     },
+     {
+      "id": "casa-02-cold",
+      "en": "It is cold in here",
+      "it": "Fa freddo qui dentro",
+      "accept": [
+       "It is cold in here",
+       "It's cold in here",
+       "It is cold here",
+       "It's cold here"
+      ]
+     },
+     {
+      "id": "casa-02-sit",
+      "en": "Sit down, please",
+      "it": "Siediti, per favore",
+      "accept": [
+       "Sit down please",
+       "Sit down, please",
+       "Please sit down",
+       "Please, sit down",
+       "Take a seat please",
+       "Take a seat, please",
+       "Please take a seat"
+      ]
+     },
+     {
+      "id": "casa-02-tv",
+      "en": "Do you want to watch TV?",
+      "it": "Vuoi guardare la televisione?",
+      "accept": [
+       "Do you want to watch TV?",
+       "Do you want to watch television?",
+       "Would you like to watch TV?",
+       "Would you like to watch television?"
+      ]
+     },
+     {
+      "id": "casa-02-wifi",
+      "en": "Do you have Wi-Fi?",
+      "it": "Hai la connessione internet?",
+      "accept": [
+       "Do you have Wi-Fi?",
+       "Do you have wifi?",
+       "Do you have internet?"
+      ]
+     },
+     {
+      "id": "casa-02-keys",
+      "en": "I lost my keys",
+      "it": "Ho perso le chiavi",
+      "accept": [
+       "I lost my keys",
+       "I've lost my keys",
+       "I have lost my keys"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "casa-03",
+    "title": "Le faccende",
+    "items": [
+     {
+      "id": "casa-03-clean",
+      "en": "I clean the house on Saturday",
+      "it": "Pulisco la casa il sabato",
+      "accept": [
+       "I clean the house on Saturday",
+       "I clean the house on Saturdays",
+       "I clean my house on Saturday",
+       "I clean my house on Saturdays"
+      ]
+     },
+     {
+      "id": "casa-03-dishes",
+      "en": "I wash the dishes",
+      "it": "Lavo i piatti",
+      "accept": [
+       "I wash the dishes",
+       "I do the dishes"
+      ]
+     },
+     {
+      "id": "casa-03-laundry",
+      "en": "I do the laundry",
+      "it": "Faccio il bucato",
+      "accept": [
+       "I do the laundry",
+       "I do laundry",
+       "I wash the clothes"
+      ]
+     },
+     {
+      "id": "casa-03-bed",
+      "en": "I make the bed every morning",
+      "it": "Faccio il letto ogni mattina",
+      "accept": [
+       "I make the bed every morning",
+       "I make my bed every morning"
+      ]
+     },
+     {
+      "id": "casa-03-cooking",
+      "en": "I am cooking dinner",
+      "it": "Sto preparando la cena",
+      "accept": [
+       "I am cooking dinner",
+       "I'm cooking dinner",
+       "I am making dinner",
+       "I'm making dinner",
+       "I am preparing dinner",
+       "I'm preparing dinner"
+      ]
+     },
+     {
+      "id": "casa-03-trash",
+      "en": "Please take out the trash",
+      "it": "Per favore, porta fuori la spazzatura",
+      "accept": [
+       "Please take out the trash",
+       "Take out the trash please",
+       "Take out the trash, please",
+       "Please take the trash out",
+       "Please take out the rubbish",
+       "Take out the rubbish please",
+       "Take out the rubbish, please",
+       "Please take the rubbish out"
+      ]
+     },
+     {
+      "id": "casa-03-neighbour",
+      "en": "My neighbour is very kind",
+      "it": "La mia vicina è molto gentile",
+      "accept": [
+       "My neighbour is very kind",
+       "My neighbor is very kind",
+       "My neighbour is very nice",
+       "My neighbor is very nice"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "cibo",
+  "title": "Il cibo",
+  "lessons": [
+   {
+    "id": "cibo-01",
+    "title": "A tavola",
+    "items": [
+     {
+      "id": "cibo-01-hungry",
+      "en": "I am hungry",
+      "it": "Ho fame",
+      "accept": [
+       "I am hungry",
+       "I'm hungry"
+      ]
+     },
+     {
+      "id": "cibo-01-thirsty",
+      "en": "Are you thirsty?",
+      "it": "Hai sete?",
+      "accept": [
+       "Are you thirsty?"
+      ]
+     },
+     {
+      "id": "cibo-01-breakfast",
+      "en": "What do you have for breakfast?",
+      "it": "Cosa mangi a colazione?",
+      "accept": [
+       "What do you have for breakfast?",
+       "What do you eat for breakfast?"
+      ]
+     },
+     {
+      "id": "cibo-01-lunch",
+      "en": "Lunch is ready",
+      "it": "Il pranzo è pronto",
+      "accept": [
+       "Lunch is ready",
+       "Lunch's ready"
+      ]
+     },
+     {
+      "id": "cibo-01-dinner",
+      "en": "What would you like for dinner?",
+      "it": "Cosa vorresti per cena?",
+      "accept": [
+       "What would you like for dinner?",
+       "What do you want for dinner?"
+      ]
+     },
+     {
+      "id": "cibo-01-delicious",
+      "en": "This is delicious",
+      "it": "Questo è buonissimo",
+      "accept": [
+       "This is delicious",
+       "It's delicious",
+       "It is delicious",
+       "This is very good",
+       "This is really good",
+       "This is so good"
+      ]
+     },
+     {
+      "id": "cibo-01-more",
+      "en": "Would you like some more?",
+      "it": "Ne vuoi ancora un po'?",
+      "accept": [
+       "Would you like some more?",
+       "Do you want some more?",
+       "Would you like more?",
+       "Do you want more?"
+      ]
+     },
+     {
+      "id": "cibo-01-full",
+      "en": "No, thank you, I am full",
+      "it": "No, grazie, sono pieno",
+      "accept": [
+       "No thank you I am full",
+       "No, thank you I am full",
+       "No thank you, I am full",
+       "No, thank you, I am full",
+       "No thank you I'm full",
+       "No, thank you I'm full",
+       "No thank you, I'm full",
+       "No, thank you, I'm full",
+       "No thanks I am full",
+       "No, thanks I am full",
+       "No thanks, I am full",
+       "No, thanks, I am full",
+       "No thanks I'm full",
+       "No, thanks I'm full",
+       "No thanks, I'm full",
+       "No, thanks, I'm full"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "cibo-02",
+    "title": "Al bar e al ristorante",
+    "items": [
+     {
+      "id": "cibo-02-coffee",
+      "en": "I would like a coffee, please",
+      "it": "Vorrei un caffè, per favore",
+      "accept": [
+       "I would like a coffee please",
+       "I would like a coffee, please",
+       "I'd like a coffee please",
+       "I'd like a coffee, please",
+       "Can I have a coffee please?",
+       "Can I have a coffee, please?",
+       "Could I have a coffee please?",
+       "Could I have a coffee, please?",
+       "A coffee please",
+       "A coffee, please"
+      ]
+     },
+     {
+      "id": "cibo-02-water",
+      "en": "A glass of water, please",
+      "it": "Un bicchiere d'acqua, per favore",
+      "accept": [
+       "A glass of water please",
+       "A glass of water, please",
+       "Can I have a glass of water please?",
+       "Can I have a glass of water, please?",
+       "Could I have a glass of water please?",
+       "Could I have a glass of water, please?",
+       "I would like a glass of water please",
+       "I would like a glass of water, please",
+       "I'd like a glass of water please",
+       "I'd like a glass of water, please"
+      ]
+     },
+     {
+      "id": "cibo-02-menu",
+      "en": "Can I see the menu?",
+      "it": "Posso vedere il menù?",
+      "accept": [
+       "Can I see the menu?",
+       "Could I see the menu?",
+       "May I see the menu?",
+       "Can I have the menu please?",
+       "Can I have the menu, please?",
+       "Could I have the menu please?",
+       "Could I have the menu, please?"
+      ]
+     },
+     {
+      "id": "cibo-02-table",
+      "en": "A table for two, please",
+      "it": "Un tavolo per due, per favore",
+      "accept": [
+       "A table for two please",
+       "A table for two, please",
+       "Table for two please",
+       "Table for two, please",
+       "Can we have a table for two please?",
+       "Can we have a table for two, please?",
+       "Could we have a table for two please?",
+       "Could we have a table for two, please?",
+       "I would like a table for two please",
+       "I would like a table for two, please"
+      ]
+     },
+     {
+      "id": "cibo-02-bill",
+      "en": "The bill, please",
+      "it": "Il conto, per favore",
+      "accept": [
+       "The bill please",
+       "The bill, please",
+       "Can I have the bill please?",
+       "Can I have the bill, please?",
+       "Could we have the bill please?",
+       "Could we have the bill, please?",
+       "Can we have the bill please?",
+       "Can we have the bill, please?",
+       "The check please",
+       "The check, please",
+       "Check please",
+       "Check, please"
+      ]
+     },
+     {
+      "id": "cibo-02-allergic",
+      "en": "I am allergic to nuts",
+      "it": "Sono allergica alle noci",
+      "accept": [
+       "I am allergic to nuts",
+       "I'm allergic to nuts",
+       "I am allergic to walnuts",
+       "I'm allergic to walnuts"
+      ]
+     },
+     {
+      "id": "cibo-02-meat",
+      "en": "I do not eat meat",
+      "it": "Non mangio carne",
+      "accept": [
+       "I do not eat meat",
+       "I don't eat meat"
+      ]
+     },
+     {
+      "id": "cibo-02-good",
+      "en": "It was very good, thank you",
+      "it": "Era molto buono, grazie",
+      "accept": [
+       "It was very good thank you",
+       "It was very good, thank you",
+       "It was delicious thank you",
+       "It was delicious, thank you",
+       "It was very nice thank you",
+       "It was very nice, thank you",
+       "It was great thank you",
+       "It was great, thank you"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "famiglia",
+  "title": "La famiglia",
+  "lessons": [
+   {
+    "id": "famiglia-01",
+    "title": "La mia famiglia",
+    "items": [
+     {
+      "id": "famiglia-01-big",
+      "en": "I have a big family",
+      "it": "Ho una famiglia numerosa",
+      "accept": [
+       "I have a big family",
+       "I have a large family",
+       "I've got a big family",
+       "I have got a big family"
+      ]
+     },
+     {
+      "id": "famiglia-01-siblings",
+      "en": "I have one sister and two brothers",
+      "it": "Ho una sorella e due fratelli",
+      "accept": [
+       "I have one sister and two brothers",
+       "I have a sister and two brothers",
+       "I've got one sister and two brothers",
+       "I've got a sister and two brothers"
+      ]
+     },
+     {
+      "id": "famiglia-01-mother",
+      "en": "My mother is a teacher",
+      "it": "Mia madre è un'insegnante",
+      "accept": [
+       "My mother is a teacher",
+       "My mom is a teacher",
+       "My mum is a teacher",
+       "My mother's a teacher"
+      ]
+     },
+     {
+      "id": "famiglia-01-father",
+      "en": "My father is retired",
+      "it": "Mio padre è in pensione",
+      "accept": [
+       "My father is retired",
+       "My dad is retired",
+       "My father's retired",
+       "My dad's retired"
+      ]
+     },
+     {
+      "id": "famiglia-01-husband",
+      "en": "My husband works in an office",
+      "it": "Mio marito lavora in un ufficio",
+      "accept": [
+       "My husband works in an office",
+       "My husband works at an office"
+      ]
+     },
+     {
+      "id": "famiglia-01-grandmother",
+      "en": "My grandmother lives with us",
+      "it": "Mia nonna vive con noi",
+      "accept": [
+       "My grandmother lives with us",
+       "My grandma lives with us"
+      ]
+     },
+     {
+      "id": "famiglia-01-married",
+      "en": "Are you married?",
+      "it": "Sei sposato?",
+      "accept": [
+       "Are you married?"
+      ]
+     },
+     {
+      "id": "famiglia-01-daughter",
+      "en": "What is your daughter's name?",
+      "it": "Come si chiama tua figlia?",
+      "accept": [
+       "What is your daughter's name?",
+       "What's your daughter's name?",
+       "What is your daughter called?",
+       "What's your daughter called?"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "famiglia-02",
+    "title": "Figli e amici",
+    "items": [
+     {
+      "id": "famiglia-02-howmany",
+      "en": "How many children do you have?",
+      "it": "Quanti figli hai?",
+      "accept": [
+       "How many children do you have?",
+       "How many kids do you have?"
+      ]
+     },
+     {
+      "id": "famiglia-02-age",
+      "en": "How old is your son?",
+      "it": "Quanti anni ha tuo figlio?",
+      "accept": [
+       "How old is your son?",
+       "How old's your son?"
+      ]
+     },
+     {
+      "id": "famiglia-02-five",
+      "en": "My son is five years old",
+      "it": "Mio figlio ha cinque anni",
+      "accept": [
+       "My son is five years old",
+       "My son is 5 years old",
+       "My son is five",
+       "My son is 5"
+      ]
+     },
+     {
+      "id": "famiglia-02-school",
+      "en": "My daughter goes to school",
+      "it": "Mia figlia va a scuola",
+      "accept": [
+       "My daughter goes to school"
+      ]
+     },
+     {
+      "id": "famiglia-02-friend",
+      "en": "She is my best friend",
+      "it": "Lei è la mia migliore amica",
+      "accept": [
+       "She is my best friend",
+       "She's my best friend"
+      ]
+     },
+     {
+      "id": "famiglia-02-cousin",
+      "en": "My cousin lives in London",
+      "it": "Mio cugino vive a Londra",
+      "accept": [
+       "My cousin lives in London"
+      ]
+     },
+     {
+      "id": "famiglia-02-visit",
+      "en": "My parents are visiting us",
+      "it": "I miei genitori ci vengono a trovare",
+      "accept": [
+       "My parents are visiting us",
+       "My parents are coming to see us",
+       "My parents are coming to visit us",
+       "My parents are visiting"
+      ]
+     },
+     {
+      "id": "famiglia-02-sunday",
+      "en": "We have lunch together on Sunday",
+      "it": "La domenica pranziamo insieme",
+      "accept": [
+       "We have lunch together on Sunday",
+       "We have lunch together on Sundays",
+       "We eat lunch together on Sunday",
+       "We eat lunch together on Sundays",
+       "On Sundays we have lunch together",
+       "On Sunday we have lunch together"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "tempo",
+  "title": "Il tempo (meteo)",
+  "lessons": [
+   {
+    "id": "tempo-01",
+    "title": "Che tempo fa?",
+    "items": [
+     {
+      "id": "tempo-01-weather",
+      "en": "What is the weather like today?",
+      "it": "Che tempo fa oggi?",
+      "accept": [
+       "What is the weather like today?",
+       "What's the weather like today?",
+       "How is the weather today?",
+       "How's the weather today?",
+       "What's the weather today?",
+       "What is the weather today?"
+      ]
+     },
+     {
+      "id": "tempo-01-sunny",
+      "en": "It is sunny today",
+      "it": "Oggi c'è il sole",
+      "accept": [
+       "It is sunny today",
+       "It's sunny today",
+       "It is sunny",
+       "It's sunny"
+      ]
+     },
+     {
+      "id": "tempo-01-rain",
+      "en": "It is raining",
+      "it": "Piove",
+      "accept": [
+       "It is raining",
+       "It's raining"
+      ]
+     },
+     {
+      "id": "tempo-01-cold",
+      "en": "It is very cold",
+      "it": "Fa molto freddo",
+      "accept": [
+       "It is very cold",
+       "It's very cold",
+       "It is really cold",
+       "It's really cold"
+      ]
+     },
+     {
+      "id": "tempo-01-hot",
+      "en": "It is too hot",
+      "it": "Fa troppo caldo",
+      "accept": [
+       "It is too hot",
+       "It's too hot"
+      ]
+     },
+     {
+      "id": "tempo-01-windy",
+      "en": "It is windy",
+      "it": "C'è vento",
+      "accept": [
+       "It is windy",
+       "It's windy"
+      ]
+     },
+     {
+      "id": "tempo-01-snow",
+      "en": "Does it snow here in winter?",
+      "it": "Qui nevica d'inverno?",
+      "accept": [
+       "Does it snow here in winter?",
+       "Does it snow here in the winter?",
+       "Does it snow here during winter?"
+      ]
+     },
+     {
+      "id": "tempo-01-cloudy",
+      "en": "It is cloudy",
+      "it": "È nuvoloso",
+      "accept": [
+       "It is cloudy",
+       "It's cloudy"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "tempo-02",
+    "title": "Stagioni e previsioni",
+    "items": [
+     {
+      "id": "tempo-02-umbrella",
+      "en": "Take an umbrella",
+      "it": "Prendi un ombrello",
+      "accept": [
+       "Take an umbrella",
+       "Bring an umbrella",
+       "Take your umbrella",
+       "Take an umbrella with you"
+      ]
+     },
+     {
+      "id": "tempo-02-tomorrow",
+      "en": "It will rain tomorrow",
+      "it": "Domani pioverà",
+      "accept": [
+       "It will rain tomorrow",
+       "It's going to rain tomorrow",
+       "It is going to rain tomorrow"
+      ]
+     },
+     {
+      "id": "tempo-02-forecast",
+      "en": "What is the forecast for tomorrow?",
+      "it": "Che previsioni ci sono per domani?",
+      "accept": [
+       "What is the forecast for tomorrow?",
+       "What's the forecast for tomorrow?",
+       "What is the weather forecast for tomorrow?",
+       "What's the weather forecast for tomorrow?",
+       "What's tomorrow's forecast?"
+      ]
+     },
+     {
+      "id": "tempo-02-season",
+      "en": "My favourite season is spring",
+      "it": "La mia stagione preferita è la primavera",
+      "accept": [
+       "My favourite season is spring",
+       "My favorite season is spring"
+      ]
+     },
+     {
+      "id": "tempo-02-summer",
+      "en": "It is very hot in summer",
+      "it": "D'estate fa molto caldo",
+      "accept": [
+       "It is very hot in summer",
+       "It's very hot in summer",
+       "It is very hot in the summer",
+       "It's very hot in the summer",
+       "In summer it is very hot",
+       "In summer it's very hot",
+       "In the summer it is very hot",
+       "In the summer it's very hot"
+      ]
+     },
+     {
+      "id": "tempo-02-autumn",
+      "en": "I like autumn",
+      "it": "Mi piace l'autunno",
+      "accept": [
+       "I like autumn",
+       "I like fall"
+      ]
+     },
+     {
+      "id": "tempo-02-beautiful",
+      "en": "What a beautiful day!",
+      "it": "Che bella giornata!",
+      "accept": [
+       "What a beautiful day!",
+       "What a nice day",
+       "What a lovely day"
+      ]
+     },
+     {
+      "id": "tempo-02-coat",
+      "en": "Do not forget your coat",
+      "it": "Non dimenticare il cappotto",
+      "accept": [
+       "Do not forget your coat",
+       "Don't forget your coat"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "salute",
+  "title": "La salute di ogni giorno",
+  "lessons": [
+   {
+    "id": "salute-01",
+    "title": "Come stai?",
+    "items": [
+     {
+      "id": "salute-01-feel",
+      "en": "How do you feel today?",
+      "it": "Come ti senti oggi?",
+      "accept": [
+       "How do you feel today?",
+       "How are you feeling today?"
+      ]
+     },
+     {
+      "id": "salute-01-fine",
+      "en": "I feel fine, thank you",
+      "it": "Sto bene, grazie",
+      "accept": [
+       "I feel fine thank you",
+       "I feel fine, thank you",
+       "I am fine thank you",
+       "I am fine, thank you",
+       "I'm fine thank you",
+       "I'm fine, thank you",
+       "I feel good thank you",
+       "I feel good, thank you",
+       "I feel fine thanks",
+       "I feel fine, thanks",
+       "I am fine thanks",
+       "I am fine, thanks",
+       "I'm fine thanks",
+       "I'm fine, thanks",
+       "I'm well thank you",
+       "I'm well, thank you",
+       "I am well thank you",
+       "I am well, thank you"
+      ]
+     },
+     {
+      "id": "salute-01-tired",
+      "en": "I am a little tired",
+      "it": "Sono un po' stanca",
+      "accept": [
+       "I am a little tired",
+       "I'm a little tired",
+       "I am a bit tired",
+       "I'm a bit tired",
+       "I am a little bit tired",
+       "I'm a little bit tired"
+      ]
+     },
+     {
+      "id": "salute-01-headache",
+      "en": "I have a headache",
+      "it": "Ho mal di testa",
+      "accept": [
+       "I have a headache",
+       "I've got a headache",
+       "I have got a headache",
+       "My head hurts"
+      ]
+     },
+     {
+      "id": "salute-01-stomach",
+      "en": "I have a stomach ache",
+      "it": "Ho mal di pancia",
+      "accept": [
+       "I have a stomach ache",
+       "I have a stomachache",
+       "I've got a stomach ache",
+       "I've got a stomachache",
+       "My stomach hurts"
+      ]
+     },
+     {
+      "id": "salute-01-sleep",
+      "en": "Did you sleep well?",
+      "it": "Hai dormito bene?",
+      "accept": [
+       "Did you sleep well?",
+       "Did you sleep OK?"
+      ]
+     },
+     {
+      "id": "salute-01-water",
+      "en": "Drink some water",
+      "it": "Bevi un po' d'acqua",
+      "accept": [
+       "Drink some water",
+       "Drink a little water",
+       "Have some water",
+       "Please drink some water"
+      ]
+     },
+     {
+      "id": "salute-01-rest",
+      "en": "You should get some rest",
+      "it": "Dovresti riposare",
+      "accept": [
+       "You should get some rest",
+       "You should rest",
+       "You need to rest",
+       "You need some rest"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "salute-02",
+    "title": "Il benessere",
+    "items": [
+     {
+      "id": "salute-02-walk",
+      "en": "I walk every day",
+      "it": "Cammino ogni giorno",
+      "accept": [
+       "I walk every day",
+       "I go for a walk every day"
+      ]
+     },
+     {
+      "id": "salute-02-doctor",
+      "en": "I have a doctor's appointment tomorrow",
+      "it": "Domani ho una visita dal dottore",
+      "accept": [
+       "I have a doctor's appointment tomorrow",
+       "I have an appointment with the doctor tomorrow",
+       "I have a doctor appointment tomorrow",
+       "I have an appointment at the doctor's tomorrow"
+      ]
+     },
+     {
+      "id": "salute-02-better",
+      "en": "I feel better now",
+      "it": "Adesso mi sento meglio",
+      "accept": [
+       "I feel better now",
+       "I'm feeling better now",
+       "I am feeling better now",
+       "Now I feel better",
+       "Now I'm feeling better"
+      ]
+     },
+     {
+      "id": "salute-02-pharmacy",
+      "en": "Where is the pharmacy?",
+      "it": "Dov'è la farmacia?",
+      "accept": [
+       "Where is the pharmacy?",
+       "Where's the pharmacy?"
+      ]
+     },
+     {
+      "id": "salute-02-cold",
+      "en": "I have a cold",
+      "it": "Ho il raffreddore",
+      "accept": [
+       "I have a cold",
+       "I've got a cold",
+       "I have got a cold"
+      ]
+     },
+     {
+      "id": "salute-02-relax",
+      "en": "I need to relax",
+      "it": "Ho bisogno di rilassarmi",
+      "accept": [
+       "I need to relax",
+       "I have to relax"
+      ]
+     },
+     {
+      "id": "salute-02-bed",
+      "en": "I go to bed early",
+      "it": "Vado a letto presto",
+      "accept": [
+       "I go to bed early",
+       "I go to sleep early"
+      ]
+     },
+     {
+      "id": "salute-02-fruit",
+      "en": "Fruit and vegetables are good for you",
+      "it": "La frutta e la verdura fanno bene",
+      "accept": [
+       "Fruit and vegetables are good for you",
+       "Fruit and vegetables are good for your health",
+       "Fruit and vegetables are healthy",
+       "Fruit and veg are good for you"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lavoro",
+  "title": "Il lavoro",
+  "lessons": [
+   {
+    "id": "lavoro-01",
+    "title": "Il mio lavoro",
+    "items": [
+     {
+      "id": "lavoro-01-job",
+      "en": "What do you do?",
+      "it": "Che lavoro fai?",
+      "accept": [
+       "What do you do?",
+       "What do you do for a living?",
+       "What is your job?",
+       "What's your job?"
+      ]
+     },
+     {
+      "id": "lavoro-01-nurse",
+      "en": "I am a nurse",
+      "it": "Sono un'infermiera",
+      "accept": [
+       "I am a nurse",
+       "I'm a nurse"
+      ]
+     },
+     {
+      "id": "lavoro-01-hospital",
+      "en": "I work in a hospital",
+      "it": "Lavoro in un ospedale",
+      "accept": [
+       "I work in a hospital",
+       "I work at a hospital",
+       "I work in the hospital",
+       "I work at the hospital"
+      ]
+     },
+     {
+      "id": "lavoro-01-days",
+      "en": "I work from Monday to Friday",
+      "it": "Lavoro dal lunedì al venerdì",
+      "accept": [
+       "I work from Monday to Friday",
+       "I work Monday to Friday",
+       "I work from Monday till Friday",
+       "I work Monday through Friday"
+      ]
+     },
+     {
+      "id": "lavoro-01-night",
+      "en": "I work at night",
+      "it": "Lavoro di notte",
+      "accept": [
+       "I work at night",
+       "I work nights",
+       "I work night shifts",
+       "I work the night shift"
+      ]
+     },
+     {
+      "id": "lavoro-01-love",
+      "en": "I love my job",
+      "it": "Amo il mio lavoro",
+      "accept": [
+       "I love my job",
+       "I like my job",
+       "I really like my job",
+       "I really love my job"
+      ]
+     },
+     {
+      "id": "lavoro-01-busy",
+      "en": "I am very busy today",
+      "it": "Oggi sono molto impegnata",
+      "accept": [
+       "I am very busy today",
+       "I'm very busy today",
+       "I am really busy today",
+       "I'm really busy today",
+       "Today I am very busy",
+       "Today I'm very busy"
+      ]
+     },
+     {
+      "id": "lavoro-01-colleagues",
+      "en": "My colleagues are very nice",
+      "it": "I miei colleghi sono molto simpatici",
+      "accept": [
+       "My colleagues are very nice",
+       "My coworkers are very nice",
+       "My colleagues are very kind",
+       "My coworkers are very kind",
+       "My colleagues are really nice"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "lavoro-02",
+    "title": "Orari e colleghi",
+    "items": [
+     {
+      "id": "lavoro-02-start",
+      "en": "I start work at eight",
+      "it": "Comincio a lavorare alle otto",
+      "accept": [
+       "I start work at eight",
+       "I start work at 8",
+       "I begin work at eight",
+       "I start working at eight",
+       "I start working at 8",
+       "I start work at eight o'clock",
+       "I start work at 8 o'clock"
+      ]
+     },
+     {
+      "id": "lavoro-02-finish",
+      "en": "I finish at six",
+      "it": "Finisco alle sei",
+      "accept": [
+       "I finish at six",
+       "I finish at 6",
+       "I finish work at six",
+       "I finish work at 6",
+       "I finish at six o'clock",
+       "I finish work at six o'clock"
+      ]
+     },
+     {
+      "id": "lavoro-02-shift",
+      "en": "I have the afternoon shift",
+      "it": "Ho il turno del pomeriggio",
+      "accept": [
+       "I have the afternoon shift",
+       "I am on the afternoon shift",
+       "I'm on the afternoon shift",
+       "I work the afternoon shift",
+       "I have an afternoon shift"
+      ]
+     },
+     {
+      "id": "lavoro-02-break",
+      "en": "Let's have a coffee break",
+      "it": "Facciamo una pausa caffè",
+      "accept": [
+       "Let's have a coffee break",
+       "Let's take a coffee break",
+       "Let us have a coffee break",
+       "Let us take a coffee break"
+      ]
+     },
+     {
+      "id": "lavoro-02-lunch",
+      "en": "I have lunch at work",
+      "it": "Pranzo al lavoro",
+      "accept": [
+       "I have lunch at work",
+       "I eat lunch at work",
+       "I eat at work"
+      ]
+     },
+     {
+      "id": "lavoro-02-late",
+      "en": "Sorry, I am late",
+      "it": "Scusa, sono in ritardo",
+      "accept": [
+       "Sorry I am late",
+       "Sorry, I am late",
+       "Sorry I'm late",
+       "Sorry, I'm late",
+       "I am sorry I am late",
+       "I am sorry, I am late",
+       "I'm sorry I'm late",
+       "I'm sorry, I'm late",
+       "I'm sorry I am late",
+       "I'm sorry, I am late",
+       "I am sorry I'm late",
+       "I am sorry, I'm late"
+      ]
+     },
+     {
+      "id": "lavoro-02-notwork",
+      "en": "I do not work tomorrow",
+      "it": "Domani non lavoro",
+      "accept": [
+       "I do not work tomorrow",
+       "I don't work tomorrow",
+       "I'm not working tomorrow",
+       "I am not working tomorrow"
+      ]
+     },
+     {
+      "id": "lavoro-02-holiday",
+      "en": "I am on holiday next week",
+      "it": "La settimana prossima sono in ferie",
+      "accept": [
+       "I am on holiday next week",
+       "I'm on holiday next week",
+       "I am on vacation next week",
+       "I'm on vacation next week"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "tempo-libero",
+  "title": "Il tempo libero",
+  "lessons": [
+   {
+    "id": "tempo-libero-01",
+    "title": "Cosa ti piace fare?",
+    "items": [
+     {
+      "id": "tempo-libero-01-free",
+      "en": "What do you do in your free time?",
+      "it": "Cosa fai nel tempo libero?",
+      "accept": [
+       "What do you do in your free time?",
+       "What do you do in your spare time?",
+       "What do you like to do in your free time?"
+      ]
+     },
+     {
+      "id": "tempo-libero-01-music",
+      "en": "I like listening to music",
+      "it": "Mi piace ascoltare la musica",
+      "accept": [
+       "I like listening to music",
+       "I love listening to music",
+       "I like to listen to music",
+       "I love to listen to music"
+      ]
+     },
+     {
+      "id": "tempo-libero-01-cooking",
+      "en": "I like cooking",
+      "it": "Mi piace cucinare",
+      "accept": [
+       "I like cooking",
+       "I love cooking",
+       "I like to cook",
+       "I love to cook"
+      ]
+     },
+     {
+      "id": "tempo-libero-01-books",
+      "en": "I love reading books",
+      "it": "Amo leggere libri",
+      "accept": [
+       "I love reading books",
+       "I like reading books",
+       "I love to read books",
+       "I like to read books"
+      ]
+     },
+     {
+      "id": "tempo-libero-01-movies",
+      "en": "Do you like movies?",
+      "it": "Ti piacciono i film?",
+      "accept": [
+       "Do you like movies?",
+       "Do you like films?"
+      ]
+     },
+     {
+      "id": "tempo-libero-01-sport",
+      "en": "Do you play any sport?",
+      "it": "Pratichi qualche sport?",
+      "accept": [
+       "Do you play any sport?",
+       "Do you play sports?",
+       "Do you do any sport?",
+       "Do you do any sports?",
+       "Do you play a sport?",
+       "Do you do sport?",
+       "Do you play sport?"
+      ]
+     },
+     {
+      "id": "tempo-libero-01-park",
+      "en": "I like walking in the park",
+      "it": "Mi piace camminare nel parco",
+      "accept": [
+       "I like walking in the park",
+       "I love walking in the park",
+       "I like to walk in the park",
+       "I love to walk in the park"
+      ]
+     },
+     {
+      "id": "tempo-libero-01-travel",
+      "en": "I love travelling",
+      "it": "Amo viaggiare",
+      "accept": [
+       "I love travelling",
+       "I love traveling",
+       "I love to travel",
+       "I like travelling",
+       "I like traveling",
+       "I like to travel"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "tempo-libero-02",
+    "title": "Weekend e programmi",
+    "items": [
+     {
+      "id": "tempo-libero-02-weekend",
+      "en": "What are you doing this weekend?",
+      "it": "Cosa fai questo fine settimana?",
+      "accept": [
+       "What are you doing this weekend?",
+       "What are you up to this weekend?",
+       "What are you going to do this weekend?",
+       "What will you do this weekend?"
+      ]
+     },
+     {
+      "id": "tempo-libero-02-plans",
+      "en": "Do you have any plans for Saturday?",
+      "it": "Hai programmi per sabato?",
+      "accept": [
+       "Do you have any plans for Saturday?",
+       "Do you have plans for Saturday?",
+       "Are you doing anything on Saturday?",
+       "Are you doing anything Saturday?"
+      ]
+     },
+     {
+      "id": "tempo-libero-02-cinema",
+      "en": "Let's go to the cinema",
+      "it": "Andiamo al cinema",
+      "accept": [
+       "Let's go to the cinema",
+       "Let's go to the movies",
+       "Let us go to the cinema",
+       "Let us go to the movies"
+      ]
+     },
+     {
+      "id": "tempo-libero-02-beach",
+      "en": "I want to go to the beach",
+      "it": "Voglio andare in spiaggia",
+      "accept": [
+       "I want to go to the beach",
+       "I'd like to go to the beach",
+       "I would like to go to the beach"
+      ]
+     },
+     {
+      "id": "tempo-libero-02-invite",
+      "en": "Would you like to come with us?",
+      "it": "Vuoi venire con noi?",
+      "accept": [
+       "Would you like to come with us?",
+       "Do you want to come with us?",
+       "Would you like to join us?",
+       "Do you want to join us?"
+      ]
+     },
+     {
+      "id": "tempo-libero-02-fun",
+      "en": "We had a lot of fun",
+      "it": "Ci siamo divertiti molto",
+      "accept": [
+       "We had a lot of fun",
+       "We had so much fun",
+       "We had lots of fun",
+       "We had a great time"
+      ]
+     },
+     {
+      "id": "tempo-libero-02-photo",
+      "en": "Can I take a photo?",
+      "it": "Posso fare una foto?",
+      "accept": [
+       "Can I take a photo?",
+       "Can I take a picture?",
+       "May I take a photo?",
+       "Could I take a photo?",
+       "Could I take a picture?",
+       "May I take a picture?"
+      ]
+     },
+     {
+      "id": "tempo-libero-02-see",
+      "en": "See you on Sunday",
+      "it": "Ci vediamo domenica",
+      "accept": [
+       "See you on Sunday",
+       "See you Sunday",
+       "I'll see you on Sunday",
+       "I will see you on Sunday",
+       "I'll see you Sunday"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]
