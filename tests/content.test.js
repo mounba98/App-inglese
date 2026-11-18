@@ -149,3 +149,11 @@ test('loadContent: contenuto non valido → Error con gli errori', async () => {
   const fetchFn = async (url) => resp(url === 'content/levels.json' ? bad : []);
   await assert.rejects(loadContent(fetchFn), (e) => e instanceof Error && /l1-01/.test(e.message));
 });
+
+test('«uguale» facoltativo: accetta un booleano, rifiuta altro', () => {
+  const withUguale = (v) => [level('l1', [lesson('l1-01', [item('l1-01-a', { uguale: v })])])];
+  assert.deepEqual(validateContent(withUguale(true), []), []);
+  assert.deepEqual(validateContent(withUguale(false), []), []);
+  assert.match(joined(validateContent(withUguale('sì'), [])), /uguale/);
+  assert.match(joined(validateContent(withUguale(1), [])), /uguale/);
+});

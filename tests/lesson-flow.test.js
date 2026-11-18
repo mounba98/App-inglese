@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createLessonFlow } from '../src/lesson.js';
+import { createLessonFlow, clearFeedback } from '../src/lesson.js';
 
 const lesson = {
   id: 'x1',
@@ -141,4 +141,12 @@ test('startAt write: guardie contro i doppi tocchi', () => {
   assert.equal(f.submit('Hello'), true);
   assert.equal(f.submit('Bye'), false); // ignorato senza rilettura
   assert.equal(f.current().item.id, 'b');
+});
+
+test('clearFeedback azzera feedback e ultima risposta', () => {
+  const session = { feedback: 'retry', lastAnswer: 'abc', recorded: false };
+  clearFeedback(session);
+  assert.equal(session.feedback, null);
+  assert.equal(session.lastAnswer, '');
+  assert.equal(session.recorded, false);
 });

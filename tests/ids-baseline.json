@@ -1,0 +1,1487 @@
+{
+ "levels": [
+  {
+   "id": "l1",
+   "lessons": [
+    {
+     "id": "l1-01",
+     "items": [
+      {
+       "id": "l1-01-a",
+       "en": "A — apple"
+      },
+      {
+       "id": "l1-01-b",
+       "en": "B — banana"
+      },
+      {
+       "id": "l1-01-c",
+       "en": "C — cat"
+      },
+      {
+       "id": "l1-01-d",
+       "en": "D — dog"
+      },
+      {
+       "id": "l1-01-e",
+       "en": "E — egg"
+      },
+      {
+       "id": "l1-01-f",
+       "en": "F — fish"
+      },
+      {
+       "id": "l1-01-g",
+       "en": "G — green"
+      }
+     ]
+    },
+    {
+     "id": "l1-02",
+     "items": [
+      {
+       "id": "l1-02-h",
+       "en": "H — house"
+      },
+      {
+       "id": "l1-02-i",
+       "en": "I — ice"
+      },
+      {
+       "id": "l1-02-j",
+       "en": "J — juice"
+      },
+      {
+       "id": "l1-02-k",
+       "en": "K — key"
+      },
+      {
+       "id": "l1-02-l",
+       "en": "L — lemon"
+      },
+      {
+       "id": "l1-02-m",
+       "en": "M — milk"
+      },
+      {
+       "id": "l1-02-n",
+       "en": "N — name"
+      }
+     ]
+    },
+    {
+     "id": "l1-03",
+     "items": [
+      {
+       "id": "l1-03-o",
+       "en": "O — orange"
+      },
+      {
+       "id": "l1-03-p",
+       "en": "P — pizza"
+      },
+      {
+       "id": "l1-03-q",
+       "en": "Q — queen"
+      },
+      {
+       "id": "l1-03-r",
+       "en": "R — red"
+      },
+      {
+       "id": "l1-03-s",
+       "en": "S — sun"
+      },
+      {
+       "id": "l1-03-t",
+       "en": "T — tea"
+      }
+     ]
+    },
+    {
+     "id": "l1-04",
+     "items": [
+      {
+       "id": "l1-04-u",
+       "en": "U — umbrella"
+      },
+      {
+       "id": "l1-04-v",
+       "en": "V — violin"
+      },
+      {
+       "id": "l1-04-w",
+       "en": "W — water"
+      },
+      {
+       "id": "l1-04-x",
+       "en": "X — x-ray"
+      },
+      {
+       "id": "l1-04-y",
+       "en": "Y — yes"
+      },
+      {
+       "id": "l1-04-z",
+       "en": "Z — zebra"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "l2",
+   "lessons": [
+    {
+     "id": "l2-01",
+     "items": [
+      {
+       "id": "l2-01-0",
+       "en": "zero"
+      },
+      {
+       "id": "l2-01-1",
+       "en": "one"
+      },
+      {
+       "id": "l2-01-2",
+       "en": "two"
+      },
+      {
+       "id": "l2-01-3",
+       "en": "three"
+      },
+      {
+       "id": "l2-01-4",
+       "en": "four"
+      },
+      {
+       "id": "l2-01-5",
+       "en": "five"
+      },
+      {
+       "id": "l2-01-6",
+       "en": "six"
+      },
+      {
+       "id": "l2-01-7",
+       "en": "seven"
+      }
+     ]
+    },
+    {
+     "id": "l2-02",
+     "items": [
+      {
+       "id": "l2-02-8",
+       "en": "eight"
+      },
+      {
+       "id": "l2-02-9",
+       "en": "nine"
+      },
+      {
+       "id": "l2-02-10",
+       "en": "ten"
+      },
+      {
+       "id": "l2-02-11",
+       "en": "eleven"
+      },
+      {
+       "id": "l2-02-12",
+       "en": "twelve"
+      },
+      {
+       "id": "l2-02-13",
+       "en": "thirteen"
+      },
+      {
+       "id": "l2-02-14",
+       "en": "fourteen"
+      },
+      {
+       "id": "l2-02-15",
+       "en": "fifteen"
+      }
+     ]
+    },
+    {
+     "id": "l2-03",
+     "items": [
+      {
+       "id": "l2-03-16",
+       "en": "sixteen"
+      },
+      {
+       "id": "l2-03-17",
+       "en": "seventeen"
+      },
+      {
+       "id": "l2-03-18",
+       "en": "eighteen"
+      },
+      {
+       "id": "l2-03-19",
+       "en": "nineteen"
+      },
+      {
+       "id": "l2-03-20",
+       "en": "twenty"
+      }
+     ]
+    },
+    {
+     "id": "l2-04",
+     "items": [
+      {
+       "id": "l2-04-30",
+       "en": "thirty"
+      },
+      {
+       "id": "l2-04-40",
+       "en": "forty"
+      },
+      {
+       "id": "l2-04-50",
+       "en": "fifty"
+      },
+      {
+       "id": "l2-04-60",
+       "en": "sixty"
+      },
+      {
+       "id": "l2-04-70",
+       "en": "seventy"
+      },
+      {
+       "id": "l2-04-80",
+       "en": "eighty"
+      },
+      {
+       "id": "l2-04-90",
+       "en": "ninety"
+      },
+      {
+       "id": "l2-04-100",
+       "en": "one hundred"
+      }
+     ]
+    },
+    {
+     "id": "l2-05",
+     "items": [
+      {
+       "id": "l2-05-21",
+       "en": "twenty-one"
+      },
+      {
+       "id": "l2-05-32",
+       "en": "thirty-two"
+      },
+      {
+       "id": "l2-05-45",
+       "en": "forty-five"
+      },
+      {
+       "id": "l2-05-58",
+       "en": "fifty-eight"
+      },
+      {
+       "id": "l2-05-99",
+       "en": "ninety-nine"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "l3",
+   "lessons": [
+    {
+     "id": "l3-01",
+     "items": [
+      {
+       "id": "l3-01-hello",
+       "en": "Hello"
+      },
+      {
+       "id": "l3-01-good-morning",
+       "en": "Good morning"
+      },
+      {
+       "id": "l3-01-good-afternoon",
+       "en": "Good afternoon"
+      },
+      {
+       "id": "l3-01-good-evening",
+       "en": "Good evening"
+      },
+      {
+       "id": "l3-01-good-night",
+       "en": "Good night"
+      },
+      {
+       "id": "l3-01-goodbye",
+       "en": "Goodbye"
+      },
+      {
+       "id": "l3-01-see-you-later",
+       "en": "See you later"
+      }
+     ]
+    },
+    {
+     "id": "l3-02",
+     "items": [
+      {
+       "id": "l3-02-how-are-you",
+       "en": "How are you?"
+      },
+      {
+       "id": "l3-02-im-fine",
+       "en": "I'm fine, thank you"
+      },
+      {
+       "id": "l3-02-and-you",
+       "en": "And you?"
+      },
+      {
+       "id": "l3-02-not-bad",
+       "en": "Not bad"
+      },
+      {
+       "id": "l3-02-how-do-you-feel-today",
+       "en": "How do you feel today?"
+      }
+     ]
+    },
+    {
+     "id": "l3-03",
+     "items": [
+      {
+       "id": "l3-03-my-name-is",
+       "en": "My name is Anna"
+      },
+      {
+       "id": "l3-03-whats-your-name",
+       "en": "What's your name?"
+      },
+      {
+       "id": "l3-03-nice-to-meet-you",
+       "en": "Nice to meet you"
+      },
+      {
+       "id": "l3-03-nice-to-meet-you-too",
+       "en": "Nice to meet you too"
+      },
+      {
+       "id": "l3-03-im-a-nurse",
+       "en": "I'm a nurse"
+      }
+     ]
+    },
+    {
+     "id": "l3-04",
+     "items": [
+      {
+       "id": "l3-04-where-are-you-from",
+       "en": "Where are you from?"
+      },
+      {
+       "id": "l3-04-im-from-italy",
+       "en": "I'm from Italy"
+      },
+      {
+       "id": "l3-04-im-italian",
+       "en": "I'm Italian"
+      },
+      {
+       "id": "l3-04-welcome",
+       "en": "Welcome"
+      }
+     ]
+    },
+    {
+     "id": "l3-05",
+     "items": [
+      {
+       "id": "l3-05-please",
+       "en": "Please"
+      },
+      {
+       "id": "l3-05-thank-you",
+       "en": "Thank you"
+      },
+      {
+       "id": "l3-05-thank-you-very-much",
+       "en": "Thank you very much"
+      },
+      {
+       "id": "l3-05-youre-welcome",
+       "en": "You're welcome"
+      },
+      {
+       "id": "l3-05-sorry",
+       "en": "Sorry"
+      },
+      {
+       "id": "l3-05-excuse-me",
+       "en": "Excuse me"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "l4",
+   "lessons": [
+    {
+     "id": "l4-01",
+     "items": [
+      {
+       "id": "l4-01-im-happy",
+       "en": "I'm happy"
+      },
+      {
+       "id": "l4-01-im-tired",
+       "en": "I'm tired"
+      },
+      {
+       "id": "l4-01-im-hungry",
+       "en": "I'm hungry"
+      },
+      {
+       "id": "l4-01-youre-kind",
+       "en": "You're kind"
+      },
+      {
+       "id": "l4-01-hes-my-friend",
+       "en": "He's my friend"
+      },
+      {
+       "id": "l4-01-shes-my-friend",
+       "en": "She's my friend"
+      },
+      {
+       "id": "l4-01-its-a-nice-day",
+       "en": "It's a nice day"
+      }
+     ]
+    },
+    {
+     "id": "l4-02",
+     "items": [
+      {
+       "id": "l4-02-were-friends",
+       "en": "We're friends"
+      },
+      {
+       "id": "l4-02-theyre-nurses",
+       "en": "They're nurses"
+      },
+      {
+       "id": "l4-02-im-not-tired",
+       "en": "I'm not tired"
+      },
+      {
+       "id": "l4-02-hes-not-here",
+       "en": "He isn't here"
+      },
+      {
+       "id": "l4-02-shes-not-here",
+       "en": "She isn't here"
+      },
+      {
+       "id": "l4-02-its-not-far",
+       "en": "It isn't far"
+      },
+      {
+       "id": "l4-02-youre-not-alone",
+       "en": "You aren't alone"
+      }
+     ]
+    },
+    {
+     "id": "l4-03",
+     "items": [
+      {
+       "id": "l4-03-are-you-ok",
+       "en": "Are you OK?"
+      },
+      {
+       "id": "l4-03-are-you-tired",
+       "en": "Are you tired?"
+      },
+      {
+       "id": "l4-03-are-you-hungry",
+       "en": "Are you hungry?"
+      },
+      {
+       "id": "l4-03-is-he-your-friend",
+       "en": "Is he your friend?"
+      },
+      {
+       "id": "l4-03-where-is-the-bathroom",
+       "en": "Where is the bathroom?"
+      },
+      {
+       "id": "l4-03-how-old-are-you",
+       "en": "How old are you?"
+      }
+     ]
+    },
+    {
+     "id": "l4-04",
+     "items": [
+      {
+       "id": "l4-04-i-have-a-dog",
+       "en": "I have a dog"
+      },
+      {
+       "id": "l4-04-i-have-two-children",
+       "en": "I have two children"
+      },
+      {
+       "id": "l4-04-you-have-a-nice-smile",
+       "en": "You have a nice smile"
+      },
+      {
+       "id": "l4-04-he-has-a-car",
+       "en": "He has a car"
+      },
+      {
+       "id": "l4-04-she-has-a-sister",
+       "en": "She has a sister"
+      },
+      {
+       "id": "l4-04-we-have-time",
+       "en": "We have time"
+      }
+     ]
+    },
+    {
+     "id": "l4-05",
+     "items": [
+      {
+       "id": "l4-05-i-dont-have-a-car",
+       "en": "I don't have a car"
+      },
+      {
+       "id": "l4-05-she-doesnt-have-time",
+       "en": "She doesn't have time"
+      },
+      {
+       "id": "l4-05-do-you-have-children",
+       "en": "Do you have children?"
+      },
+      {
+       "id": "l4-05-do-you-have-a-dog",
+       "en": "Do you have a dog?"
+      },
+      {
+       "id": "l4-05-does-he-have-a-car",
+       "en": "Does he have a car?"
+      },
+      {
+       "id": "l4-05-i-have-a-question",
+       "en": "I have a question"
+      },
+      {
+       "id": "l4-05-do-you-have-time",
+       "en": "Do you have time?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "l5",
+   "lessons": [
+    {
+     "id": "l5-01",
+     "items": [
+      {
+       "id": "l5-01-i-go-to-work",
+       "en": "I go to work"
+      },
+      {
+       "id": "l5-01-she-goes-to-the-store",
+       "en": "She goes to the store"
+      },
+      {
+       "id": "l5-01-i-want-a-coffee",
+       "en": "I want a coffee"
+      },
+      {
+       "id": "l5-01-he-wants-a-tea",
+       "en": "He wants a tea"
+      },
+      {
+       "id": "l5-01-do-you-want-tea",
+       "en": "Do you want tea?"
+      },
+      {
+       "id": "l5-01-i-want-to-go-home",
+       "en": "I want to go home"
+      }
+     ]
+    },
+    {
+     "id": "l5-02",
+     "items": [
+      {
+       "id": "l5-02-i-like-pizza",
+       "en": "I like pizza"
+      },
+      {
+       "id": "l5-02-do-you-like-coffee",
+       "en": "Do you like coffee?"
+      },
+      {
+       "id": "l5-02-she-likes-to-cook",
+       "en": "She likes to cook"
+      },
+      {
+       "id": "l5-02-i-dont-like-fish",
+       "en": "I don't like fish"
+      },
+      {
+       "id": "l5-02-i-eat-fruit",
+       "en": "I eat fruit"
+      },
+      {
+       "id": "l5-02-he-eats-a-lot",
+       "en": "He eats a lot"
+      },
+      {
+       "id": "l5-02-what-do-you-like-to-eat",
+       "en": "What do you like to eat?"
+      }
+     ]
+    },
+    {
+     "id": "l5-03",
+     "items": [
+      {
+       "id": "l5-03-i-live-in-italy",
+       "en": "I live in Italy"
+      },
+      {
+       "id": "l5-03-where-do-you-live",
+       "en": "Where do you live?"
+      },
+      {
+       "id": "l5-03-she-lives-with-her-sister",
+       "en": "She lives with her sister"
+      },
+      {
+       "id": "l5-03-i-work-in-a-hospital",
+       "en": "I work in a hospital"
+      },
+      {
+       "id": "l5-03-where-do-you-work",
+       "en": "Where do you work?"
+      },
+      {
+       "id": "l5-03-he-works-a-lot",
+       "en": "He works a lot"
+      },
+      {
+       "id": "l5-03-what-do-you-do",
+       "en": "What do you do?"
+      }
+     ]
+    },
+    {
+     "id": "l5-04",
+     "items": [
+      {
+       "id": "l5-04-i-need-help",
+       "en": "I need help"
+      },
+      {
+       "id": "l5-04-do-you-need-help",
+       "en": "Do you need help?"
+      },
+      {
+       "id": "l5-04-she-needs-time",
+       "en": "She needs time"
+      },
+      {
+       "id": "l5-04-i-need-water",
+       "en": "I need water"
+      },
+      {
+       "id": "l5-04-i-have-lunch-at-one",
+       "en": "I have lunch at one"
+      }
+     ]
+    },
+    {
+     "id": "l5-05",
+     "items": [
+      {
+       "id": "l5-05-i-see-you",
+       "en": "I see you"
+      },
+      {
+       "id": "l5-05-do-you-see-my-phone",
+       "en": "Do you see my phone?"
+      },
+      {
+       "id": "l5-05-she-sees-her-friend",
+       "en": "She sees her friend"
+      },
+      {
+       "id": "l5-05-i-speak-italian",
+       "en": "I speak Italian"
+      },
+      {
+       "id": "l5-05-i-speak-a-little-english",
+       "en": "I speak a little English"
+      },
+      {
+       "id": "l5-05-do-you-speak-italian",
+       "en": "Do you speak Italian?"
+      },
+      {
+       "id": "l5-05-do-you-speak-english",
+       "en": "Do you speak English?"
+      },
+      {
+       "id": "l5-05-he-speaks-english",
+       "en": "He speaks English"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "l6",
+   "lessons": [
+    {
+     "id": "l6-01",
+     "items": [
+      {
+       "id": "l6-01-can-you-repeat",
+       "en": "Can you repeat, please?"
+      },
+      {
+       "id": "l6-01-can-you-speak-slowly",
+       "en": "Can you speak slowly, please?"
+      },
+      {
+       "id": "l6-01-i-dont-understand",
+       "en": "I don't understand"
+      },
+      {
+       "id": "l6-01-i-understand",
+       "en": "I understand"
+      },
+      {
+       "id": "l6-01-what-does-it-mean",
+       "en": "What does it mean?"
+      }
+     ]
+    },
+    {
+     "id": "l6-02",
+     "items": [
+      {
+       "id": "l6-02-how-do-you-spell-that",
+       "en": "How do you spell that?"
+      },
+      {
+       "id": "l6-02-how-do-you-say-this-in-english",
+       "en": "How do you say this in English?"
+      },
+      {
+       "id": "l6-02-just-a-moment",
+       "en": "Just a moment, please"
+      },
+      {
+       "id": "l6-02-im-learning-english",
+       "en": "I'm learning English"
+      },
+      {
+       "id": "l6-02-my-english-is-not-good",
+       "en": "My English isn't very good"
+      }
+     ]
+    },
+    {
+     "id": "l6-03",
+     "items": [
+      {
+       "id": "l6-03-can-i-help-you",
+       "en": "Can I help you?"
+      },
+      {
+       "id": "l6-03-can-you-help-me",
+       "en": "Can you help me?"
+      },
+      {
+       "id": "l6-03-can-i-ask-you-a-question",
+       "en": "Can I ask you a question?"
+      },
+      {
+       "id": "l6-03-yes-of-course",
+       "en": "Yes, of course"
+      },
+      {
+       "id": "l6-03-no-problem",
+       "en": "No problem"
+      },
+      {
+       "id": "l6-03-i-dont-know",
+       "en": "I don't know"
+      }
+     ]
+    },
+    {
+     "id": "l6-04",
+     "items": [
+      {
+       "id": "l6-04-tired-and-hungry",
+       "en": "I'm tired and hungry"
+      },
+      {
+       "id": "l6-04-tea-and-coffee",
+       "en": "I like tea and coffee"
+      },
+      {
+       "id": "l6-04-pizza-but-pasta",
+       "en": "I like pizza, but I don't like pasta"
+      },
+      {
+       "id": "l6-04-tired-but-happy",
+       "en": "I'm tired, but I'm happy"
+      },
+      {
+       "id": "l6-04-i-speak-english-but",
+       "en": "I understand English, but I don't speak it well"
+      }
+     ]
+    },
+    {
+     "id": "l6-05",
+     "items": [
+      {
+       "id": "l6-05-why",
+       "en": "Why?"
+      },
+      {
+       "id": "l6-05-because-its-good",
+       "en": "Because it's good"
+      },
+      {
+       "id": "l6-05-tired-because-work",
+       "en": "I'm tired because I work a lot"
+      },
+      {
+       "id": "l6-05-when-do-you-work",
+       "en": "When do you work?"
+      },
+      {
+       "id": "l6-05-eat-when-hungry",
+       "en": "I eat when I'm hungry"
+      },
+      {
+       "id": "l6-05-when-are-you-free",
+       "en": "When are you free?"
+      },
+      {
+       "id": "l6-05-happy-when-here",
+       "en": "I'm happy when you're here"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "topics": [
+  {
+   "id": "casa",
+   "lessons": [
+    {
+     "id": "casa-01",
+     "items": [
+      {
+       "id": "casa-01-kitchen",
+       "en": "This is the kitchen"
+      },
+      {
+       "id": "casa-01-bedroom",
+       "en": "My bedroom is small"
+      },
+      {
+       "id": "casa-01-bathroom",
+       "en": "Where is the bathroom?"
+      },
+      {
+       "id": "casa-01-welcome",
+       "en": "Welcome to my home"
+      },
+      {
+       "id": "casa-01-garden",
+       "en": "We have a small garden"
+      },
+      {
+       "id": "casa-01-floor",
+       "en": "I live on the second floor"
+      },
+      {
+       "id": "casa-01-flat",
+       "en": "I live in a flat"
+      }
+     ]
+    },
+    {
+     "id": "casa-02",
+     "items": [
+      {
+       "id": "casa-02-door",
+       "en": "Please close the door"
+      },
+      {
+       "id": "casa-02-window",
+       "en": "Can I open the window?"
+      },
+      {
+       "id": "casa-02-light",
+       "en": "Turn on the light"
+      },
+      {
+       "id": "casa-02-cold",
+       "en": "It is cold in here"
+      },
+      {
+       "id": "casa-02-sit",
+       "en": "Sit down, please"
+      },
+      {
+       "id": "casa-02-tv",
+       "en": "Do you want to watch TV?"
+      },
+      {
+       "id": "casa-02-wifi",
+       "en": "Do you have Wi-Fi?"
+      },
+      {
+       "id": "casa-02-keys",
+       "en": "I lost my keys"
+      }
+     ]
+    },
+    {
+     "id": "casa-03",
+     "items": [
+      {
+       "id": "casa-03-clean",
+       "en": "I clean the house on Saturday"
+      },
+      {
+       "id": "casa-03-dishes",
+       "en": "I wash the dishes"
+      },
+      {
+       "id": "casa-03-laundry",
+       "en": "I do the laundry"
+      },
+      {
+       "id": "casa-03-bed",
+       "en": "I make the bed every morning"
+      },
+      {
+       "id": "casa-03-cooking",
+       "en": "I am cooking dinner"
+      },
+      {
+       "id": "casa-03-trash",
+       "en": "Please take out the trash"
+      },
+      {
+       "id": "casa-03-neighbour",
+       "en": "My neighbour is very kind"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cibo",
+   "lessons": [
+    {
+     "id": "cibo-01",
+     "items": [
+      {
+       "id": "cibo-01-hungry",
+       "en": "I am hungry"
+      },
+      {
+       "id": "cibo-01-thirsty",
+       "en": "Are you thirsty?"
+      },
+      {
+       "id": "cibo-01-breakfast",
+       "en": "What do you have for breakfast?"
+      },
+      {
+       "id": "cibo-01-lunch",
+       "en": "Lunch is ready"
+      },
+      {
+       "id": "cibo-01-dinner",
+       "en": "What would you like for dinner?"
+      },
+      {
+       "id": "cibo-01-delicious",
+       "en": "This is delicious"
+      },
+      {
+       "id": "cibo-01-more",
+       "en": "Would you like some more?"
+      },
+      {
+       "id": "cibo-01-full",
+       "en": "No, thank you, I am full"
+      }
+     ]
+    },
+    {
+     "id": "cibo-02",
+     "items": [
+      {
+       "id": "cibo-02-coffee",
+       "en": "I would like a coffee, please"
+      },
+      {
+       "id": "cibo-02-water",
+       "en": "A glass of water, please"
+      },
+      {
+       "id": "cibo-02-menu",
+       "en": "Can I see the menu?"
+      },
+      {
+       "id": "cibo-02-table",
+       "en": "A table for two, please"
+      },
+      {
+       "id": "cibo-02-bill",
+       "en": "The bill, please"
+      },
+      {
+       "id": "cibo-02-allergic",
+       "en": "I am allergic to nuts"
+      },
+      {
+       "id": "cibo-02-meat",
+       "en": "I do not eat meat"
+      },
+      {
+       "id": "cibo-02-good",
+       "en": "It was very good, thank you"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "famiglia",
+   "lessons": [
+    {
+     "id": "famiglia-01",
+     "items": [
+      {
+       "id": "famiglia-01-big",
+       "en": "I have a big family"
+      },
+      {
+       "id": "famiglia-01-siblings",
+       "en": "I have one sister and two brothers"
+      },
+      {
+       "id": "famiglia-01-mother",
+       "en": "My mother is a teacher"
+      },
+      {
+       "id": "famiglia-01-father",
+       "en": "My father is retired"
+      },
+      {
+       "id": "famiglia-01-husband",
+       "en": "My husband works in an office"
+      },
+      {
+       "id": "famiglia-01-grandmother",
+       "en": "My grandmother lives with us"
+      },
+      {
+       "id": "famiglia-01-married",
+       "en": "Are you married?"
+      },
+      {
+       "id": "famiglia-01-daughter",
+       "en": "What is your daughter's name?"
+      }
+     ]
+    },
+    {
+     "id": "famiglia-02",
+     "items": [
+      {
+       "id": "famiglia-02-howmany",
+       "en": "How many children do you have?"
+      },
+      {
+       "id": "famiglia-02-age",
+       "en": "How old is your son?"
+      },
+      {
+       "id": "famiglia-02-five",
+       "en": "My son is five years old"
+      },
+      {
+       "id": "famiglia-02-school",
+       "en": "My daughter goes to school"
+      },
+      {
+       "id": "famiglia-02-friend",
+       "en": "She is my best friend"
+      },
+      {
+       "id": "famiglia-02-cousin",
+       "en": "My cousin lives in London"
+      },
+      {
+       "id": "famiglia-02-visit",
+       "en": "My parents are visiting us"
+      },
+      {
+       "id": "famiglia-02-sunday",
+       "en": "We have lunch together on Sunday"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tempo",
+   "lessons": [
+    {
+     "id": "tempo-01",
+     "items": [
+      {
+       "id": "tempo-01-weather",
+       "en": "What is the weather like today?"
+      },
+      {
+       "id": "tempo-01-sunny",
+       "en": "It is sunny today"
+      },
+      {
+       "id": "tempo-01-rain",
+       "en": "It is raining"
+      },
+      {
+       "id": "tempo-01-cold",
+       "en": "It is very cold"
+      },
+      {
+       "id": "tempo-01-hot",
+       "en": "It is too hot"
+      },
+      {
+       "id": "tempo-01-windy",
+       "en": "It is windy"
+      },
+      {
+       "id": "tempo-01-snow",
+       "en": "Does it snow here in winter?"
+      },
+      {
+       "id": "tempo-01-cloudy",
+       "en": "It is cloudy"
+      }
+     ]
+    },
+    {
+     "id": "tempo-02",
+     "items": [
+      {
+       "id": "tempo-02-umbrella",
+       "en": "Take an umbrella"
+      },
+      {
+       "id": "tempo-02-tomorrow",
+       "en": "It will rain tomorrow"
+      },
+      {
+       "id": "tempo-02-forecast",
+       "en": "What is the forecast for tomorrow?"
+      },
+      {
+       "id": "tempo-02-season",
+       "en": "My favourite season is spring"
+      },
+      {
+       "id": "tempo-02-summer",
+       "en": "It is very hot in summer"
+      },
+      {
+       "id": "tempo-02-autumn",
+       "en": "I like autumn"
+      },
+      {
+       "id": "tempo-02-beautiful",
+       "en": "What a beautiful day!"
+      },
+      {
+       "id": "tempo-02-coat",
+       "en": "Do not forget your coat"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "salute",
+   "lessons": [
+    {
+     "id": "salute-01",
+     "items": [
+      {
+       "id": "salute-01-feel",
+       "en": "How do you feel today?"
+      },
+      {
+       "id": "salute-01-fine",
+       "en": "I feel fine, thank you"
+      },
+      {
+       "id": "salute-01-tired",
+       "en": "I am a little tired"
+      },
+      {
+       "id": "salute-01-headache",
+       "en": "I have a headache"
+      },
+      {
+       "id": "salute-01-stomach",
+       "en": "I have a stomach ache"
+      },
+      {
+       "id": "salute-01-sleep",
+       "en": "Did you sleep well?"
+      },
+      {
+       "id": "salute-01-water",
+       "en": "Drink some water"
+      },
+      {
+       "id": "salute-01-rest",
+       "en": "You should get some rest"
+      }
+     ]
+    },
+    {
+     "id": "salute-02",
+     "items": [
+      {
+       "id": "salute-02-walk",
+       "en": "I walk every day"
+      },
+      {
+       "id": "salute-02-doctor",
+       "en": "I have a doctor's appointment tomorrow"
+      },
+      {
+       "id": "salute-02-better",
+       "en": "I feel better now"
+      },
+      {
+       "id": "salute-02-pharmacy",
+       "en": "Where is the pharmacy?"
+      },
+      {
+       "id": "salute-02-cold",
+       "en": "I have a cold"
+      },
+      {
+       "id": "salute-02-relax",
+       "en": "I need to relax"
+      },
+      {
+       "id": "salute-02-bed",
+       "en": "I go to bed early"
+      },
+      {
+       "id": "salute-02-fruit",
+       "en": "Fruit and vegetables are good for you"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lavoro",
+   "lessons": [
+    {
+     "id": "lavoro-01",
+     "items": [
+      {
+       "id": "lavoro-01-job",
+       "en": "What do you do?"
+      },
+      {
+       "id": "lavoro-01-nurse",
+       "en": "I am a nurse"
+      },
+      {
+       "id": "lavoro-01-hospital",
+       "en": "I work in a hospital"
+      },
+      {
+       "id": "lavoro-01-days",
+       "en": "I work from Monday to Friday"
+      },
+      {
+       "id": "lavoro-01-night",
+       "en": "I work at night"
+      },
+      {
+       "id": "lavoro-01-love",
+       "en": "I love my job"
+      },
+      {
+       "id": "lavoro-01-busy",
+       "en": "I am very busy today"
+      },
+      {
+       "id": "lavoro-01-colleagues",
+       "en": "My colleagues are very nice"
+      }
+     ]
+    },
+    {
+     "id": "lavoro-02",
+     "items": [
+      {
+       "id": "lavoro-02-start",
+       "en": "I start work at eight"
+      },
+      {
+       "id": "lavoro-02-finish",
+       "en": "I finish at six"
+      },
+      {
+       "id": "lavoro-02-shift",
+       "en": "I have the afternoon shift"
+      },
+      {
+       "id": "lavoro-02-break",
+       "en": "Let's have a coffee break"
+      },
+      {
+       "id": "lavoro-02-lunch",
+       "en": "I have lunch at work"
+      },
+      {
+       "id": "lavoro-02-late",
+       "en": "Sorry, I am late"
+      },
+      {
+       "id": "lavoro-02-notwork",
+       "en": "I do not work tomorrow"
+      },
+      {
+       "id": "lavoro-02-holiday",
+       "en": "I am on holiday next week"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tempo-libero",
+   "lessons": [
+    {
+     "id": "tempo-libero-01",
+     "items": [
+      {
+       "id": "tempo-libero-01-free",
+       "en": "What do you do in your free time?"
+      },
+      {
+       "id": "tempo-libero-01-music",
+       "en": "I like listening to music"
+      },
+      {
+       "id": "tempo-libero-01-cooking",
+       "en": "I like cooking"
+      },
+      {
+       "id": "tempo-libero-01-books",
+       "en": "I love reading books"
+      },
+      {
+       "id": "tempo-libero-01-movies",
+       "en": "Do you like movies?"
+      },
+      {
+       "id": "tempo-libero-01-sport",
+       "en": "Do you play any sport?"
+      },
+      {
+       "id": "tempo-libero-01-park",
+       "en": "I like walking in the park"
+      },
+      {
+       "id": "tempo-libero-01-travel",
+       "en": "I love travelling"
+      }
+     ]
+    },
+    {
+     "id": "tempo-libero-02",
+     "items": [
+      {
+       "id": "tempo-libero-02-weekend",
+       "en": "What are you doing this weekend?"
+      },
+      {
+       "id": "tempo-libero-02-plans",
+       "en": "Do you have any plans for Saturday?"
+      },
+      {
+       "id": "tempo-libero-02-cinema",
+       "en": "Let's go to the cinema"
+      },
+      {
+       "id": "tempo-libero-02-beach",
+       "en": "I want to go to the beach"
+      },
+      {
+       "id": "tempo-libero-02-invite",
+       "en": "Would you like to come with us?"
+      },
+      {
+       "id": "tempo-libero-02-fun",
+       "en": "We had a lot of fun"
+      },
+      {
+       "id": "tempo-libero-02-photo",
+       "en": "Can I take a photo?"
+      },
+      {
+       "id": "tempo-libero-02-see",
+       "en": "See you on Sunday"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

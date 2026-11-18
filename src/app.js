@@ -1,8 +1,10 @@
 // Interfaccia: Home, Lezione, Fine lezione.
 import { loadContent } from './content.js';
-import { createProgress } from './progress.js';
-import { createLessonFlow } from './lesson.js';
+import { createProgress, TOPICS_AFTER_LEVELS } from './progress.js';
+import { createLessonFlow, clearFeedback } from './lesson.js';
 import { dueCards, todayLocal } from './srs.js';
+import { numberItems } from './numbers.js';
+import { pickPractice, nextMode } from './practice.js';
 import { hasSpeech, whenVoicesReady, speak } from './speech.js';
 
 const REVIEW_MAX = 8;
@@ -15,6 +17,7 @@ let levels = [];
 let topics = [];
 let progress;
 let audioOk = hasSpeech(window);
+let lastSlot = true; // alterna: prima una sessione scritta, poi una a dettato (vedi nextMode)
 let session = null; // { lesson, flow, feedback, recorded }
 
 function safeStorage() {
@@ -45,7 +48,7 @@ function h(tag, props = {}, ...kids) {
 
 function show(...nodes) {
   document.body.setAttribute('data-pronta', ''); // dice a index.html che l'app è partita
-  root.replaceChildren(...nodes);
+  root.replaceChildren(...nodes.filter((n) => n));
   // Niente doppi tocchi durante la transizione.
   const buttons = [...root.querySelectorAll('button')];
   buttons.forEach((b) => { b.disabled = true; });
@@ -85,7 +88,7 @@ function renderHome() {
       h('button', { onclick: () => startLesson(today.lesson) }, 'Inizia la lezione'),
     ));
   } else {
-    nodes.push(h('p', { class: 'progress' }, `Livello ${total} di ${total}`));
+    nodes.push(h('p', { class: 'progress' }, 'Hai finito tutti i livelli per ora: presto ne arriveranno altri'));
     nodes.push(h('div', { class: 'card' },
       h('p', { class: 'prompt' }, 'Hai finito tutte le lezioni, complimenti!'),
       h('p', { class: 'muted' }, 'Puoi ripassare quando vuoi. Presto arriveranno cose nuove.'),
@@ -101,10 +104,44 @@ function renderHome() {
     ));
   }
   nodes.push(topicsBlock());
+  if (level2Complete()) {
+    nodes.push(h('div', { class: 'card' },
+      h('h2', {}, 'Numeri senza fine'),
+      h('p', {}, 'Scrivi in inglese numeri sempre nuovi.'),
+      h('button', { class: 'secondary', onclick: startNumbers }, 'Numeri senza fine'),
+    ));
+  }
+  if (progress.get().completed.length > 0) {
+    nodes.push(h('div', { class: 'card' },
+      h('h2', {}, 'Allenamento libero'),
+      h('p', {}, '8 parole già studiate, scelte a caso.'),
+      h('button', { class: 'secondary', onclick: startTraining }, 'Allenati'),
+    ));
+  }
   if (!isStandalone()) {
     nodes.push(h('p', { class: 'hint' }, 'Consiglio: aggiungi l\'app alla schermata Home, così i progressi restano salvati.'));
   }
   show(...nodes);
+}
+
+function level2Complete() {
+  const lv = levels.find((l) => l.id === 'l2');
+  const done = progress.get().completed;
+  return !!lv && lv.lessons.every((l) => done.includes(l.id));
+}
+
+// Sessione di numeri casuali: non entra nel ripasso e non completa nessuna lezione.
+function startNumbers() {
+  startLesson({ id: 'numeri', title: 'Numeri senza fine', isPractice: true, items: numberItems(8) });
+}
+
+// Allenamento libero: registra le risposte come il ripasso, ma non completa lezioni.
+function startTraining() {
+  const items = pickPractice(progress.get(), { levels, topics });
+  if (items.length === 0) return renderHome();
+  const { dictation, slot } = nextMode(lastSlot, audioOk);
+  lastSlot = slot;
+  startLesson({ id: 'allenamento', title: 'Allenamento libero', isTraining: true, dictation, items });
 }
 
 function isStandalone() {
@@ -118,7 +155,7 @@ function isStandalone() {
 
 function topicsBlock() {
   if (!progress.topicsUnlocked(levels) || topics.length === 0) {
-    return h('p', { class: 'muted topics-locked' }, `Argomenti: si sbloccano dopo i livelli 1-${levels.length}`);
+    return h('p', { class: 'muted topics-locked' }, `Argomenti: si sbloccano dopo il livello ${Math.min(TOPICS_AFTER_LEVELS, levels.length)}`);
   }
   return h('div', { class: 'card' },
     h('h2', {}, 'Scegli un argomento'),
@@ -144,7 +181,7 @@ function renderTopic(topic) {
 }
 
 function startLesson(lesson, topic = null) {
-  session = { lesson, topic, flow: createLessonFlow(lesson, lesson.isReview ? { startAt: 'write' } : undefined), feedback: null, recorded: false, lastAnswer: '' };
+  session = { lesson, topic, flow: createLessonFlow(lesson, (lesson.isReview || lesson.isPractice || lesson.isTraining) ? { startAt: 'write', dictation: !!lesson.dictation } : undefined), feedback: null, recorded: false, lastAnswer: '' };
   renderLesson();
 }
 
@@ -192,7 +229,7 @@ function renderLesson() {
         h('p', { class: 'it' }, c.item.it),
         listenBlock(c.item),
       ),
-      h('button', { onclick: () => { flow.advance(); renderLesson(); } }, 'Avanti'),
+      h('button', { onclick: () => { clearFeedback(session); flow.advance(); renderLesson(); } }, 'Avanti'),
     );
   }
 
@@ -205,7 +242,7 @@ function renderLesson() {
         h('p', { class: 'it' }, c.item.it),
         listenBlock(c.item),
       ),
-      h('button', { onclick: () => { flow.advance(); renderLesson(); } }, 'L\'ho detto'),
+      h('button', { onclick: () => { clearFeedback(session); flow.advance(); renderLesson(); } }, 'L\'ho detto'),
     );
   }
 
@@ -214,11 +251,13 @@ function renderLesson() {
     return show(
       exitButton(),
       h('div', { class: 'card' },
-        h('p', { class: 'it' }, c.item.it),
+        c.dictation ? null : h('p', { class: 'it' }, c.item.it),
         h('p', { class: 'feedback retry' }, 'Non ancora.'),
         h('p', { class: 'solution', lang: 'en' }, `La risposta è: ${c.item.en}`),
+        c.dictation ? h('p', { class: 'it' }, `Significa: ${c.item.it}`) : null,
+        c.dictation ? listenBlock(c.item) : null,
       ),
-      h('button', { onclick: () => { flow.advance(); renderLesson(); } }, 'Avanti'),
+      h('button', { onclick: () => { clearFeedback(session); flow.advance(); renderLesson(); } }, 'Avanti'),
     );
   }
 
@@ -245,9 +284,9 @@ function renderLesson() {
   show(
     exitButton(),
     h('div', { class: 'card' },
-      h('p', { class: 'prompt' }, 'Scrivi in inglese'),
-      h('p', { class: 'it' }, c.item.it),
-      lesson.isReview ? listenBlock(c.item) : null,
+      h('p', { class: 'prompt' }, c.dictation ? 'Ascolta e scrivi' : 'Scrivi in inglese'),
+      c.dictation ? null : h('p', { class: 'it' }, c.item.it),
+      (lesson.isReview || c.dictation) ? listenBlock(c.item) : null,
       fb,
     ),
     form,
@@ -257,26 +296,32 @@ function renderLesson() {
     input.select();
   }
   input.focus();
+  // Dettato: la frase parte da sola una volta; sui tentativi successivi c'è il pulsante.
+  if (c.dictation && session.feedback !== 'retry') Promise.resolve(speak(c.item.en, window)).catch(() => {});
 }
 
 function renderDone() {
   const { flow, lesson } = session;
   if (!session.recorded) {
     session.recorded = true;
-    const today = todayLocal();
-    for (const [id, ok] of Object.entries(flow.results())) progress.recordAnswer(id, ok, today);
-    if (!lesson.isReview) progress.completeLesson(lesson.id);
+    if (!lesson.isPractice) {
+      const today = todayLocal();
+      for (const [id, ok] of Object.entries(flow.results())) progress.recordAnswer(id, ok, today);
+      if (!lesson.isReview && !lesson.isTraining) progress.completeLesson(lesson.id);
+    }
   }
   const lastOk = session.feedback === 'ok';
   session.feedback = null;
   show(
     h('div', { class: 'card' },
       lastOk && h('p', { class: 'feedback ok' }, 'Giusto!'),
-      h('p', { class: 'prompt' }, lesson.isReview ? 'Ripasso finito. Bravissima!' : 'Lezione finita. Bravissima!'),
+      h('p', { class: 'prompt' }, lesson.isPractice ? 'Numeri finiti. Bravissima!' : lesson.isTraining ? 'Allenamento finito. Bravissima!' : lesson.isReview ? 'Ripasso finito. Bravissima!' : 'Lezione finita. Bravissima!'),
       h('p', { class: 'muted' }, 'Puoi fermarti qui o continuare.'),
     ),
+    lesson.isPractice ? h('button', { onclick: startNumbers }, 'Altri numeri') : null,
+    lesson.isTraining ? h('button', { onclick: startTraining }, 'Ancora') : null,
     session.topic ? h('button', { onclick: () => renderTopic(session.topic) }, 'Torna all\'argomento') : null,
-    h('button', { class: session.topic ? 'secondary' : '', onclick: renderHome }, 'Torna alla home'),
+    h('button', { class: (session.topic || lesson.isPractice || lesson.isTraining) ? 'secondary' : '', onclick: renderHome }, (lesson.isPractice || lesson.isTraining) ? 'Torna all\'inizio' : 'Torna alla home'),
   );
 }
 

@@ -2,6 +2,8 @@
 import { nextReview } from './srs.js';
 
 const KEY = 'inglese-v1';
+// Gli argomenti si aprono quando sono finite tutte le lezioni dei primi 6 livelli.
+export const TOPICS_AFTER_LEVELS = 6;
 const YMD = /^\d{4}-\d{2}-\d{2}$/;
 
 const initial = () => ({ completed: [], cards: {}, topicsOpen: false });
@@ -74,7 +76,7 @@ export function createProgress(storage) {
     },
     topicsUnlocked(levels) {
       if (state.topicsOpen) return true; // una volta sbloccati, restano aperti
-      const lessons = flat(levels);
+      const lessons = flat(levels.slice(0, TOPICS_AFTER_LEVELS));
       if (lessons.length > 0 && lessons.every((l) => state.completed.includes(l.id))) {
         state.topicsOpen = true;
         save();

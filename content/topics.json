@@ -88,8 +88,6 @@
       "accept": [
        "Please close the door",
        "Close the door please",
-       "Close the door, please",
-       "Please, close the door",
        "Close the door"
       ]
      },
@@ -132,11 +130,8 @@
       "it": "Siediti, per favore",
       "accept": [
        "Sit down please",
-       "Sit down, please",
        "Please sit down",
-       "Please, sit down",
        "Take a seat please",
-       "Take a seat, please",
        "Please take a seat"
       ]
      },
@@ -238,20 +233,13 @@
       "accept": [
        "Please take out the trash",
        "Take out the trash please",
-       "Take out the trash, please",
        "Please take the trash out",
        "Please take out the rubbish",
        "Take out the rubbish please",
-       "Take out the rubbish, please",
        "Please take the rubbish out",
-       "Please, take out the trash",
-       "Please, take out the rubbish",
        "Take the trash out please",
-       "Take the trash out, please",
        "Take the rubbish out please",
-       "Take the rubbish out, please",
        "Take out the garbage please",
-       "Take out the garbage, please",
        "Please take out the garbage"
       ]
      },
@@ -354,21 +342,9 @@
       "it": "No, grazie, sono pieno",
       "accept": [
        "No thank you I am full",
-       "No, thank you I am full",
-       "No thank you, I am full",
-       "No, thank you, I am full",
        "No thank you I'm full",
-       "No, thank you I'm full",
-       "No thank you, I'm full",
-       "No, thank you, I'm full",
        "No thanks I am full",
-       "No, thanks I am full",
-       "No thanks, I am full",
-       "No, thanks, I am full",
-       "No thanks I'm full",
-       "No, thanks I'm full",
-       "No thanks, I'm full",
-       "No, thanks, I'm full"
+       "No thanks I'm full"
       ]
      }
     ]
@@ -383,17 +359,11 @@
       "it": "Vorrei un caffè, per favore",
       "accept": [
        "I would like a coffee please",
-       "I would like a coffee, please",
        "I'd like a coffee please",
-       "I'd like a coffee, please",
        "Can I have a coffee please?",
-       "Can I have a coffee, please?",
        "Could I have a coffee please?",
-       "Could I have a coffee, please?",
        "A coffee please",
-       "A coffee, please",
-       "I'll have a coffee please",
-       "I'll have a coffee, please"
+       "I'll have a coffee please"
       ]
      },
      {
@@ -402,15 +372,10 @@
       "it": "Un bicchiere d'acqua, per favore",
       "accept": [
        "A glass of water please",
-       "A glass of water, please",
        "Can I have a glass of water please?",
-       "Can I have a glass of water, please?",
        "Could I have a glass of water please?",
-       "Could I have a glass of water, please?",
        "I would like a glass of water please",
-       "I would like a glass of water, please",
-       "I'd like a glass of water please",
-       "I'd like a glass of water, please"
+       "I'd like a glass of water please"
       ]
      },
      {
@@ -422,9 +387,7 @@
        "Could I see the menu?",
        "May I see the menu?",
        "Can I have the menu please?",
-       "Can I have the menu, please?",
-       "Could I have the menu please?",
-       "Could I have the menu, please?"
+       "Could I have the menu please?"
       ]
      },
      {
@@ -433,15 +396,10 @@
       "it": "Un tavolo per due, per favore",
       "accept": [
        "A table for two please",
-       "A table for two, please",
        "Table for two please",
-       "Table for two, please",
        "Can we have a table for two please?",
-       "Can we have a table for two, please?",
        "Could we have a table for two please?",
-       "Could we have a table for two, please?",
-       "I would like a table for two please",
-       "I would like a table for two, please"
+       "I would like a table for two please"
       ]
      },
      {
@@ -450,19 +408,12 @@
       "it": "Il conto, per favore",
       "accept": [
        "The bill please",
-       "The bill, please",
        "Can I have the bill please?",
-       "Can I have the bill, please?",
        "Could we have the bill please?",
-       "Could we have the bill, please?",
        "Can we have the bill please?",
-       "Can we have the bill, please?",
        "The check please",
-       "The check, please",
        "Check please",
-       "Check, please",
-       "Could I have the bill please?",
-       "Could I have the bill, please?"
+       "Could I have the bill please?"
       ]
      },
      {
@@ -491,15 +442,10 @@
       "it": "Era molto buono, grazie",
       "accept": [
        "It was very good thank you",
-       "It was very good, thank you",
        "It was delicious thank you",
-       "It was delicious, thank you",
        "It was very nice thank you",
-       "It was very nice, thank you",
        "It was great thank you",
-       "It was great, thank you",
-       "It was very good thanks",
-       "It was very good, thanks"
+       "It was very good thanks"
       ]
      }
     ]
@@ -900,23 +846,14 @@
       "it": "Sto bene, grazie",
       "accept": [
        "I feel fine thank you",
-       "I feel fine, thank you",
        "I am fine thank you",
-       "I am fine, thank you",
        "I'm fine thank you",
-       "I'm fine, thank you",
        "I feel good thank you",
-       "I feel good, thank you",
        "I feel fine thanks",
-       "I feel fine, thanks",
        "I am fine thanks",
-       "I am fine, thanks",
        "I'm fine thanks",
-       "I'm fine, thanks",
        "I'm well thank you",
-       "I'm well, thank you",
-       "I am well thank you",
-       "I am well, thank you"
+       "I am well thank you"
       ]
      },
      {
@@ -1246,17 +1183,11 @@
       "it": "Scusa, sono in ritardo",
       "accept": [
        "Sorry I am late",
-       "Sorry, I am late",
        "Sorry I'm late",
-       "Sorry, I'm late",
        "I am sorry I am late",
-       "I am sorry, I am late",
        "I'm sorry I'm late",
-       "I'm sorry, I'm late",
        "I'm sorry I am late",
-       "I'm sorry, I am late",
-       "I am sorry I'm late",
-       "I am sorry, I'm late"
+       "I am sorry I'm late"
       ]
      },
      {
@@ -1357,7 +1288,8 @@
        "Do you play a sport?",
        "Do you do sport?",
        "Do you play sport?"
-      ]
+      ],
+      "uguale": true
      },
      {
       "id": "tempo-libero-01-park",
@@ -1420,7 +1352,8 @@
        "Let's go to the movies",
        "Let us go to the cinema",
        "Let us go to the movies"
-      ]
+      ],
+      "uguale": true
      },
      {
       "id": "tempo-libero-02-beach",
