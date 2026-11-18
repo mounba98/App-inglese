@@ -1,0 +1,666 @@
+[
+ {
+  "id": "l1",
+  "title": "Alfabeto e suoni",
+  "lessons": [
+   {
+    "id": "l1-01",
+    "title": "Le prime sette lettere: A – G",
+    "items": [
+     {
+      "id": "l1-01-a",
+      "en": "A — apple",
+      "it": "si legge «ei», come in «apple» (mela)",
+      "accept": [
+       "A — apple",
+       "A - apple",
+       "A apple",
+       "apple"
+      ]
+     },
+     {
+      "id": "l1-01-b",
+      "en": "B — banana",
+      "it": "si legge «bi», come in «banana» (banana)",
+      "accept": [
+       "B — banana",
+       "B - banana",
+       "B banana",
+       "banana"
+      ]
+     },
+     {
+      "id": "l1-01-c",
+      "en": "C — cat",
+      "it": "si legge «si», come in «cat» (gatto)",
+      "accept": [
+       "C — cat",
+       "C - cat",
+       "C cat",
+       "cat"
+      ]
+     },
+     {
+      "id": "l1-01-d",
+      "en": "D — dog",
+      "it": "si legge «di», come in «dog» (cane)",
+      "accept": [
+       "D — dog",
+       "D - dog",
+       "D dog",
+       "dog"
+      ]
+     },
+     {
+      "id": "l1-01-e",
+      "en": "E — egg",
+      "it": "si legge «i», come in «egg» (uovo)",
+      "accept": [
+       "E — egg",
+       "E - egg",
+       "E egg",
+       "egg"
+      ]
+     },
+     {
+      "id": "l1-01-f",
+      "en": "F — fish",
+      "it": "si legge «èf», come in «fish» (pesce)",
+      "accept": [
+       "F — fish",
+       "F - fish",
+       "F fish",
+       "fish"
+      ]
+     },
+     {
+      "id": "l1-01-g",
+      "en": "G — green",
+      "it": "si legge «gi», come in «green» (verde)",
+      "accept": [
+       "G — green",
+       "G - green",
+       "G green",
+       "green"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l1-02",
+    "title": "Altre sette lettere: H – N",
+    "items": [
+     {
+      "id": "l1-02-h",
+      "en": "H — house",
+      "it": "si legge «èic», come in «house» (casa)",
+      "accept": [
+       "H — house",
+       "H - house",
+       "H house",
+       "house"
+      ]
+     },
+     {
+      "id": "l1-02-i",
+      "en": "I — ice",
+      "it": "si legge «ai», come in «ice» (ghiaccio)",
+      "accept": [
+       "I — ice",
+       "I - ice",
+       "I ice",
+       "ice"
+      ]
+     },
+     {
+      "id": "l1-02-j",
+      "en": "J — juice",
+      "it": "si legge «gei», come in «juice» (succo)",
+      "accept": [
+       "J — juice",
+       "J - juice",
+       "J juice",
+       "juice"
+      ]
+     },
+     {
+      "id": "l1-02-k",
+      "en": "K — key",
+      "it": "si legge «chei», come in «key» (chiave)",
+      "accept": [
+       "K — key",
+       "K - key",
+       "K key",
+       "key"
+      ]
+     },
+     {
+      "id": "l1-02-l",
+      "en": "L — lemon",
+      "it": "si legge «èl», come in «lemon» (limone)",
+      "accept": [
+       "L — lemon",
+       "L - lemon",
+       "L lemon",
+       "lemon"
+      ]
+     },
+     {
+      "id": "l1-02-m",
+      "en": "M — milk",
+      "it": "si legge «èm», come in «milk» (latte)",
+      "accept": [
+       "M — milk",
+       "M - milk",
+       "M milk",
+       "milk"
+      ]
+     },
+     {
+      "id": "l1-02-n",
+      "en": "N — name",
+      "it": "si legge «èn», come in «name» (nome)",
+      "accept": [
+       "N — name",
+       "N - name",
+       "N name",
+       "name"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l1-03",
+    "title": "Sei lettere: O – T",
+    "items": [
+     {
+      "id": "l1-03-o",
+      "en": "O — orange",
+      "it": "si legge «ou», come in «orange» (arancia)",
+      "accept": [
+       "O — orange",
+       "O - orange",
+       "O orange",
+       "orange"
+      ]
+     },
+     {
+      "id": "l1-03-p",
+      "en": "P — pizza",
+      "it": "si legge «pi», come in «pizza» (pizza)",
+      "accept": [
+       "P — pizza",
+       "P - pizza",
+       "P pizza",
+       "pizza"
+      ]
+     },
+     {
+      "id": "l1-03-q",
+      "en": "Q — queen",
+      "it": "si legge «chiu», come in «queen» (regina)",
+      "accept": [
+       "Q — queen",
+       "Q - queen",
+       "Q queen",
+       "queen"
+      ]
+     },
+     {
+      "id": "l1-03-r",
+      "en": "R — red",
+      "it": "si legge «ar», come in «red» (rosso)",
+      "accept": [
+       "R — red",
+       "R - red",
+       "R red",
+       "red"
+      ]
+     },
+     {
+      "id": "l1-03-s",
+      "en": "S — sun",
+      "it": "si legge «ès», come in «sun» (sole)",
+      "accept": [
+       "S — sun",
+       "S - sun",
+       "S sun",
+       "sun"
+      ]
+     },
+     {
+      "id": "l1-03-t",
+      "en": "T — tea",
+      "it": "si legge «ti», come in «tea» (tè)",
+      "accept": [
+       "T — tea",
+       "T - tea",
+       "T tea",
+       "tea"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l1-04",
+    "title": "Le ultime sei lettere: U – Z",
+    "items": [
+     {
+      "id": "l1-04-u",
+      "en": "U — umbrella",
+      "it": "si legge «iu», come in «umbrella» (ombrello)",
+      "accept": [
+       "U — umbrella",
+       "U - umbrella",
+       "U umbrella",
+       "umbrella"
+      ]
+     },
+     {
+      "id": "l1-04-v",
+      "en": "V — violin",
+      "it": "si legge «vi», come in «violin» (violino)",
+      "accept": [
+       "V — violin",
+       "V - violin",
+       "V violin",
+       "violin"
+      ]
+     },
+     {
+      "id": "l1-04-w",
+      "en": "W — water",
+      "it": "si legge «dàbliu», come in «water» (acqua)",
+      "accept": [
+       "W — water",
+       "W - water",
+       "W water",
+       "water"
+      ]
+     },
+     {
+      "id": "l1-04-x",
+      "en": "X — x-ray",
+      "it": "si legge «èks», come in «x-ray» (radiografia)",
+      "accept": [
+       "X — x-ray",
+       "X - x-ray",
+       "X x-ray",
+       "x-ray"
+      ]
+     },
+     {
+      "id": "l1-04-y",
+      "en": "Y — yes",
+      "it": "si legge «uài», come in «yes» (sì)",
+      "accept": [
+       "Y — yes",
+       "Y - yes",
+       "Y yes",
+       "yes"
+      ]
+     },
+     {
+      "id": "l1-04-z",
+      "en": "Z — zebra",
+      "it": "si legge «zèd», come in «zebra» (zebra)",
+      "accept": [
+       "Z — zebra",
+       "Z - zebra",
+       "Z zebra",
+       "zebra"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "l2",
+  "title": "Numeri",
+  "lessons": [
+   {
+    "id": "l2-01",
+    "title": "Da 0 a 7",
+    "items": [
+     {
+      "id": "l2-01-0",
+      "en": "zero",
+      "it": "0 — zero",
+      "accept": [
+       "zero",
+       "0"
+      ]
+     },
+     {
+      "id": "l2-01-1",
+      "en": "one",
+      "it": "1 — uno",
+      "accept": [
+       "one",
+       "1"
+      ]
+     },
+     {
+      "id": "l2-01-2",
+      "en": "two",
+      "it": "2 — due",
+      "accept": [
+       "two",
+       "2"
+      ]
+     },
+     {
+      "id": "l2-01-3",
+      "en": "three",
+      "it": "3 — tre",
+      "accept": [
+       "three",
+       "3"
+      ]
+     },
+     {
+      "id": "l2-01-4",
+      "en": "four",
+      "it": "4 — quattro",
+      "accept": [
+       "four",
+       "4"
+      ]
+     },
+     {
+      "id": "l2-01-5",
+      "en": "five",
+      "it": "5 — cinque",
+      "accept": [
+       "five",
+       "5"
+      ]
+     },
+     {
+      "id": "l2-01-6",
+      "en": "six",
+      "it": "6 — sei",
+      "accept": [
+       "six",
+       "6"
+      ]
+     },
+     {
+      "id": "l2-01-7",
+      "en": "seven",
+      "it": "7 — sette",
+      "accept": [
+       "seven",
+       "7"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l2-02",
+    "title": "Da 8 a 15",
+    "items": [
+     {
+      "id": "l2-02-8",
+      "en": "eight",
+      "it": "8 — otto",
+      "accept": [
+       "eight",
+       "8"
+      ]
+     },
+     {
+      "id": "l2-02-9",
+      "en": "nine",
+      "it": "9 — nove",
+      "accept": [
+       "nine",
+       "9"
+      ]
+     },
+     {
+      "id": "l2-02-10",
+      "en": "ten",
+      "it": "10 — dieci",
+      "accept": [
+       "ten",
+       "10"
+      ]
+     },
+     {
+      "id": "l2-02-11",
+      "en": "eleven",
+      "it": "11 — undici",
+      "accept": [
+       "eleven",
+       "11"
+      ]
+     },
+     {
+      "id": "l2-02-12",
+      "en": "twelve",
+      "it": "12 — dodici",
+      "accept": [
+       "twelve",
+       "12"
+      ]
+     },
+     {
+      "id": "l2-02-13",
+      "en": "thirteen",
+      "it": "13 — tredici (13: «-teen» si sente alla fine)",
+      "accept": [
+       "thirteen",
+       "13"
+      ]
+     },
+     {
+      "id": "l2-02-14",
+      "en": "fourteen",
+      "it": "14 — quattordici",
+      "accept": [
+       "fourteen",
+       "14"
+      ]
+     },
+     {
+      "id": "l2-02-15",
+      "en": "fifteen",
+      "it": "15 — quindici",
+      "accept": [
+       "fifteen",
+       "15"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l2-03",
+    "title": "Da 16 a 20",
+    "items": [
+     {
+      "id": "l2-03-16",
+      "en": "sixteen",
+      "it": "16 — sedici",
+      "accept": [
+       "sixteen",
+       "16"
+      ]
+     },
+     {
+      "id": "l2-03-17",
+      "en": "seventeen",
+      "it": "17 — diciassette",
+      "accept": [
+       "seventeen",
+       "17"
+      ]
+     },
+     {
+      "id": "l2-03-18",
+      "en": "eighteen",
+      "it": "18 — diciotto",
+      "accept": [
+       "eighteen",
+       "18"
+      ]
+     },
+     {
+      "id": "l2-03-19",
+      "en": "nineteen",
+      "it": "19 — diciannove",
+      "accept": [
+       "nineteen",
+       "19"
+      ]
+     },
+     {
+      "id": "l2-03-20",
+      "en": "twenty",
+      "it": "20 — venti",
+      "accept": [
+       "twenty",
+       "20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l2-04",
+    "title": "Le decine, fino a cento",
+    "items": [
+     {
+      "id": "l2-04-30",
+      "en": "thirty",
+      "it": "30 — trenta (30: «-ty» si sente alla fine, diverso da thirteen = 13)",
+      "accept": [
+       "thirty",
+       "30"
+      ]
+     },
+     {
+      "id": "l2-04-40",
+      "en": "forty",
+      "it": "40 — quaranta",
+      "accept": [
+       "forty",
+       "40"
+      ]
+     },
+     {
+      "id": "l2-04-50",
+      "en": "fifty",
+      "it": "50 — cinquanta",
+      "accept": [
+       "fifty",
+       "50"
+      ]
+     },
+     {
+      "id": "l2-04-60",
+      "en": "sixty",
+      "it": "60 — sessanta",
+      "accept": [
+       "sixty",
+       "60"
+      ]
+     },
+     {
+      "id": "l2-04-70",
+      "en": "seventy",
+      "it": "70 — settanta",
+      "accept": [
+       "seventy",
+       "70"
+      ]
+     },
+     {
+      "id": "l2-04-80",
+      "en": "eighty",
+      "it": "80 — ottanta",
+      "accept": [
+       "eighty",
+       "80"
+      ]
+     },
+     {
+      "id": "l2-04-90",
+      "en": "ninety",
+      "it": "90 — novanta",
+      "accept": [
+       "ninety",
+       "90"
+      ]
+     },
+     {
+      "id": "l2-04-100",
+      "en": "one hundred",
+      "it": "100 — cento",
+      "accept": [
+       "one hundred",
+       "100",
+       "a hundred"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l2-05",
+    "title": "Numeri composti",
+    "items": [
+     {
+      "id": "l2-05-21",
+      "en": "twenty-one",
+      "it": "21 — ventuno",
+      "accept": [
+       "twenty-one",
+       "21",
+       "twenty one"
+      ]
+     },
+     {
+      "id": "l2-05-32",
+      "en": "thirty-two",
+      "it": "32 — trentadue",
+      "accept": [
+       "thirty-two",
+       "32",
+       "thirty two"
+      ]
+     },
+     {
+      "id": "l2-05-45",
+      "en": "forty-five",
+      "it": "45 — quarantacinque",
+      "accept": [
+       "forty-five",
+       "45",
+       "forty five"
+      ]
+     },
+     {
+      "id": "l2-05-58",
+      "en": "fifty-eight",
+      "it": "58 — cinquantotto",
+      "accept": [
+       "fifty-eight",
+       "58",
+       "fifty eight"
+      ]
+     },
+     {
+      "id": "l2-05-99",
+      "en": "ninety-nine",
+      "it": "99 — novantanove",
+      "accept": [
+       "ninety-nine",
+       "99",
+       "ninety nine"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]
