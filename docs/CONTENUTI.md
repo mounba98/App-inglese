@@ -111,11 +111,11 @@ I livelli restano **in ordine**: si sbloccano uno dopo l'altro. Non inserire mai
 
 1. Scegli uno slug nuovo, non già usato (guarda `content/topics.json`).
 2. Aggiungi in fondo un argomento con 2–3 lezioni `slug-01`, `slug-02`…
-3. Gli argomenti si sbloccano **per sempre** una volta completato il livello 6: aggiungerne di nuovi li rende subito disponibili.
+3. Gli argomenti si sbloccano **per sempre** una volta completate tutte le lezioni dei primi 6 livelli: aggiungerne di nuovi li rende subito disponibili.
 
 ## Cose da non fare mai
 
-- **Non cambiare e non togliere id esistenti** (di livelli, lezioni, elementi). I progressi e le ripetizioni di chi usa l'app si basano su quegli id: cambiarli li perde. Un test (`tests/ids-baseline.json`) controlla che ogni id esistente ci sia ancora e che il suo `en` sia uguale: **si può solo aggiungere, mai togliere o cambiare**. Non toccare mai quel file: lo aggiorna solo una persona.
+- **Non cambiare e non togliere id esistenti** (di livelli, lezioni, elementi). I progressi e le ripetizioni di chi usa l'app si basano su quegli id: cambiarli li perde. Un test (`tests/ids-baseline.json`) controlla che ogni id esistente ci sia ancora e che il suo `en` sia uguale: **si può solo aggiungere, mai togliere o cambiare**. Lo stesso test blocca anche la struttura: ogni livello o argomento esistente deve avere **esattamente** le stesse lezioni, e ogni lezione esistente **esattamente** gli stessi elementi, nello stesso ordine. Quindi **il contenuto nuovo va solo in NUOVI livelli o NUOVI argomenti**: non aggiungere lezioni a un livello o argomento esistente e non inserire elementi in una lezione esistente. Non toccare mai quel file: lo aggiorna solo una persona.
 - Non riordinare elementi o lezioni esistenti.
 - Non modificare codice, test, stile o altri file.
 
@@ -163,6 +163,7 @@ Elenco delle cose da scrivere, **in ordine**. La sessione automatica scrive **un
 
 ## Procedura per la sessione automatica
 
+0. **Se c'è già una pull request di contenuti aperta verso main, non aprirne un'altra: lavora su quel ramo, correggi finché i test passano e aggiornala.** Se dopo tre tentativi i test non passano, lascia la pull request aperta con una nota che spiega il problema, e fermati.
 1. Leggi questa guida e, per lo stile e il lessico già insegnato, `content/levels.json` e `content/topics.json`.
 2. **Scegli la voce**: alterna un livello e un argomento, una sola voce per esecuzione. Conta le caselle spuntate: se i Livelli ne hanno spuntate quante gli Argomenti (o meno), prendi la prima casella non spuntata dei **Livelli**; altrimenti la prima dei **Argomenti**. Se una delle due liste non ha più caselle vuote, prendi dall'altra.
 3. **Se entrambe le liste sono senza caselle vuote**: aggiungi **5 nuovi livelli in fondo alla lista Livelli**, che proseguono la progressione dopo l'ultimo, e **5 nuovi argomenti in fondo alla lista Argomenti**, utili con clienti e assistiti. Usa lo stesso formato delle righe vuote (`- [ ] Livello: …`). Poi prosegui dal punto 2.

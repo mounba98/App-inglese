@@ -41,3 +41,11 @@ test('numberItems: id, cifra, distinti, metà sotto 100', () => {
   }
   assert.equal(items.filter((i) => Number(i.id.slice(4)) < 100).length, 4);
 });
+
+test('numberItems: mescolamento Fisher-Yates deterministico e senza perdite', () => {
+  const seq = () => { let x = 7; return () => { x = (x * 48271) % 2147483647; return x / 2147483647; }; };
+  const a = numberItems(8, seq());
+  const b = numberItems(8, seq());
+  assert.deepEqual(a.map((i) => i.id), b.map((i) => i.id));
+  assert.equal(new Set(a.map((i) => i.id)).size, 8);
+});

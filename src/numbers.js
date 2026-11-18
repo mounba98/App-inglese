@@ -68,5 +68,10 @@ export function numberItems(count, rng = Math.random, max = 9999) {
   };
   for (let i = 0; i < low; i += 1) add(0, Math.min(99, max));
   for (let i = low; i < count; i += 1) add(Math.min(100, max), max);
-  return items.sort(() => rng() - 0.5);
+  // Fisher–Yates
+  for (let i = items.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(rng() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+  return items;
 }

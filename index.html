@@ -31,6 +31,16 @@
       window.addEventListener('load', () => {
         try { navigator.serviceWorker.register('./sw.js').catch(() => {}); } catch (e) { /* ignora */ }
       });
+      // App rimasta aperta: al ritorno in primo piano cerca una versione nuova (al massimo una volta l'ora).
+      let ultimoControllo = Date.now();
+      document.addEventListener('visibilitychange', () => {
+        try {
+          if (document.visibilityState !== 'visible') return;
+          if (Date.now() - ultimoControllo < 60 * 60 * 1000) return;
+          ultimoControllo = Date.now();
+          navigator.serviceWorker.getRegistration().then((r) => r && r.update()).catch(() => {});
+        } catch (e) { /* ignora */ }
+      });
     }
   </script>
 </body>

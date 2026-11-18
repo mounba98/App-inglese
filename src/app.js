@@ -1,7 +1,7 @@
 // Interfaccia: Home, Lezione, Fine lezione.
 import { loadContent } from './content.js';
-import { createProgress } from './progress.js';
-import { createLessonFlow } from './lesson.js';
+import { createProgress, TOPICS_AFTER_LEVELS } from './progress.js';
+import { createLessonFlow, clearFeedback } from './lesson.js';
 import { dueCards, todayLocal } from './srs.js';
 import { numberItems } from './numbers.js';
 import { pickPractice, nextMode } from './practice.js';
@@ -88,7 +88,7 @@ function renderHome() {
       h('button', { onclick: () => startLesson(today.lesson) }, 'Inizia la lezione'),
     ));
   } else {
-    nodes.push(h('p', { class: 'progress' }, `Livello ${total} di ${total}`));
+    nodes.push(h('p', { class: 'progress' }, 'Hai finito tutti i livelli per ora: presto ne arriveranno altri'));
     nodes.push(h('div', { class: 'card' },
       h('p', { class: 'prompt' }, 'Hai finito tutte le lezioni, complimenti!'),
       h('p', { class: 'muted' }, 'Puoi ripassare quando vuoi. Presto arriveranno cose nuove.'),
@@ -155,7 +155,7 @@ function isStandalone() {
 
 function topicsBlock() {
   if (!progress.topicsUnlocked(levels) || topics.length === 0) {
-    return h('p', { class: 'muted topics-locked' }, `Argomenti: si sbloccano dopo i livelli 1-${levels.length}`);
+    return h('p', { class: 'muted topics-locked' }, `Argomenti: si sbloccano dopo il livello ${Math.min(TOPICS_AFTER_LEVELS, levels.length)}`);
   }
   return h('div', { class: 'card' },
     h('h2', {}, 'Scegli un argomento'),
@@ -229,7 +229,7 @@ function renderLesson() {
         h('p', { class: 'it' }, c.item.it),
         listenBlock(c.item),
       ),
-      h('button', { onclick: () => { flow.advance(); renderLesson(); } }, 'Avanti'),
+      h('button', { onclick: () => { clearFeedback(session); flow.advance(); renderLesson(); } }, 'Avanti'),
     );
   }
 
@@ -242,7 +242,7 @@ function renderLesson() {
         h('p', { class: 'it' }, c.item.it),
         listenBlock(c.item),
       ),
-      h('button', { onclick: () => { flow.advance(); renderLesson(); } }, 'L\'ho detto'),
+      h('button', { onclick: () => { clearFeedback(session); flow.advance(); renderLesson(); } }, 'L\'ho detto'),
     );
   }
 
@@ -257,7 +257,7 @@ function renderLesson() {
         c.dictation ? h('p', { class: 'it' }, `Significa: ${c.item.it}`) : null,
         c.dictation ? listenBlock(c.item) : null,
       ),
-      h('button', { onclick: () => { flow.advance(); renderLesson(); } }, 'Avanti'),
+      h('button', { onclick: () => { clearFeedback(session); flow.advance(); renderLesson(); } }, 'Avanti'),
     );
   }
 

@@ -56,3 +56,10 @@ export function createLessonFlow(lesson, { startAt = 'learn', dictation = false 
     },
   };
 }
+
+// Dopo una soluzione mostrata (o qualunque cambio di elemento) non devono restare
+// il «Non ancora, riprova» né la vecchia risposta.
+export function clearFeedback(session) {
+  session.feedback = null;
+  session.lastAnswer = '';
+}

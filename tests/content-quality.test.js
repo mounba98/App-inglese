@@ -126,16 +126,23 @@ test('formato degli id: lezioni «<gruppo>-NN», elementi «<lezione>-slug»', (
   assert.deepEqual(bad, [], bad.join('\n'));
 });
 
-test('baseline degli id: ogni id esistente c\'è ancora e il suo «en» non è cambiato', () => {
+test('baseline degli id: ogni id esistente c\'è ancora, il suo «en» non è cambiato e la struttura è identica', () => {
   const base = JSON.parse(readFileSync(new URL('./ids-baseline.json', import.meta.url), 'utf8'));
   const bad = [];
+  const sameList = (what, got, want) => {
+    if (got.length !== want.length || got.some((x, i) => x !== want[i])) {
+      bad.push(`${what}: ci si aspetta [${want.join(', ')}], c'è [${got.join(', ')}]. Il contenuto nuovo va solo in nuovi livelli o argomenti.`);
+    }
+  };
   for (const [file, current] of [['levels', levels], ['topics', topics]]) {
     for (const g of base[file]) {
       const cg = current.find((x) => x.id === g.id);
       if (!cg) { bad.push(`${file}: manca «${g.id}»`); continue; }
+      sameList(`lezioni di «${g.id}»`, cg.lessons.map((l) => l.id), g.lessons.map((l) => l.id));
       for (const l of g.lessons) {
         const cl = cg.lessons.find((x) => x.id === l.id);
         if (!cl) { bad.push(`manca la lezione «${l.id}»`); continue; }
+        sameList(`elementi di «${l.id}»`, cl.items.map((x) => x.id), l.items.map((x) => x.id));
         for (const i of l.items) {
           const ci = cl.items.find((x) => x.id === i.id);
           if (!ci) bad.push(`manca l'elemento «${i.id}»`);
@@ -144,7 +151,7 @@ test('baseline degli id: ogni id esistente c\'è ancora e il suo «en» non è c
       }
     }
   }
-  assert.deepEqual(bad, [], `Si può solo aggiungere, mai togliere o cambiare.\n${bad.join('\n')}`);
+  assert.deepEqual(bad, [], `Si può solo aggiungere (in nuovi livelli o argomenti), mai togliere o cambiare.\n${bad.join('\n')}`);
 });
 
 test('Coda: caselle spuntate = livelli aggiunti dopo l6 e argomenti aggiunti dopo i 7 iniziali', () => {

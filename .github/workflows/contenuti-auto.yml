@@ -3,6 +3,9 @@ name: Contenuti automatici
 # content/*.json e docs/CONTENUTI.md e i test passano, viene unita da sola.
 # Ogni modifica al codice (anche un solo file fuori da quell'elenco) richiede sempre una persona.
 # Niente pull_request_target: il codice della PR gira solo con permessi della PR stessa.
+# RISCHIO RESIDUO: una PR dello stesso repository esegue la PROPRIA copia di questo workflow,
+# quindi chi può scrivere nel repository potrebbe modificarlo. La guardia protegge dagli
+# errori (della sessione automatica o di una persona distratta), non da un collaboratore malevolo.
 on:
   pull_request:
     branches: [main]
@@ -15,6 +18,10 @@ permissions:
 
 jobs:
   fusione:
+    timeout-minutes: 10
+    concurrency:
+      group: contenuti-auto-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
     # Solo PR dallo stesso repository (mai da fork).
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
@@ -22,10 +29,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm test
       - name: Controlla che cambino solo i contenuti
         id: ambito
         run: |
@@ -37,11 +44,15 @@ jobs:
             echo "Modifiche fuori dai contenuti: serve una persona."
             echo "solo=false" >> "$GITHUB_OUTPUT"
           fi
+      - name: Test
+        if: steps.ambito.outputs.solo == 'true'
+        run: npm test
       - name: Unisci e pubblica
         if: steps.ambito.outputs.solo == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         run: |
-          gh pr merge ${{ github.event.pull_request.number }} --squash --delete-branch
+          gh pr merge ${{ github.event.pull_request.number }} --squash --delete-branch --match-head-commit ${{ github.event.pull_request.head.sha }}
           # Il merge fatto con GITHUB_TOKEN non avvia pages.yml: lo lanciamo a mano.
           gh workflow run pages.yml --ref main

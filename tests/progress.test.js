@@ -125,3 +125,24 @@ test('dati salvati senza topicsOpen si caricano ancora', () => {
   assert.equal(p.get().topicsOpen, false);
   assert.equal(p.topicsUnlocked(levels), false);
 });
+
+const mk = (n) => Array.from({ length: n }, (_, i) => ({ id: `l${i + 1}`, title: `L${i + 1}`, lessons: [{ id: `l${i + 1}-01`, title: 't', items: [] }] }));
+
+test('argomenti: si sbloccano dopo il livello 6, anche se esiste il livello 7', () => {
+  const lv = mk(7);
+  const p = createProgress(null);
+  ['l1-01', 'l2-01', 'l3-01', 'l4-01', 'l5-01'].forEach((id) => p.completeLesson(id));
+  assert.equal(p.topicsUnlocked(lv), false);
+  p.completeLesson('l6-01');
+  assert.equal(p.topicsUnlocked(lv), true);
+});
+
+test('argomenti: a metà corso (livello 7 presente) restano chiusi finché non è fatto il 6', () => {
+  const lv = mk(6);
+  const p = createProgress(null);
+  ['l1-01', 'l2-01', 'l3-01', 'l4-01', 'l5-01'].forEach((id) => p.completeLesson(id));
+  assert.equal(p.topicsUnlocked(lv), false);
+  const more = mk(7);
+  p.completeLesson('l6-01');
+  assert.equal(p.topicsUnlocked(more), true);
+});
