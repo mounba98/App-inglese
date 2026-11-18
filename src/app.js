@@ -5,7 +5,6 @@ import { createLessonFlow } from './lesson.js';
 import { dueCards, todayLocal } from './srs.js';
 import { hasSpeech, whenVoicesReady, speak } from './speech.js';
 
-const TOTAL_LEVELS = 6;
 const REVIEW_MAX = 8;
 const LOCK_MS = 300;
 
@@ -69,10 +68,11 @@ function renderHome() {
   const today = todaysLesson();
   const review = reviewItems();
   const nodes = [h('h1', {}, 'Imparo l\'inglese')];
+  const total = levels.length;
 
   if (today) {
     const levelNo = levels.indexOf(today.lv) + 1;
-    nodes.push(h('p', { class: 'progress' }, `Livello ${levelNo} di ${TOTAL_LEVELS}`));
+    nodes.push(h('p', { class: 'progress' }, `Livello ${levelNo} di ${total}`));
     nodes.push(h('div', { class: 'card' },
       h('h2', {}, 'Lezione di oggi'),
       h('p', { class: 'muted' }, today.lv.title),
@@ -80,7 +80,7 @@ function renderHome() {
       h('button', { onclick: () => startLesson(today.lesson) }, 'Inizia la lezione'),
     ));
   } else {
-    nodes.push(h('p', { class: 'progress' }, `Livello ${TOTAL_LEVELS} di ${TOTAL_LEVELS}`));
+    nodes.push(h('p', { class: 'progress' }, `Livello ${total} di ${total}`));
     nodes.push(h('div', { class: 'card' },
       h('p', { class: 'prompt' }, 'Hai finito tutte le lezioni, complimenti!'),
       h('p', { class: 'muted' }, 'Puoi ripassare quando vuoi. Presto arriveranno cose nuove.'),
@@ -92,7 +92,7 @@ function renderHome() {
     nodes.push(h('div', { class: 'card' },
       h('h2', {}, 'Ripasso'),
       h('p', {}, n === 1 ? 'C\'è 1 parola da ripassare.' : `Ci sono ${n} parole da ripassare.`),
-      h('button', { class: 'secondary', onclick: () => startLesson({ id: 'ripasso', title: 'Ripasso', items: review.slice(0, REVIEW_MAX) }) }, 'Ripassa'),
+      h('button', { class: 'secondary', onclick: () => startLesson({ id: 'ripasso', title: 'Ripasso', isReview: true, items: review.slice(0, REVIEW_MAX) }) }, 'Ripassa'),
     ));
   }
   show(...nodes);
@@ -127,10 +127,12 @@ function renderLesson() {
   if (c.step === 'done') return renderDone();
 
   if (c.step === 'learn') {
+    const ok = session.feedback === 'ok';
     session.feedback = null;
     return show(
       exitButton(),
       h('div', { class: 'card' },
+        ok && h('p', { class: 'feedback ok' }, 'Giusto!'),
         h('p', { class: 'en', lang: 'en' }, c.item.en),
         h('p', { class: 'it' }, c.item.it),
         listenBlock(c.item),
@@ -202,11 +204,14 @@ function renderDone() {
     session.recorded = true;
     const today = todayLocal();
     for (const [id, ok] of Object.entries(flow.results())) progress.recordAnswer(id, ok, today);
-    if (lesson.id !== 'ripasso') progress.completeLesson(lesson.id);
+    if (!lesson.isReview) progress.completeLesson(lesson.id);
   }
+  const lastOk = session.feedback === 'ok';
+  session.feedback = null;
   show(
     h('div', { class: 'card' },
-      h('p', { class: 'prompt' }, lesson.id === 'ripasso' ? 'Ripasso finito. Bravissima!' : 'Lezione finita. Bravissima!'),
+      lastOk && h('p', { class: 'feedback ok' }, 'Giusto!'),
+      h('p', { class: 'prompt' }, lesson.isReview ? 'Ripasso finito. Bravissima!' : 'Lezione finita. Bravissima!'),
       h('p', { class: 'muted' }, 'Puoi fermarti qui o continuare.'),
     ),
     h('button', { onclick: renderHome }, 'Torna alla home'),
