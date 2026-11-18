@@ -6,7 +6,7 @@ Questa guida serve a chi aggiunge contenuti all'app, in particolare alla session
 
 È per una **donna italiana, principiante assoluta** di inglese. Fa l'infermiera e fa volontariato con la Croce Rossa: ha clienti e persone assistite straniere e vuole poterci **chiacchierare per ore**. Servono frasi di ogni giorno, amichevoli, utili con loro.
 
-Il testo italiano (`it`) è scritto **al femminile**: «stanca», «contenta», «pronta».
+Il testo italiano (`it`) è scritto **al femminile**: «stanca», «contenta», «pronta», «sicura».
 
 ## Come viene usato un elemento
 
@@ -46,7 +46,7 @@ Il JSON è indentato con **1 spazio** e termina con un a capo.
 - `en`: la frase inglese «da manuale». Obbligatorio.
 - `it`: la frase italiana che lei vede. Obbligatorio.
 - `accept`: facoltativo. Elenco di risposte accettate. Se manca, vale solo `en`. Se c'è, **deve contenere `en`**.
-- `uguale`: facoltativo, booleano. Solo `true`, e solo quando una parola inglese è davvero identica in italiano (pizza, banana, zebra, sport, cinema, film, taxi, Anna…). Serve a far passare il controllo «la risposta non compare in `it`». Non usarlo mai per aggirare il controllo: se la risposta si legge nell'italiano, riscrivi `it`.
+- `uguale`: facoltativo, booleano. Solo `true`, e solo quando una parola inglese è davvero identica in italiano (pizza, banana, zebra, sport, cinema, film, taxi, Anna…). Serve a far passare il controllo «la risposta non compare in `it`». Non usarlo mai per aggirare il controllo: se la risposta si legge nell'italiano, riscrivi `it`. Il test accetta `uguale` solo per parole di un elenco chiuso (pizza, pasta, banana, zebra, sport, cinema, film, taxi, anna, bar, hotel, menu, computer, internet, email, ok), che solo una persona può cambiare: **se ti serve `uguale` per una parola fuori elenco, non aggiungere l'elemento: scegli un'altra frase.**
 
 ### Lezione
 
@@ -90,6 +90,7 @@ Il JSON è indentato con **1 spazio** e termina con un a capo.
   - lezione di argomento: `slug-01`, `slug-02`;
   - elemento di argomento: `slug-01-parola`.
   - **Tutti gli id sono unici** in tutto il corso. Usa solo `a-z`, `0-9` e `-`.
+- **`it` è sempre al femminile** quando parla di lei: stanca, contenta, pronta, sicura (mai «stanco», «contento»).
 - **`it` è italiano naturale**, come lo direbbe una persona: non una traduzione parola per parola. E **non contiene mai la risposta**: nessuna parola inglese di almeno 4 lettere di `en` può comparire in `it` (salvo `"uguale": true`).
 - **`accept` elenca le alternative vere**: forme contratte e non (`I'm` / `I am`), sinonimi (`rubbish` / `trash`), varianti comuni (`Can I have` / `Could I have`). Non servono varianti solo di punteggiatura o maiuscole: il confronto ignora maiuscole, `, . ! ?` e apostrofi curvi. Ogni voce deve essere diversa dalle altre **dopo** questa normalizzazione (il test lo controlla).
 - **Inglese americano**: scrivi `color`, `bathroom`, `apartment`, `trash`, `vacation` come risposta principale; le forme britanniche (`colour`, `rubbish`, `holiday`) possono stare solo in `accept`.
@@ -100,9 +101,9 @@ Il JSON è indentato con **1 spazio** e termina con un a capo.
 
 ## Come aggiungere un livello
 
-1. Controlla l'ultimo id in `content/levels.json` (ora `l6`). Il nuovo è il successivo, **in coda**: `l7`.
-2. Aggiungi in fondo all'elenco un livello con 3–5 lezioni `l7-01`, `l7-02`… e al massimo 8 elementi ciascuna.
-3. Gli elementi si chiamano `l7-01-slug`.
+1. Controlla l'ultimo id in `content/levels.json`. Il nuovo è l'ultimo livello presente, +1, **in coda** (se l'ultimo è `l9`, scrivi `l10`).
+2. Aggiungi in fondo all'elenco un livello con 3–5 lezioni `lN-01`, `lN-02`… e al massimo 8 elementi ciascuna.
+3. Gli elementi si chiamano `lN-01-slug`.
 
 I livelli restano **in ordine**: si sbloccano uno dopo l'altro. Non inserire mai un livello in mezzo.
 
@@ -114,7 +115,7 @@ I livelli restano **in ordine**: si sbloccano uno dopo l'altro. Non inserire mai
 
 ## Cose da non fare mai
 
-- **Non cambiare e non togliere id esistenti** (di livelli, lezioni, elementi). I progressi e le ripetizioni di chi usa l'app si basano su quegli id: cambiarli li perde.
+- **Non cambiare e non togliere id esistenti** (di livelli, lezioni, elementi). I progressi e le ripetizioni di chi usa l'app si basano su quegli id: cambiarli li perde. Un test (`tests/ids-baseline.json`) controlla che ogni id esistente ci sia ancora e che il suo `en` sia uguale: **si può solo aggiungere, mai togliere o cambiare**. Non toccare mai quel file: lo aggiorna solo una persona.
 - Non riordinare elementi o lezioni esistenti.
 - Non modificare codice, test, stile o altri file.
 
@@ -128,9 +129,9 @@ npm test
 
 ## Coda
 
-Elenco delle cose da scrivere, **in ordine**. La sessione automatica prende la prima casella vuota.
+Elenco delle cose da scrivere, **in ordine**. La sessione automatica scrive **una voce per volta**, **alternando**: un livello, poi un argomento, poi di nuovo un livello. Si parte dalla prima casella vuota dei Livelli. Se una delle due liste è finita, si continua con l'altra.
 
-### Livelli (continuano da `l7`)
+### Livelli
 
 - [ ] Livello: Il passato di essere (was / were)
 - [ ] Livello: Il passato regolare (-ed: worked, called, helped)
@@ -163,10 +164,10 @@ Elenco delle cose da scrivere, **in ordine**. La sessione automatica prende la p
 ## Procedura per la sessione automatica
 
 1. Leggi questa guida e, per lo stile e il lessico già insegnato, `content/levels.json` e `content/topics.json`.
-2. Prendi la **prima casella non spuntata** della Coda (prima i livelli, poi gli argomenti; i livelli seguono l'ordine della lista).
-3. Scrivila nel file giusto (`content/levels.json` per un livello, `content/topics.json` per un argomento), seguendo formato e regole. Usa solo parole e strutture già insegnate più poche nuove.
-4. Spunta la casella nella Coda scrivendo la data, così: `- [x] Livello: … (fatto 2026-11-21)`.
-5. **Se la Coda è vuota** (nessuna casella da spuntare), prima aggiungi **5 nuove voci coerenti** con la progressione (livelli che proseguono dopo l'ultimo; argomenti utili con clienti e assistiti), poi procedi dal punto 2.
-6. Lancia `npm test` e correggi i contenuti finché passa tutto.
+2. **Scegli la voce**: alterna un livello e un argomento, una sola voce per esecuzione. Conta le caselle spuntate: se i Livelli ne hanno spuntate quante gli Argomenti (o meno), prendi la prima casella non spuntata dei **Livelli**; altrimenti la prima dei **Argomenti**. Se una delle due liste non ha più caselle vuote, prendi dall'altra.
+3. **Se entrambe le liste sono senza caselle vuote**: aggiungi **5 nuovi livelli in fondo alla lista Livelli**, che proseguono la progressione dopo l'ultimo, e **5 nuovi argomenti in fondo alla lista Argomenti**, utili con clienti e assistiti. Usa lo stesso formato delle righe vuote (`- [ ] Livello: …`). Poi prosegui dal punto 2.
+4. Scrivi la voce nel file giusto (`content/levels.json` per un livello, `content/topics.json` per un argomento), seguendo formato e regole. Usa solo parole e strutture già insegnate più poche nuove.
+5. Spunta la casella nella Coda con la data di oggi (`date +%F`), così: `- [x] Livello: … (fatto 2026-11-21)`.
+6. Lancia `npm test` e correggi i contenuti finché passa tutto. Il test controlla che le caselle spuntate corrispondano ai livelli aggiunti dopo `l6` (spuntati = livelli totali − 6) e agli argomenti aggiunti dopo i 7 iniziali (spuntati = argomenti totali − 7): non spuntare una casella senza scrivere il contenuto, e viceversa.
 7. **Tocca solo** `content/*.json` e `docs/CONTENUTI.md`. Qualunque altro file, e la pull request non viene unita da sola.
 8. Apri la pull request. Se tutti i test passano e hai toccato solo quei file, viene unita automaticamente.

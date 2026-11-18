@@ -12,28 +12,49 @@ const groups = [...levels, ...topics];
 const lessons = groups.flatMap((g) => g.lessons.map((l) => ({ group: g, lesson: l })));
 const items = lessons.flatMap(({ lesson }) => lesson.items.map((it) => ({ lesson, it })));
 
+// Parole che possono essere identiche in inglese e in italiano. Solo una persona può cambiare questo elenco.
+const UGUALI_AMMESSE = new Set(['pizza', 'pasta', 'banana', 'zebra', 'sport', 'cinema', 'film', 'taxi', 'anna', 'bar', 'hotel', 'menu', 'computer', 'internet', 'email', 'ok']);
+
+// Forma base grossolana: toglie una desinenza finale (ing, ed, es, s).
+const stem = (w) => w.replace(/(ing|ed|es|s)$/, '');
+
 const words = (s) =>
   normalize(s)
     .split(/[^\p{L}\p{N}]+/u)
     .filter(Boolean);
 
-test('la risposta non compare in «it» (parole inglesi di 4+ lettere), salvo «uguale»: true', () => {
+const shared = (it) => {
+  const itWords = words(it.it);
+  const itSet = new Set(itWords);
+  const itStems = new Set(itWords.map(stem));
+  return words(it.en).filter((w) => w.length >= 4 && (itSet.has(w) || itStems.has(stem(w))));
+};
+
+test('la risposta non compare in «it» (parole inglesi di 4+ lettere, anche con s/es/ed/ing), salvo «uguale»: true', () => {
   const bad = [];
   for (const { it } of items) {
     if (it.uguale === true) continue;
-    const itWords = new Set(words(it.it));
-    const hit = words(it.en).filter((w) => w.length >= 4 && itWords.has(w));
+    const hit = shared(it);
     if (hit.length) bad.push(`${it.id}: «${hit.join(', ')}» compare sia in en sia in it`);
   }
-  assert.deepEqual(bad, [], `Nel testo italiano c'è la risposta. Riscrivi «it» o, solo se la parola è davvero identica in italiano, aggiungi "uguale": true.\n${bad.join('\n')}`);
+  assert.deepEqual(bad, [], `Nel testo italiano c'è la risposta. Riscrivi «it».\n${bad.join('\n')}`);
+});
+
+test('«uguale»: ogni parola in comune deve essere nell\'elenco delle parole ammesse', () => {
+  const bad = [];
+  for (const { it } of items) {
+    if (it.uguale !== true) continue;
+    const off = shared(it).filter((w) => !UGUALI_AMMESSE.has(w));
+    if (off.length) bad.push(`${it.id}: «${off.join(', ')}» non è tra le parole ammesse. Scegli un'altra frase.`);
+  }
+  assert.deepEqual(bad, [], bad.join('\n'));
 });
 
 test('«uguale»: true solo dove serve davvero (una parola uguale c\'è)', () => {
   const useless = [];
   for (const { it } of items) {
     if (it.uguale !== true) continue;
-    const itWords = new Set(words(it.it));
-    if (!words(it.en).some((w) => w.length >= 4 && itWords.has(w))) useless.push(it.id);
+    if (shared(it).length === 0) useless.push(it.id);
   }
   assert.deepEqual(useless, [], `«uguale» inutile in: ${useless.join(', ')}`);
 });
@@ -103,4 +124,36 @@ test('formato degli id: lezioni «<gruppo>-NN», elementi «<lezione>-slug»', (
     });
   }
   assert.deepEqual(bad, [], bad.join('\n'));
+});
+
+test('baseline degli id: ogni id esistente c\'è ancora e il suo «en» non è cambiato', () => {
+  const base = JSON.parse(readFileSync(new URL('./ids-baseline.json', import.meta.url), 'utf8'));
+  const bad = [];
+  for (const [file, current] of [['levels', levels], ['topics', topics]]) {
+    for (const g of base[file]) {
+      const cg = current.find((x) => x.id === g.id);
+      if (!cg) { bad.push(`${file}: manca «${g.id}»`); continue; }
+      for (const l of g.lessons) {
+        const cl = cg.lessons.find((x) => x.id === l.id);
+        if (!cl) { bad.push(`manca la lezione «${l.id}»`); continue; }
+        for (const i of l.items) {
+          const ci = cl.items.find((x) => x.id === i.id);
+          if (!ci) bad.push(`manca l'elemento «${i.id}»`);
+          else if (ci.en !== i.en) bad.push(`«${i.id}»: en cambiato da «${i.en}» a «${ci.en}»`);
+        }
+      }
+    }
+  }
+  assert.deepEqual(bad, [], `Si può solo aggiungere, mai togliere o cambiare.\n${bad.join('\n')}`);
+});
+
+test('Coda: caselle spuntate = livelli aggiunti dopo l6 e argomenti aggiunti dopo i 7 iniziali', () => {
+  const md = readFileSync(new URL('../docs/CONTENUTI.md', import.meta.url), 'utf8');
+  const sec = (name) => {
+    const m = md.match(new RegExp(`### ${name}[^\\n]*\\n([\\s\\S]*?)(?=\\n#{2,3} |$)`));
+    assert.ok(m, `sezione «${name}» non trovata nella Coda`);
+    return (m[1].match(/^- \[[xX]\]/gm) || []).length;
+  };
+  assert.equal(sec('Livelli'), levels.length - 6, 'livelli spuntati diversi dai livelli aggiunti');
+  assert.equal(sec('Argomenti'), topics.length - 7, 'argomenti spuntati diversi dagli argomenti aggiunti');
 });
