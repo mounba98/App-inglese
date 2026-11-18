@@ -31,6 +31,9 @@ export function validateContent(levels, topics) {
       const good = Array.isArray(item.accept) && item.accept.length > 0 && item.accept.every((a) => !blank(a));
       if (!good) errors.push(`Elemento «${item.id}»: «accept» deve essere un elenco non vuoto di testi non vuoti.`);
     }
+    if (item.uguale !== undefined && typeof item.uguale !== 'boolean') {
+      errors.push(`Elemento «${item.id}»: «uguale» deve essere true o false.`);
+    }
   }
 
   function checkLesson(lesson, parentId) {

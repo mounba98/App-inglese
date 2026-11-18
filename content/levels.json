@@ -29,7 +29,8 @@
        "B-banana",
        "B banana",
        "banana"
-      ]
+      ],
+      "uguale": true
      },
      {
       "id": "l1-01-c",
@@ -214,7 +215,8 @@
        "P-pizza",
        "P pizza",
        "pizza"
-      ]
+      ],
+      "uguale": true
      },
      {
       "id": "l1-03-q",
@@ -340,7 +342,8 @@
        "Z-zebra",
        "Z zebra",
        "zebra"
-      ]
+      ],
+      "uguale": true
      }
     ]
    }
@@ -737,21 +740,13 @@
       "it": "Sto bene, grazie",
       "accept": [
        "I'm fine, thank you",
-       "I'm fine thank you",
        "I am fine, thank you",
-       "I am fine thank you",
        "I'm fine, thanks",
-       "I'm fine thanks",
        "I am fine, thanks",
-       "I am fine thanks",
        "I'm well, thank you",
-       "I'm well thank you",
        "I am well, thank you",
-       "I am well thank you",
        "I'm well, thanks",
-       "I'm well thanks",
-       "I am well, thanks",
-       "I am well thanks"
+       "I am well, thanks"
       ]
      },
      {
@@ -784,7 +779,8 @@
        "My name's Anna",
        "I'm Anna",
        "I am Anna"
-      ]
+      ],
+      "uguale": true
      },
      {
       "id": "l3-03-whats-your-name",
@@ -812,9 +808,7 @@
       "it": "Piacere anche a me",
       "accept": [
        "Nice to meet you too",
-       "Nice to meet you, too",
-       "Pleased to meet you too",
-       "Pleased to meet you, too"
+       "Pleased to meet you too"
       ]
      },
      {
@@ -1119,10 +1113,8 @@
       "accept": [
        "Where is the bathroom?",
        "Where's the bathroom",
-       "Where is the bathroom",
        "Where is the restroom?",
-       "Where's the restroom",
-       "Where is the restroom"
+       "Where's the restroom"
       ]
      },
      {
@@ -1300,7 +1292,8 @@
      {
       "id": "l5-02-i-like-pizza",
       "en": "I like pizza",
-      "it": "Mi piace la pizza"
+      "it": "Mi piace la pizza",
+      "uguale": true
      },
      {
       "id": "l5-02-do-you-like-coffee",
@@ -1529,14 +1522,10 @@
       "it": "Puoi ripetere, per favore?",
       "accept": [
        "Can you repeat, please?",
-       "Can you repeat please?",
        "Can you repeat that, please",
-       "Can you repeat that please",
        "Can you repeat that",
        "Could you repeat, please",
-       "Could you repeat please",
        "Could you repeat that, please",
-       "Could you repeat that please",
        "Could you repeat that"
       ]
      },
@@ -1546,15 +1535,10 @@
       "it": "Puoi parlare lentamente, per favore?",
       "accept": [
        "Can you speak slowly, please?",
-       "Can you speak slowly please?",
        "Can you speak more slowly, please",
-       "Can you speak more slowly please",
        "Can you speak slower, please",
-       "Can you speak slower please",
        "Could you speak slowly, please",
-       "Could you speak slowly please",
-       "Could you speak slower, please",
-       "Could you speak slower please"
+       "Could you speak slower, please"
       ]
      },
      {
@@ -1614,17 +1598,12 @@
       "it": "Un attimo, per favore",
       "accept": [
        "Just a moment, please",
-       "Just a moment please",
        "One moment, please",
-       "One moment please",
        "Just a second",
        "One second",
        "Just a minute, please",
-       "Just a minute please",
        "Just a second, please",
-       "Just a second please",
-       "One second, please",
-       "One second please"
+       "One second, please"
       ]
      },
      {
@@ -1686,13 +1665,10 @@
       "it": "Sì, certo",
       "accept": [
        "Yes, of course",
-       "Yes of course",
        "Of course",
        "Yes, sure",
-       "Yes sure",
        "Sure",
        "Yes, certainly",
-       "Yes certainly",
        "Certainly"
       ]
      },
@@ -1740,12 +1716,10 @@
       "it": "Mi piace la pizza, ma non la pasta",
       "accept": [
        "I like pizza, but I don't like pasta",
-       "I like pizza but I don't like pasta",
        "I like pizza, but I do not like pasta",
-       "I like pizza but I do not like pasta",
-       "I like pizza, but not pasta",
-       "I like pizza but not pasta"
-      ]
+       "I like pizza, but not pasta"
+      ],
+      "uguale": true
      },
      {
       "id": "l6-04-tired-but-happy",
@@ -1753,17 +1727,11 @@
       "it": "Sono stanca, ma contenta",
       "accept": [
        "I'm tired, but I'm happy",
-       "I'm tired but I'm happy",
        "I'm tired, but I am happy",
-       "I'm tired but I am happy",
        "I am tired, but I'm happy",
-       "I am tired but I'm happy",
        "I am tired, but I am happy",
-       "I am tired but I am happy",
        "I'm tired, but happy",
-       "I'm tired but happy",
-       "I am tired, but happy",
-       "I am tired but happy"
+       "I am tired, but happy"
       ]
      },
      {
@@ -1772,13 +1740,9 @@
       "it": "Capisco l'inglese, ma non lo parlo bene",
       "accept": [
        "I understand English, but I don't speak it well",
-       "I understand English but I don't speak it well",
        "I understand English, but I do not speak it well",
-       "I understand English but I do not speak it well",
        "I understand English, but I don't speak it very well",
-       "I understand English but I don't speak it very well",
-       "I understand English, but I do not speak it very well",
-       "I understand English but I do not speak it very well"
+       "I understand English, but I do not speak it very well"
       ]
      }
     ]
