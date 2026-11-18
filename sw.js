@@ -3,7 +3,7 @@
 // Per aggiornare l'app si cambia CACHE: il nuovo service worker si installa,
 // poi skipWaiting, e la versione nuova parte al lancio successivo dell'app.
 // Nessun file viene mai riscritto nella cache attiva in background.
-const CACHE = 'inglese-v2';
+const CACHE = 'inglese-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -12,6 +12,7 @@ const ASSETS = [
   './src/check.js',
   './src/content.js',
   './src/lesson.js',
+  './src/numbers.js',
   './src/progress.js',
   './src/speech.js',
   './src/srs.js',

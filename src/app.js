@@ -3,6 +3,7 @@ import { loadContent } from './content.js';
 import { createProgress } from './progress.js';
 import { createLessonFlow } from './lesson.js';
 import { dueCards, todayLocal } from './srs.js';
+import { numberItems } from './numbers.js';
 import { hasSpeech, whenVoicesReady, speak } from './speech.js';
 
 const REVIEW_MAX = 8;
@@ -45,7 +46,7 @@ function h(tag, props = {}, ...kids) {
 
 function show(...nodes) {
   document.body.setAttribute('data-pronta', ''); // dice a index.html che l'app è partita
-  root.replaceChildren(...nodes);
+  root.replaceChildren(...nodes.filter((n) => n));
   // Niente doppi tocchi durante la transizione.
   const buttons = [...root.querySelectorAll('button')];
   buttons.forEach((b) => { b.disabled = true; });
@@ -101,10 +102,28 @@ function renderHome() {
     ));
   }
   nodes.push(topicsBlock());
+  if (level2Complete()) {
+    nodes.push(h('div', { class: 'card' },
+      h('h2', {}, 'Numeri senza fine'),
+      h('p', {}, 'Scrivi in inglese numeri sempre nuovi.'),
+      h('button', { class: 'secondary', onclick: startNumbers }, 'Numeri senza fine'),
+    ));
+  }
   if (!isStandalone()) {
     nodes.push(h('p', { class: 'hint' }, 'Consiglio: aggiungi l\'app alla schermata Home, così i progressi restano salvati.'));
   }
   show(...nodes);
+}
+
+function level2Complete() {
+  const lv = levels.find((l) => l.id === 'l2');
+  const done = progress.get().completed;
+  return !!lv && lv.lessons.every((l) => done.includes(l.id));
+}
+
+// Sessione di numeri casuali: non entra nel ripasso e non completa nessuna lezione.
+function startNumbers() {
+  startLesson({ id: 'numeri', title: 'Numeri senza fine', isPractice: true, items: numberItems(8) });
 }
 
 function isStandalone() {
@@ -144,7 +163,7 @@ function renderTopic(topic) {
 }
 
 function startLesson(lesson, topic = null) {
-  session = { lesson, topic, flow: createLessonFlow(lesson, lesson.isReview ? { startAt: 'write' } : undefined), feedback: null, recorded: false, lastAnswer: '' };
+  session = { lesson, topic, flow: createLessonFlow(lesson, (lesson.isReview || lesson.isPractice) ? { startAt: 'write' } : undefined), feedback: null, recorded: false, lastAnswer: '' };
   renderLesson();
 }
 
@@ -263,20 +282,23 @@ function renderDone() {
   const { flow, lesson } = session;
   if (!session.recorded) {
     session.recorded = true;
-    const today = todayLocal();
-    for (const [id, ok] of Object.entries(flow.results())) progress.recordAnswer(id, ok, today);
-    if (!lesson.isReview) progress.completeLesson(lesson.id);
+    if (!lesson.isPractice) {
+      const today = todayLocal();
+      for (const [id, ok] of Object.entries(flow.results())) progress.recordAnswer(id, ok, today);
+      if (!lesson.isReview) progress.completeLesson(lesson.id);
+    }
   }
   const lastOk = session.feedback === 'ok';
   session.feedback = null;
   show(
     h('div', { class: 'card' },
       lastOk && h('p', { class: 'feedback ok' }, 'Giusto!'),
-      h('p', { class: 'prompt' }, lesson.isReview ? 'Ripasso finito. Bravissima!' : 'Lezione finita. Bravissima!'),
+      h('p', { class: 'prompt' }, lesson.isPractice ? 'Numeri finiti. Bravissima!' : lesson.isReview ? 'Ripasso finito. Bravissima!' : 'Lezione finita. Bravissima!'),
       h('p', { class: 'muted' }, 'Puoi fermarti qui o continuare.'),
     ),
+    lesson.isPractice ? h('button', { onclick: startNumbers }, 'Altri numeri') : null,
     session.topic ? h('button', { onclick: () => renderTopic(session.topic) }, 'Torna all\'argomento') : null,
-    h('button', { class: session.topic ? 'secondary' : '', onclick: renderHome }, 'Torna alla home'),
+    h('button', { class: (session.topic || lesson.isPractice) ? 'secondary' : '', onclick: renderHome }, lesson.isPractice ? 'Torna all\'inizio' : 'Torna alla home'),
   );
 }
 
