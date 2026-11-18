@@ -1,9 +1,10 @@
 // Aggiornamenti atomici: tutti i file stanno in una cache con il numero di versione,
 // riempita in blocco (addAll) all'installazione; l'app risponde sempre da lì.
-// Per aggiornare l'app si cambia CACHE: il nuovo service worker si installa,
+// La versione si riempie da sola alla pubblicazione, a partire dal commit:
+// non c'è nulla da cambiare a mano. Il nuovo service worker si installa,
 // poi skipWaiting, e la versione nuova parte al lancio successivo dell'app.
 // Nessun file viene mai riscritto nella cache attiva in background.
-const CACHE = 'inglese-v3';
+const CACHE = 'inglese-__VERSIONE__';
 const ASSETS = [
   './',
   './index.html',
