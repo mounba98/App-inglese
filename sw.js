@@ -1,3 +1,4 @@
+// Cambia CACHE a ogni nuova versione dei contenuti o del codice.
 const CACHE = 'inglese-v1';
 const ASSETS = [
   './',
@@ -20,7 +21,7 @@ const ASSETS = [
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
+  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS.map((u) => new Request(u, { cache: 'reload' })))).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (event) => {
@@ -36,22 +37,22 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
-  event.respondWith(handle(req));
+  event.respondWith(
+    handle(event, req).catch(() => fetch(req).catch(() => new Response('Offline', { status: 503, statusText: 'Offline' }))),
+  );
 });
 
-async function handle(req) {
+async function handle(event, req) {
   const cache = await caches.open(CACHE);
   const cached = await cache.match(req, { ignoreSearch: true });
   const network = fetch(req)
-    .then((res) => {
-      if (res && res.ok) cache.put(req, res.clone()).catch(() => {});
+    .then(async (res) => {
+      if (res && res.ok) await cache.put(req, res.clone()).catch(() => {});
       return res;
     })
     .catch(() => null);
-  if (cached) {
-    network.catch(() => {});
-    return cached;
-  }
+  event.waitUntil(network);
+  if (cached) return cached;
   const res = await network;
   if (res) return res;
   if (req.mode === 'navigate') {
