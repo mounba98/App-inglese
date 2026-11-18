@@ -38,9 +38,20 @@ test('hasSpeech true con voce inglese', () => {
 });
 test('solo voci it-IT: hasSpeech false e speak false', async () => {
   const { env, log } = makeEnv([it]);
+  const start = Date.now();
   assert.equal(hasSpeech(env), false);
   assert.equal(await speak('hi', env, 'en-US', ), false);
   assert.equal(log.spoken.length, 0);
+  assert.ok(Date.now() - start < 200, 'nessuna attesa: le voci sono già caricate');
+});
+test('onend mai chiamato: il timeout di sicurezza risolve true', async () => {
+  const { env } = makeEnv([en], 'never');
+  assert.equal(await speak('x', env, 'en-US', 20), true);
+});
+test('u.lang segue la voce scelta (en-GB non marcata en-US)', async () => {
+  const t = makeEnv([gb]);
+  await speak('a', t.env, 'en-US');
+  assert.equal(t.log.spoken[0].lang, 'en_GB');
 });
 test('onend -> true, imposta lang, voice, rate 0.85', async () => {
   const { env, log } = makeEnv([it, gb, en]);

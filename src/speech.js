@@ -28,6 +28,8 @@ export function whenVoicesReady(env = globalThis, timeoutMs = 1500) {
   const synth = env?.speechSynthesis;
   if (!synth) return Promise.resolve(false);
   if (hasSpeech(env)) return Promise.resolve(true);
+  // Voci già caricate ma nessuna inglese: inutile aspettare.
+  if (voicesOf(env).length > 0) return Promise.resolve(false);
   return new Promise((resolve) => {
     let done = false;
     let timer;
@@ -49,7 +51,10 @@ export function whenVoicesReady(env = globalThis, timeoutMs = 1500) {
   });
 }
 
-export async function speak(text, env = globalThis, lang = 'en-US') {
+// Riferimento forte: Android Chrome può raccogliere l'utterance prima di onend.
+let current = null;
+
+export async function speak(text, env = globalThis, lang = 'en-US', safetyMs = Math.max(4000, String(text ?? '').length * 200)) {
   try {
     const synth = env?.speechSynthesis;
     const Utter = env?.SpeechSynthesisUtterance;
@@ -58,17 +63,23 @@ export async function speak(text, env = globalThis, lang = 'en-US') {
     const voice = pickVoice(env, lang);
     if (!voice) return false;
     return await new Promise((resolve) => {
+      let timer;
+      const done = (ok) => { clearTimeout(timer); if (current === u) current = null; resolve(ok); };
+      let u;
       try {
-        const u = new Utter(text);
-        u.lang = lang;
+        u = new Utter(text);
+        current = u;
+        u.lang = voice.lang || lang;
         u.voice = voice;
         u.rate = 0.85;
-        u.onend = () => resolve(true);
-        u.onerror = () => resolve(false);
+        u.onend = () => done(true);
+        u.onerror = () => done(false);
+        // onend/onerror a volte non scattano mai: non restare appesi.
+        timer = setTimeout(() => done(true), safetyMs);
         synth.cancel();
         synth.speak(u);
       } catch {
-        resolve(false);
+        done(false);
       }
     });
   } catch {
