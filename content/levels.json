@@ -10,10 +10,11 @@
      {
       "id": "l1-01-a",
       "en": "A — apple",
-      "it": "si legge «ei», come in «apple» (mela)",
+      "it": "lettera A («ei») — esempio: mela",
       "accept": [
        "A — apple",
        "A - apple",
+       "A-apple",
        "A apple",
        "apple"
       ]
@@ -21,10 +22,11 @@
      {
       "id": "l1-01-b",
       "en": "B — banana",
-      "it": "si legge «bi», come in «banana» (banana)",
+      "it": "lettera B («bi») — esempio: banana",
       "accept": [
        "B — banana",
        "B - banana",
+       "B-banana",
        "B banana",
        "banana"
       ]
@@ -32,10 +34,11 @@
      {
       "id": "l1-01-c",
       "en": "C — cat",
-      "it": "si legge «si», come in «cat» (gatto)",
+      "it": "lettera C («si») — esempio: gatto",
       "accept": [
        "C — cat",
        "C - cat",
+       "C-cat",
        "C cat",
        "cat"
       ]
@@ -43,10 +46,11 @@
      {
       "id": "l1-01-d",
       "en": "D — dog",
-      "it": "si legge «di», come in «dog» (cane)",
+      "it": "lettera D («di») — esempio: cane",
       "accept": [
        "D — dog",
        "D - dog",
+       "D-dog",
        "D dog",
        "dog"
       ]
@@ -54,10 +58,11 @@
      {
       "id": "l1-01-e",
       "en": "E — egg",
-      "it": "si legge «i», come in «egg» (uovo)",
+      "it": "lettera E («i») — esempio: uovo",
       "accept": [
        "E — egg",
        "E - egg",
+       "E-egg",
        "E egg",
        "egg"
       ]
@@ -65,10 +70,11 @@
      {
       "id": "l1-01-f",
       "en": "F — fish",
-      "it": "si legge «èf», come in «fish» (pesce)",
+      "it": "lettera F («èf») — esempio: pesce",
       "accept": [
        "F — fish",
        "F - fish",
+       "F-fish",
        "F fish",
        "fish"
       ]
@@ -76,10 +82,11 @@
      {
       "id": "l1-01-g",
       "en": "G — green",
-      "it": "si legge «gi», come in «green» (verde)",
+      "it": "lettera G («gi») — esempio: verde",
       "accept": [
        "G — green",
        "G - green",
+       "G-green",
        "G green",
        "green"
       ]
@@ -93,10 +100,11 @@
      {
       "id": "l1-02-h",
       "en": "H — house",
-      "it": "si legge «èic», come in «house» (casa)",
+      "it": "lettera H («éich») — esempio: casa",
       "accept": [
        "H — house",
        "H - house",
+       "H-house",
        "H house",
        "house"
       ]
@@ -104,10 +112,11 @@
      {
       "id": "l1-02-i",
       "en": "I — ice",
-      "it": "si legge «ai», come in «ice» (ghiaccio)",
+      "it": "lettera I («ai») — esempio: ghiaccio",
       "accept": [
        "I — ice",
        "I - ice",
+       "I-ice",
        "I ice",
        "ice"
       ]
@@ -115,10 +124,11 @@
      {
       "id": "l1-02-j",
       "en": "J — juice",
-      "it": "si legge «gei», come in «juice» (succo)",
+      "it": "lettera J («gei») — esempio: succo",
       "accept": [
        "J — juice",
        "J - juice",
+       "J-juice",
        "J juice",
        "juice"
       ]
@@ -126,10 +136,11 @@
      {
       "id": "l1-02-k",
       "en": "K — key",
-      "it": "si legge «chei», come in «key» (chiave)",
+      "it": "lettera K («chei») — esempio: chiave",
       "accept": [
        "K — key",
        "K - key",
+       "K-key",
        "K key",
        "key"
       ]
@@ -137,10 +148,11 @@
      {
       "id": "l1-02-l",
       "en": "L — lemon",
-      "it": "si legge «èl», come in «lemon» (limone)",
+      "it": "lettera L («èl») — esempio: limone",
       "accept": [
        "L — lemon",
        "L - lemon",
+       "L-lemon",
        "L lemon",
        "lemon"
       ]
@@ -148,10 +160,11 @@
      {
       "id": "l1-02-m",
       "en": "M — milk",
-      "it": "si legge «èm», come in «milk» (latte)",
+      "it": "lettera M («èm») — esempio: latte",
       "accept": [
        "M — milk",
        "M - milk",
+       "M-milk",
        "M milk",
        "milk"
       ]
@@ -159,10 +172,11 @@
      {
       "id": "l1-02-n",
       "en": "N — name",
-      "it": "si legge «èn», come in «name» (nome)",
+      "it": "lettera N («èn») — esempio: nome",
       "accept": [
        "N — name",
        "N - name",
+       "N-name",
        "N name",
        "name"
       ]
@@ -176,10 +190,11 @@
      {
       "id": "l1-03-o",
       "en": "O — orange",
-      "it": "si legge «ou», come in «orange» (arancia)",
+      "it": "lettera O («ou») — esempio: arancia",
       "accept": [
        "O — orange",
        "O - orange",
+       "O-orange",
        "O orange",
        "orange"
       ]
@@ -187,10 +202,11 @@
      {
       "id": "l1-03-p",
       "en": "P — pizza",
-      "it": "si legge «pi», come in «pizza» (pizza)",
+      "it": "lettera P («pi») — esempio: pizza",
       "accept": [
        "P — pizza",
        "P - pizza",
+       "P-pizza",
        "P pizza",
        "pizza"
       ]
@@ -198,10 +214,11 @@
      {
       "id": "l1-03-q",
       "en": "Q — queen",
-      "it": "si legge «chiu», come in «queen» (regina)",
+      "it": "lettera Q («chiu») — esempio: regina",
       "accept": [
        "Q — queen",
        "Q - queen",
+       "Q-queen",
        "Q queen",
        "queen"
       ]
@@ -209,10 +226,11 @@
      {
       "id": "l1-03-r",
       "en": "R — red",
-      "it": "si legge «ar», come in «red» (rosso)",
+      "it": "lettera R («ar») — esempio: rosso",
       "accept": [
        "R — red",
        "R - red",
+       "R-red",
        "R red",
        "red"
       ]
@@ -220,10 +238,11 @@
      {
       "id": "l1-03-s",
       "en": "S — sun",
-      "it": "si legge «ès», come in «sun» (sole)",
+      "it": "lettera S («ès») — esempio: sole",
       "accept": [
        "S — sun",
        "S - sun",
+       "S-sun",
        "S sun",
        "sun"
       ]
@@ -231,10 +250,11 @@
      {
       "id": "l1-03-t",
       "en": "T — tea",
-      "it": "si legge «ti», come in «tea» (tè)",
+      "it": "lettera T («ti») — esempio: tè",
       "accept": [
        "T — tea",
        "T - tea",
+       "T-tea",
        "T tea",
        "tea"
       ]
@@ -248,10 +268,11 @@
      {
       "id": "l1-04-u",
       "en": "U — umbrella",
-      "it": "si legge «iu», come in «umbrella» (ombrello)",
+      "it": "lettera U («iu») — esempio: ombrello",
       "accept": [
        "U — umbrella",
        "U - umbrella",
+       "U-umbrella",
        "U umbrella",
        "umbrella"
       ]
@@ -259,10 +280,11 @@
      {
       "id": "l1-04-v",
       "en": "V — violin",
-      "it": "si legge «vi», come in «violin» (violino)",
+      "it": "lettera V («vi») — esempio: violino",
       "accept": [
        "V — violin",
        "V - violin",
+       "V-violin",
        "V violin",
        "violin"
       ]
@@ -270,10 +292,11 @@
      {
       "id": "l1-04-w",
       "en": "W — water",
-      "it": "si legge «dàbliu», come in «water» (acqua)",
+      "it": "lettera W («dàbliu») — esempio: acqua",
       "accept": [
        "W — water",
        "W - water",
+       "W-water",
        "W water",
        "water"
       ]
@@ -281,10 +304,11 @@
      {
       "id": "l1-04-x",
       "en": "X — x-ray",
-      "it": "si legge «èks», come in «x-ray» (radiografia)",
+      "it": "lettera X («èks») — esempio: radiografia",
       "accept": [
        "X — x-ray",
        "X - x-ray",
+       "X-x-ray",
        "X x-ray",
        "x-ray"
       ]
@@ -292,10 +316,11 @@
      {
       "id": "l1-04-y",
       "en": "Y — yes",
-      "it": "si legge «uài», come in «yes» (sì)",
+      "it": "lettera Y («uài») — esempio: sì",
       "accept": [
        "Y — yes",
        "Y - yes",
+       "Y-yes",
        "Y yes",
        "yes"
       ]
@@ -303,10 +328,11 @@
      {
       "id": "l1-04-z",
       "en": "Z — zebra",
-      "it": "si legge «zèd», come in «zebra» (zebra)",
+      "it": "lettera Z («zed», all'americana «zi») — esempio: zebra",
       "accept": [
        "Z — zebra",
        "Z - zebra",
+       "Z-zebra",
        "Z zebra",
        "zebra"
       ]
@@ -328,8 +354,7 @@
       "en": "zero",
       "it": "0 — zero",
       "accept": [
-       "zero",
-       "0"
+       "zero"
       ]
      },
      {
@@ -337,8 +362,7 @@
       "en": "one",
       "it": "1 — uno",
       "accept": [
-       "one",
-       "1"
+       "one"
       ]
      },
      {
@@ -346,8 +370,7 @@
       "en": "two",
       "it": "2 — due",
       "accept": [
-       "two",
-       "2"
+       "two"
       ]
      },
      {
@@ -355,8 +378,7 @@
       "en": "three",
       "it": "3 — tre",
       "accept": [
-       "three",
-       "3"
+       "three"
       ]
      },
      {
@@ -364,8 +386,7 @@
       "en": "four",
       "it": "4 — quattro",
       "accept": [
-       "four",
-       "4"
+       "four"
       ]
      },
      {
@@ -373,8 +394,7 @@
       "en": "five",
       "it": "5 — cinque",
       "accept": [
-       "five",
-       "5"
+       "five"
       ]
      },
      {
@@ -382,8 +402,7 @@
       "en": "six",
       "it": "6 — sei",
       "accept": [
-       "six",
-       "6"
+       "six"
       ]
      },
      {
@@ -391,8 +410,7 @@
       "en": "seven",
       "it": "7 — sette",
       "accept": [
-       "seven",
-       "7"
+       "seven"
       ]
      }
     ]
@@ -406,8 +424,7 @@
       "en": "eight",
       "it": "8 — otto",
       "accept": [
-       "eight",
-       "8"
+       "eight"
       ]
      },
      {
@@ -415,8 +432,7 @@
       "en": "nine",
       "it": "9 — nove",
       "accept": [
-       "nine",
-       "9"
+       "nine"
       ]
      },
      {
@@ -424,8 +440,7 @@
       "en": "ten",
       "it": "10 — dieci",
       "accept": [
-       "ten",
-       "10"
+       "ten"
       ]
      },
      {
@@ -433,8 +448,7 @@
       "en": "eleven",
       "it": "11 — undici",
       "accept": [
-       "eleven",
-       "11"
+       "eleven"
       ]
      },
      {
@@ -442,8 +456,7 @@
       "en": "twelve",
       "it": "12 — dodici",
       "accept": [
-       "twelve",
-       "12"
+       "twelve"
       ]
      },
      {
@@ -451,8 +464,7 @@
       "en": "thirteen",
       "it": "13 — tredici (13: «-teen» si sente alla fine)",
       "accept": [
-       "thirteen",
-       "13"
+       "thirteen"
       ]
      },
      {
@@ -460,8 +472,7 @@
       "en": "fourteen",
       "it": "14 — quattordici",
       "accept": [
-       "fourteen",
-       "14"
+       "fourteen"
       ]
      },
      {
@@ -469,8 +480,7 @@
       "en": "fifteen",
       "it": "15 — quindici",
       "accept": [
-       "fifteen",
-       "15"
+       "fifteen"
       ]
      }
     ]
@@ -484,8 +494,7 @@
       "en": "sixteen",
       "it": "16 — sedici",
       "accept": [
-       "sixteen",
-       "16"
+       "sixteen"
       ]
      },
      {
@@ -493,8 +502,7 @@
       "en": "seventeen",
       "it": "17 — diciassette",
       "accept": [
-       "seventeen",
-       "17"
+       "seventeen"
       ]
      },
      {
@@ -502,8 +510,7 @@
       "en": "eighteen",
       "it": "18 — diciotto",
       "accept": [
-       "eighteen",
-       "18"
+       "eighteen"
       ]
      },
      {
@@ -511,8 +518,7 @@
       "en": "nineteen",
       "it": "19 — diciannove",
       "accept": [
-       "nineteen",
-       "19"
+       "nineteen"
       ]
      },
      {
@@ -520,8 +526,7 @@
       "en": "twenty",
       "it": "20 — venti",
       "accept": [
-       "twenty",
-       "20"
+       "twenty"
       ]
      }
     ]
@@ -535,8 +540,7 @@
       "en": "thirty",
       "it": "30 — trenta (30: «-ty» si sente alla fine, diverso da thirteen = 13)",
       "accept": [
-       "thirty",
-       "30"
+       "thirty"
       ]
      },
      {
@@ -544,8 +548,7 @@
       "en": "forty",
       "it": "40 — quaranta",
       "accept": [
-       "forty",
-       "40"
+       "forty"
       ]
      },
      {
@@ -553,8 +556,7 @@
       "en": "fifty",
       "it": "50 — cinquanta",
       "accept": [
-       "fifty",
-       "50"
+       "fifty"
       ]
      },
      {
@@ -562,8 +564,7 @@
       "en": "sixty",
       "it": "60 — sessanta",
       "accept": [
-       "sixty",
-       "60"
+       "sixty"
       ]
      },
      {
@@ -571,8 +572,7 @@
       "en": "seventy",
       "it": "70 — settanta",
       "accept": [
-       "seventy",
-       "70"
+       "seventy"
       ]
      },
      {
@@ -580,8 +580,7 @@
       "en": "eighty",
       "it": "80 — ottanta",
       "accept": [
-       "eighty",
-       "80"
+       "eighty"
       ]
      },
      {
@@ -589,8 +588,7 @@
       "en": "ninety",
       "it": "90 — novanta",
       "accept": [
-       "ninety",
-       "90"
+       "ninety"
       ]
      },
      {
@@ -599,7 +597,6 @@
       "it": "100 — cento",
       "accept": [
        "one hundred",
-       "100",
        "a hundred"
       ]
      }
@@ -615,7 +612,6 @@
       "it": "21 — ventuno",
       "accept": [
        "twenty-one",
-       "21",
        "twenty one"
       ]
      },
@@ -625,7 +621,6 @@
       "it": "32 — trentadue",
       "accept": [
        "thirty-two",
-       "32",
        "thirty two"
       ]
      },
@@ -635,7 +630,6 @@
       "it": "45 — quarantacinque",
       "accept": [
        "forty-five",
-       "45",
        "forty five"
       ]
      },
@@ -645,7 +639,6 @@
       "it": "58 — cinquantotto",
       "accept": [
        "fifty-eight",
-       "58",
        "fifty eight"
       ]
      },
@@ -655,7 +648,6 @@
       "it": "99 — novantanove",
       "accept": [
        "ninety-nine",
-       "99",
        "ninety nine"
       ]
      }
