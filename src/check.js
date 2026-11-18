@@ -3,9 +3,8 @@ export function normalize(s) {
   return String(s)
     .toLowerCase()
     .replace(/[’‘]/g, "'")
+    .replace(/[,.!?]/g, ' ')
     .replace(/\s+/g, ' ')
-    .trim()
-    .replace(/[.,!?]+$/, '')
     .trim();
 }
 

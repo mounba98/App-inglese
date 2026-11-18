@@ -76,8 +76,15 @@ export async function speak(text, env = globalThis, lang = 'en-US', safetyMs = M
         u.onerror = () => done(false);
         // onend/onerror a volte non scattano mai: non restare appesi.
         timer = setTimeout(() => done(true), safetyMs);
-        synth.cancel();
-        synth.speak(u);
+        // Chrome: cancel() subito prima di speak() a volte inghiotte la frase.
+        // Si annulla solo se serve e si parla al giro successivo.
+        const go = () => {
+          try { synth.speak(u); } catch { done(false); }
+        };
+        if (synth.speaking || synth.pending) {
+          synth.cancel();
+          setTimeout(go, 0);
+        } else go();
       } catch {
         done(false);
       }

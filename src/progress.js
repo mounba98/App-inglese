@@ -4,7 +4,7 @@ import { nextReview } from './srs.js';
 const KEY = 'inglese-v1';
 const YMD = /^\d{4}-\d{2}-\d{2}$/;
 
-const initial = () => ({ completed: [], cards: {} });
+const initial = () => ({ completed: [], cards: {}, topicsOpen: false });
 
 function sanitize(raw) {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return initial();
@@ -21,7 +21,7 @@ function sanitize(raw) {
       cards[id] = { box: c.box, due: c.due };
     }
   }
-  return { completed, cards };
+  return { completed, cards, topicsOpen: raw.topicsOpen === true };
 }
 
 function load(storage) {
@@ -54,6 +54,7 @@ export function createProgress(storage) {
       return {
         completed: [...state.completed],
         cards: Object.fromEntries(Object.entries(state.cards).map(([k, c]) => [k, { ...c }])),
+        topicsOpen: state.topicsOpen,
       };
     },
     completeLesson(id) {
@@ -72,8 +73,14 @@ export function createProgress(storage) {
       return i === 0 || state.completed.includes(lessons[i - 1].id);
     },
     topicsUnlocked(levels) {
+      if (state.topicsOpen) return true; // una volta sbloccati, restano aperti
       const lessons = flat(levels);
-      return lessons.length > 0 && lessons.every((l) => state.completed.includes(l.id));
+      if (lessons.length > 0 && lessons.every((l) => state.completed.includes(l.id))) {
+        state.topicsOpen = true;
+        save();
+        return true;
+      }
+      return false;
     },
   };
 }

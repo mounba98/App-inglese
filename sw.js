@@ -1,5 +1,9 @@
-// Cambia CACHE a ogni nuova versione dei contenuti o del codice.
-const CACHE = 'inglese-v1';
+// Aggiornamenti atomici: tutti i file stanno in una cache con il numero di versione,
+// riempita in blocco (addAll) all'installazione; l'app risponde sempre da lì.
+// Per aggiornare l'app si cambia CACHE: il nuovo service worker si installa,
+// poi skipWaiting, e la versione nuova parte al lancio successivo dell'app.
+// Nessun file viene mai riscritto nella cache attiva in background.
+const CACHE = 'inglese-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -45,19 +49,14 @@ self.addEventListener('fetch', (event) => {
 async function handle(event, req) {
   const cache = await caches.open(CACHE);
   const cached = await cache.match(req, { ignoreSearch: true });
-  const network = fetch(req)
-    .then(async (res) => {
-      if (res && res.ok) await cache.put(req, res.clone()).catch(() => {});
-      return res;
-    })
-    .catch(() => null);
-  event.waitUntil(network);
   if (cached) return cached;
-  const res = await network;
-  if (res) return res;
-  if (req.mode === 'navigate') {
-    const fallback = await cache.match('./index.html');
-    if (fallback) return fallback;
+  try {
+    return await fetch(req);
+  } catch {
+    if (req.mode === 'navigate') {
+      const fallback = await cache.match('./index.html');
+      if (fallback) return fallback;
+    }
+    return new Response('Offline', { status: 503, statusText: 'Offline' });
   }
-  return new Response('Offline', { status: 503, statusText: 'Offline' });
 }

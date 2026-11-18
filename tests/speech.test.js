@@ -8,13 +8,16 @@ class FakeUtterance {
 
 function makeEnv(voices, behavior = 'end') {
   const log = { spoken: [], cancels: 0 };
+  const state = { busy: false };
   const listeners = {};
   const synth = {
     _voices: voices,
     getVoices() { return this._voices; },
     addEventListener(t, fn) { (listeners[t] ||= []).push(fn); },
     removeEventListener(t, fn) { listeners[t] = (listeners[t] || []).filter((f) => f !== fn); },
-    cancel() { log.cancels++; },
+    get speaking() { return state.busy; },
+    pending: false,
+    cancel() { log.cancels++; state.busy = false; },
     speak(u) {
       log.spoken.push(u);
       if (behavior === 'throw') throw new Error('boom');
@@ -22,7 +25,7 @@ function makeEnv(voices, behavior = 'end') {
       if (behavior === 'error') queueMicrotask(() => u.onerror && u.onerror({}));
     },
   };
-  return { env: { speechSynthesis: synth, SpeechSynthesisUtterance: FakeUtterance }, log, synth, listeners };
+  return { env: { speechSynthesis: synth, SpeechSynthesisUtterance: FakeUtterance }, log, synth, listeners, state };
 }
 const en = { lang: 'en-US', name: 'US' };
 const gb = { lang: 'en_GB', name: 'GB' };
@@ -77,11 +80,27 @@ test('onerror -> false', async () => {
 test('speak che lancia -> false', async () => {
   assert.equal(await speak('x', makeEnv([en], 'throw').env), false);
 });
-test('speak annulla la pronuncia in corso prima della nuova', async () => {
+test('speak annulla solo se c\'è una pronuncia in corso o in coda', async () => {
   const t = makeEnv([en]);
   await speak('a', t.env);
+  assert.equal(t.log.cancels, 0);
+  t.state.busy = true;
   await speak('b', t.env);
+  assert.equal(t.log.cancels, 1);
+  t.synth.pending = true;
+  await speak('c', t.env);
   assert.equal(t.log.cancels, 2);
+});
+test('dopo un cancel, speak parte in un turno successivo', async () => {
+  const t = makeEnv([en]);
+  t.state.busy = true;
+  const p = speak('b', t.env);
+  await new Promise((r) => setImmediate(r)); // voci già pronte, ma speak non ancora
+  const before = t.log.spoken.length;
+  await p;
+  assert.equal(t.log.cancels, 1);
+  assert.equal(t.log.spoken.length, 1);
+  assert.ok(before <= 1);
 });
 test('voci in ritardo: voiceschanged risolve whenVoicesReady e speak', async () => {
   const t = makeEnv([]);

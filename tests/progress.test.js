@@ -12,7 +12,7 @@ const memStore = () => {
 };
 
 test('stato iniziale', () => {
-  assert.deepEqual(createProgress(memStore()).get(), { completed: [], cards: {} });
+  assert.deepEqual(createProgress(memStore()).get(), { completed: [], cards: {}, topicsOpen: false });
 });
 
 test('completeLesson idempotente', () => {
@@ -67,7 +67,7 @@ test('persistenza e ricarica', () => {
 test('JSON corrotto o forma errata -> stato iniziale', () => {
   for (const raw of ['{not json', '123', 'null', '[]', '{"completed":5,"cards":[]}']) {
     const p = createProgress({ getItem: () => raw, setItem() {} });
-    assert.deepEqual(p.get(), { completed: [], cards: {} }, raw);
+    assert.deepEqual(p.get(), { completed: [], cards: {}, topicsOpen: false }, raw);
   }
 });
 
@@ -103,5 +103,25 @@ test('get restituisce una copia', () => {
   const s = p.get();
   s.completed.push('x');
   s.cards.z = { box: 1, due: '2026-01-01' };
-  assert.deepEqual(p.get(), { completed: ['a'], cards: {} });
+  assert.deepEqual(p.get(), { completed: ['a'], cards: {}, topicsOpen: false });
+});
+
+test('argomenti restano aperti dopo lo sblocco anche con un nuovo livello', () => {
+  const s = memStore();
+  const p = createProgress(s);
+  ['l1-01', 'l1-02', 'l2-01'].forEach((id) => p.completeLesson(id));
+  assert.equal(p.topicsUnlocked(levels), true);
+  const more = [...levels, { id: 'l3', title: 'L3', lessons: [{ id: 'l3-01', title: 'd', items: [] }] }];
+  assert.equal(p.topicsUnlocked(more), true);
+  // e dopo una ricarica
+  assert.equal(createProgress(s).topicsUnlocked(more), true);
+});
+
+test('dati salvati senza topicsOpen si caricano ancora', () => {
+  const s = memStore();
+  s.setItem('inglese-v1', JSON.stringify({ completed: ['l1-01'], cards: {} }));
+  const p = createProgress(s);
+  assert.deepEqual(p.get().completed, ['l1-01']);
+  assert.equal(p.get().topicsOpen, false);
+  assert.equal(p.topicsUnlocked(levels), false);
 });

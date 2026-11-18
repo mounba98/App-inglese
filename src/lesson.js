@@ -1,17 +1,19 @@
 // Logica pura del flusso di una lezione: nessun DOM.
 import { isCorrect } from './check.js';
 
-export function createLessonFlow(lesson) {
+// startAt: 'write' salta learn e repeat (ripasso: prima si prova a scrivere).
+export function createLessonFlow(lesson, { startAt = 'learn' } = {}) {
+  const firstStep = startAt === 'write' ? 'write' : 'learn';
   const items = lesson.items;
   let index = 0;
-  let step = 'learn';
+  let step = firstStep;
   let wrong = 0;
   let locked = false; // vero dopo un cambio di stato, finché current() non viene riletto
   const results = {};
 
   const nextItem = () => {
     index += 1;
-    step = 'learn';
+    step = firstStep;
     wrong = 0;
   };
 

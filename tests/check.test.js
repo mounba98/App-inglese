@@ -17,3 +17,10 @@ test('isCorrect: risposta sbagliata', () => {
 test('isCorrect: risposta vuota sempre falsa', () => {
   assert.equal(isCorrect('', ['hello']), false);
 });
+
+test('normalize: punteggiatura interna ignorata', () => {
+  assert.equal(isCorrect("Hi, I'm Anna", ["Hi I'm Anna"]), true);
+  assert.equal(isCorrect('Yes of course', ['Yes, of course']), true);
+  assert.equal(normalize('Yes,  of course!'), 'yes of course');
+  assert.equal(isCorrect('I has a dog', ['I have a dog']), false);
+});

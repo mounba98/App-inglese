@@ -107,3 +107,38 @@ test('results: vero solo se giusto al primo tentativo', () => {
   f.advance(); f.submit('x');
   assert.deepEqual(f.current(), { step: 'done' });
 });
+
+test('startAt write: ogni elemento parte dalla scrittura, senza learn/repeat', () => {
+  const f = createLessonFlow(lesson, { startAt: 'write' });
+  let c = f.current();
+  assert.equal(c.step, 'write');
+  assert.equal(c.item.id, 'a');
+  assert.equal(f.submit('Hi'), true);
+  c = f.current();
+  assert.equal(c.step, 'write');
+  assert.equal(c.item.id, 'b');
+  assert.equal(f.submit('Bye'), true);
+  assert.deepEqual(f.current(), { step: 'done' });
+  assert.deepEqual(f.results(), { a: true, b: true });
+});
+
+test('startAt write: stesse regole su errori, soluzione e results', () => {
+  const f = createLessonFlow(lesson, { startAt: 'write' });
+  assert.equal(f.submit('x'), false);
+  assert.equal(f.current().showSolution, false);
+  assert.equal(f.submit('y'), false);
+  const c = f.current();
+  assert.equal(c.showSolution, true);
+  f.advance();
+  assert.equal(f.current().step, 'write');
+  assert.equal(f.current().item.id, 'b');
+  assert.equal(f.submit('Bye'), true);
+  assert.deepEqual(f.results(), { a: false, b: true });
+});
+
+test('startAt write: guardie contro i doppi tocchi', () => {
+  const f = createLessonFlow(lesson, { startAt: 'write' });
+  assert.equal(f.submit('Hello'), true);
+  assert.equal(f.submit('Bye'), false); // ignorato senza rilettura
+  assert.equal(f.current().item.id, 'b');
+});

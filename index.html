@@ -13,6 +13,19 @@
   <main id="app" aria-live="polite"><p class="msg">Caricamento…</p></main>
   <script type="module" src="src/app.js"></script>
   <script>
+    // Rete di sicurezza: se l'app non parte, niente «Caricamento…» infinito.
+    // app.js imposta data-pronta sul body appena ha disegnato qualcosa.
+    (function () {
+      function fallisci() {
+        if (document.body.hasAttribute('data-pronta')) return;
+        var m = document.querySelector('#app .msg');
+        if (m) m.textContent = "Non riesco ad avviare l'app. Chiudila e riaprila.";
+      }
+      window.addEventListener('error', fallisci);
+      setTimeout(fallisci, 8000);
+    })();
+  </script>
+  <script>
     // Uso offline: solo in contesto sicuro (https o localhost); un errore non rompe l'app.
     if ('serviceWorker' in navigator && (window.isSecureContext || location.hostname === 'localhost')) {
       window.addEventListener('load', () => {

@@ -6,6 +6,8 @@ import { dueCards, todayLocal } from './srs.js';
 import { hasSpeech, whenVoicesReady, speak } from './speech.js';
 
 const REVIEW_MAX = 8;
+// Blocco dei pulsanti dopo ogni cambio schermata: è questa la guardia anti doppio tocco
+// che conta nell'app (quella in lesson.js è solo una difesa in più). Non portarlo a 0.
 const LOCK_MS = 300;
 
 const root = document.getElementById('app');
@@ -42,6 +44,7 @@ function h(tag, props = {}, ...kids) {
 }
 
 function show(...nodes) {
+  document.body.setAttribute('data-pronta', ''); // dice a index.html che l'app è partita
   root.replaceChildren(...nodes);
   // Niente doppi tocchi durante la transizione.
   const buttons = [...root.querySelectorAll('button')];
@@ -98,12 +101,24 @@ function renderHome() {
     ));
   }
   nodes.push(topicsBlock());
+  if (!isStandalone()) {
+    nodes.push(h('p', { class: 'hint' }, 'Consiglio: aggiungi l\'app alla schermata Home, così i progressi restano salvati.'));
+  }
   show(...nodes);
+}
+
+function isStandalone() {
+  try {
+    if (window.navigator.standalone === true) return true;
+    return !!window.matchMedia?.('(display-mode: standalone)').matches;
+  } catch {
+    return false;
+  }
 }
 
 function topicsBlock() {
   if (!progress.topicsUnlocked(levels) || topics.length === 0) {
-    return h('p', { class: 'muted topics-locked' }, 'Argomenti: si sbloccano dopo i livelli 1-6');
+    return h('p', { class: 'muted topics-locked' }, `Argomenti: si sbloccano dopo i livelli 1-${levels.length}`);
   }
   return h('div', { class: 'card' },
     h('h2', {}, 'Scegli un argomento'),
@@ -129,7 +144,7 @@ function renderTopic(topic) {
 }
 
 function startLesson(lesson, topic = null) {
-  session = { lesson, topic, flow: createLessonFlow(lesson), feedback: null, recorded: false };
+  session = { lesson, topic, flow: createLessonFlow(lesson, lesson.isReview ? { startAt: 'write' } : undefined), feedback: null, recorded: false, lastAnswer: '' };
   renderLesson();
 }
 
@@ -143,7 +158,11 @@ function exitButton() {
 }
 
 function listenBlock(item) {
-  if (!audioOk) return h('p', { class: 'note' }, 'L\'audio non è disponibile su questo telefono');
+  if (!audioOk) {
+    const note = h('p', { class: 'note' }, 'L\'audio non è disponibile su questo telefono');
+    note._item = item;
+    return note;
+  }
   const btn = h('button', {
     class: 'secondary',
     onclick: async () => {
@@ -152,11 +171,12 @@ function listenBlock(item) {
       if (btn.isConnected) btn.disabled = false;
     },
   }, 'Ascolta');
+  btn._item = item;
   return btn;
 }
 
 function renderLesson() {
-  const { flow } = session;
+  const { flow, lesson } = session;
   const c = flow.current();
 
   if (c.step === 'done') return renderDone();
@@ -212,6 +232,7 @@ function renderLesson() {
       e.preventDefault();
       const value = input.value;
       if (value.trim() === '') return;
+      session.lastAnswer = value;
       const ok = flow.submit(value);
       session.feedback = ok ? 'ok' : 'retry';
       renderLesson();
@@ -226,10 +247,15 @@ function renderLesson() {
     h('div', { class: 'card' },
       h('p', { class: 'prompt' }, 'Scrivi in inglese'),
       h('p', { class: 'it' }, c.item.it),
+      lesson.isReview ? listenBlock(c.item) : null,
       fb,
     ),
     form,
   );
+  if (session.feedback === 'retry' && session.lastAnswer) {
+    input.value = session.lastAnswer;
+    input.select();
+  }
   input.focus();
 }
 
@@ -264,8 +290,15 @@ async function main() {
   }
   progress = createProgress(safeStorage());
   renderHome();
-  // Voci caricate in ritardo: il pulsante «Ascolta» compare dal passo successivo.
-  whenVoicesReady(window).then((ok) => { if (ok) audioOk = true; });
+  try { navigator.storage?.persist?.(); } catch { /* ignora */ }
+  // Voci caricate in ritardo: «Ascolta» compare subito, senza toccare input né stato.
+  whenVoicesReady(window).then((ok) => {
+    if (!ok) return;
+    audioOk = true;
+    for (const el of root.querySelectorAll('.note')) {
+      if (el._item) el.replaceWith(listenBlock(el._item));
+    }
+  });
 }
 
 main();
