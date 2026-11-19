@@ -6,6 +6,7 @@ import { dueCards, todayLocal } from './srs.js';
 import { numberItems } from './numbers.js';
 import { pickPractice, nextMode } from './practice.js';
 import { hasSpeech, whenVoicesReady, speak } from './speech.js';
+import { loadAudioIndex, createPlayer } from './audio.js';
 
 const REVIEW_MAX = 8;
 // Blocco dei pulsanti dopo ogni cambio schermata: è questa la guardia anti doppio tocco
@@ -17,6 +18,13 @@ let levels = [];
 let topics = [];
 let progress;
 let audioOk = hasSpeech(window);
+const audioIndex = {}; // riempito in place dopo l'avvio: il player lo legge a ogni chiamata
+const player = createPlayer({
+  index: audioIndex,
+  env: window,
+  speakFn: (text) => speak(text, window),
+  hasSpeechFn: () => audioOk,
+});
 let lastSlot = true; // alterna: prima una sessione scritta, poi una a dettato (vedi nextMode)
 let session = null; // { lesson, flow, feedback, recorded }
 
@@ -139,7 +147,7 @@ function startNumbers() {
 function startTraining() {
   const items = pickPractice(progress.get(), { levels, topics });
   if (items.length === 0) return renderHome();
-  const { dictation, slot } = nextMode(lastSlot, audioOk);
+  const { dictation, slot } = nextMode(lastSlot, audioOk || items.every((it) => player.canPlay(it)));
   lastSlot = slot;
   startLesson({ id: 'allenamento', title: 'Allenamento libero', isTraining: true, dictation, items });
 }
@@ -195,7 +203,7 @@ function exitButton() {
 }
 
 function listenBlock(item) {
-  if (!audioOk) {
+  if (!player.canPlay(item)) {
     const note = h('p', { class: 'note' }, 'L\'audio non è disponibile su questo telefono');
     note._item = item;
     return note;
@@ -204,7 +212,7 @@ function listenBlock(item) {
     class: 'secondary',
     onclick: async () => {
       btn.disabled = true;
-      await speak(item.en, window);
+      await player.play(item);
       if (btn.isConnected) btn.disabled = false;
     },
   }, 'Ascolta');
@@ -297,7 +305,7 @@ function renderLesson() {
   }
   input.focus();
   // Dettato: la frase parte da sola una volta; sui tentativi successivi c'è il pulsante.
-  if (c.dictation && session.feedback !== 'retry') Promise.resolve(speak(c.item.en, window)).catch(() => {});
+  if (c.dictation && session.feedback !== 'retry') Promise.resolve(player.play(c.item)).catch(() => {});
 }
 
 function renderDone() {
@@ -325,6 +333,12 @@ function renderDone() {
   );
 }
 
+function refreshListenBlocks() {
+  for (const el of root.querySelectorAll('.note')) {
+    if (el._item && player.canPlay(el._item)) el.replaceWith(listenBlock(el._item));
+  }
+}
+
 async function main() {
   try {
     ({ levels, topics } = await loadContent());
@@ -336,13 +350,16 @@ async function main() {
   progress = createProgress(safeStorage());
   renderHome();
   try { navigator.storage?.persist?.(); } catch { /* ignora */ }
+  // L'indice dell'audio arriva dopo: non blocca l'avvio; quando c'è, le note diventano pulsanti.
+  loadAudioIndex().then((idx) => {
+    Object.assign(audioIndex, idx);
+    refreshListenBlocks();
+  });
   // Voci caricate in ritardo: «Ascolta» compare subito, senza toccare input né stato.
   whenVoicesReady(window).then((ok) => {
     if (!ok) return;
     audioOk = true;
-    for (const el of root.querySelectorAll('.note')) {
-      if (el._item) el.replaceWith(listenBlock(el._item));
-    }
+    refreshListenBlocks();
   });
 }
 
