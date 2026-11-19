@@ -147,7 +147,7 @@ function startNumbers() {
 function startTraining() {
   const items = pickPractice(progress.get(), { levels, topics });
   if (items.length === 0) return renderHome();
-  const { dictation, slot } = nextMode(lastSlot, audioOk || Object.keys(audioIndex).length > 0);
+  const { dictation, slot } = nextMode(lastSlot, audioOk || items.every((it) => player.canPlay(it)));
   lastSlot = slot;
   startLesson({ id: 'allenamento', title: 'Allenamento libero', isTraining: true, dictation, items });
 }

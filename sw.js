@@ -4,6 +4,7 @@
 // non c'è nulla da cambiare a mano. Il nuovo service worker si installa,
 // poi skipWaiting, e la versione nuova parte al lancio successivo dell'app.
 // Nessun file viene mai riscritto nella cache attiva in background.
+importScripts('./src/range.js');
 const CACHE = 'inglese-__VERSIONE__';
 const ASSETS = [
   './',
@@ -17,6 +18,7 @@ const ASSETS = [
   './src/numbers.js',
   './src/practice.js',
   './src/progress.js',
+  './src/range.js',
   './src/speech.js',
   './src/srs.js',
   './content/levels.json',
@@ -77,22 +79,19 @@ async function handleAudio(req, url) {
   return rangeResponse(req, full);
 }
 
-// Safari chiede i file audio con Range e vuole un 206.
+// Safari chiede i file audio con Range e vuole un 206 (parseRange: src/range.js).
 async function rangeResponse(req, res) {
-  const range = req.headers.get('range');
-  const m = range && /^bytes=(\d*)-(\d*)$/.exec(range);
-  if (!m) return res;
   const buf = await res.arrayBuffer();
   const size = buf.byteLength;
-  let start = m[1] === '' ? Math.max(0, size - Number(m[2])) : Number(m[1]);
-  let end = m[1] === '' || m[2] === '' ? size - 1 : Math.min(Number(m[2]), size - 1);
-  if (start > end || start >= size) return new Response(null, { status: 416, headers: { 'Content-Range': `bytes */${size}` } });
-  return new Response(buf.slice(start, end + 1), {
+  const r = parseRange(req.headers.get('range'), size);
+  if (r === null) return new Response(buf, { status: 200, headers: { 'Content-Type': res.headers.get('Content-Type') || 'audio/mpeg' } });
+  if (r === 'unsatisfiable') return new Response(null, { status: 416, headers: { 'Content-Range': `bytes */${size}` } });
+  return new Response(buf.slice(r.start, r.end + 1), {
     status: 206,
     headers: {
       'Content-Type': res.headers.get('Content-Type') || 'audio/mpeg',
-      'Content-Range': `bytes ${start}-${end}/${size}`,
-      'Content-Length': String(end - start + 1),
+      'Content-Range': `bytes ${r.start}-${r.end}/${size}`,
+      'Content-Length': String(r.end - r.start + 1),
     },
   });
 }

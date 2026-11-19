@@ -26,6 +26,7 @@ export function createPlayer({ index, env = globalThis, speakFn, hasSpeechFn, ba
     const { audio, finish } = active;
     active = null;
     try { audio.pause(); } catch { /* ignora */ }
+    try { env?.speechSynthesis?.cancel?.(); } catch { /* ignora */ }
     finish(false);
   }
 
@@ -57,7 +58,7 @@ export function createPlayer({ index, env = globalThis, speakFn, hasSpeechFn, ba
           active = { audio, finish };
           audio.onended = () => finish(true);
           audio.onerror = failed;
-          timer = setTimeout(() => finish(true), safetyMs);
+          timer = setTimeout(() => { try { audio.pause(); } catch { /* ignora */ } finish(true); }, safetyMs);
           const r = audio.play();
           if (r && typeof r.catch === 'function') r.catch(failed);
         } catch {

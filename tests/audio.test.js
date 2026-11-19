@@ -106,3 +106,17 @@ test('index nullo o env senza Audio: usa la voce, non lancia', async () => {
   const q = createPlayer({ index: { 'l1-01-a': 'a.mp3' }, env: {}, speakFn: async () => true, hasSpeechFn: () => false });
   assert.equal(q.canPlay(item), false);
 });
+
+test('stop cancella anche la voce del telefono; il timeout mette in pausa il file', async () => {
+  const { env, made } = makeAudioEnv('never');
+  let cancels = 0;
+  env.speechSynthesis = { cancel() { cancels++; } };
+  const p = createPlayer({ index: { 'l1-01-a': 'a.mp3', x: 'x.mp3' }, env, speakFn: async () => true, hasSpeechFn: () => false, safetyMs: 20 });
+  const first = p.play(item);
+  await Promise.resolve();
+  p.play(other);
+  await first;
+  assert.equal(cancels, 1);
+  await new Promise((r) => setTimeout(r, 40));
+  assert.equal(made[1].paused, true);
+});

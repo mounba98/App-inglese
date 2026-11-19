@@ -32,7 +32,7 @@ jobs:
           python-version: '3.11'
       - name: Installa Piper e ffmpeg
         run: |
-          pip install piper-tts
+          pip install piper-tts==1.8.0
           command -v ffmpeg >/dev/null || { sudo apt-get update && sudo apt-get install -y ffmpeg; }
       - name: Cache della voce
         id: voce-cache

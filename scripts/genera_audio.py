@@ -2,7 +2,7 @@
 """Genera audio/<id>.mp3 con Piper per ogni item dei contenuti.
 
 Uso: genera_audio.py OUT_DIR VOICE_ONNX
-Esce con codice != 0 se un item fallisce.
+Un item che fallisce è saltato; esce con codice != 0 solo se non si genera nessun file.
 """
 import json
 import re
@@ -29,6 +29,21 @@ def raccogli_item(levels, topics):
     return out
 
 
+def genera(items, synth, out_dir):
+    """Genera i file; un item che fallisce viene saltato (resta fuori dall'indice)."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    index, failed = {}, []
+    for iid, en in items:
+        try:
+            synth(iid, testo_da_leggere(en), out_dir / f"{iid}.mp3")
+            index[iid] = f"{iid}.mp3"
+        except Exception as e:  # noqa: BLE001
+            failed.append(iid)
+            print(f"ATTENZIONE: {iid} saltato ({e}); l'app userà la voce del telefono", file=sys.stderr)
+    (out_dir / "index.json").write_text(json.dumps(index, ensure_ascii=False), encoding="utf-8")
+    return index, failed
+
+
 def main(argv):
     if len(argv) != 3:
         print(__doc__, file=sys.stderr)
@@ -40,27 +55,20 @@ def main(argv):
     levels = json.loads((ROOT / "content/levels.json").read_text(encoding="utf-8"))
     topics = json.loads((ROOT / "content/topics.json").read_text(encoding="utf-8"))
     items = raccogli_item(levels, topics)
-    out_dir.mkdir(parents=True, exist_ok=True)
-    index, failed = {}, []
     with tempfile.TemporaryDirectory() as tmp:
-        for iid, en in items:
-            try:
-                wav = Path(tmp) / f"{iid}.wav"
-                with wave.open(str(wav), "wb") as wf:
-                    voice.synthesize_wav(testo_da_leggere(en), wf)
-                mp3 = out_dir / f"{iid}.mp3"
-                subprocess.run(
-                    ["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav),
-                     "-ac", "1", "-b:a", "64k", str(mp3)],
-                    check=True,
-                )
-                index[iid] = f"{iid}.mp3"
-            except Exception as e:  # noqa: BLE001
-                failed.append(iid)
-                print(f"ERRORE {iid}: {e}", file=sys.stderr)
-    (out_dir / "index.json").write_text(json.dumps(index, ensure_ascii=False), encoding="utf-8")
-    print(f"{len(index)} file generati, {len(failed)} errori")
-    return 1 if failed else 0
+        def synth(iid, text, mp3):
+            wav = Path(tmp) / f"{iid}.wav"
+            with wave.open(str(wav), "wb") as wf:
+                voice.synthesize_wav(text, wf)
+            subprocess.run(
+                ["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav),
+                 "-ac", "1", "-b:a", "64k", str(mp3)],
+                check=True,
+            )
+
+        index, failed = genera(items, synth, out_dir)
+    print(f"{len(index)} file generati, {len(failed)} saltati")
+    return 0 if index else 1
 
 
 if __name__ == "__main__":
