@@ -10,6 +10,7 @@ const ASSETS = [
   './index.html',
   './styles.css',
   './src/app.js',
+  './src/audio.js',
   './src/check.js',
   './src/content.js',
   './src/lesson.js',
@@ -49,7 +50,56 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
+// Audio: fuori dal precache (crescerebbe all'infinito). Si mette in cache al primo ascolto;
+// l'indice va sempre dalla rete, con ripiego sulla cache.
+const AUDIO_PATH = new URL('audio/', self.registration.scope).pathname;
+
+async function handleAudio(req, url) {
+  const cache = await caches.open(CACHE);
+  if (url.pathname === AUDIO_PATH + 'index.json') {
+    try {
+      const res = await fetch(req);
+      if (res.ok && res.type === 'basic') await cache.put(req, res.clone());
+      return res;
+    } catch {
+      const cached = await cache.match(req, { ignoreSearch: true });
+      return cached || new Response('{}', { status: 503, headers: { 'Content-Type': 'application/json' } });
+    }
+  }
+  let full = await cache.match(url.pathname);
+  if (!full) {
+    // Richiesta intera (senza Range) così il file si può mettere in cache; poi si risponde a misura.
+    const res = await fetch(new Request(url.href));
+    if (!(res.ok && res.status === 200 && res.type === 'basic')) return res;
+    await cache.put(url.pathname, res.clone());
+    full = res;
+  }
+  return rangeResponse(req, full);
+}
+
+// Safari chiede i file audio con Range e vuole un 206.
+async function rangeResponse(req, res) {
+  const range = req.headers.get('range');
+  const m = range && /^bytes=(\d*)-(\d*)$/.exec(range);
+  if (!m) return res;
+  const buf = await res.arrayBuffer();
+  const size = buf.byteLength;
+  let start = m[1] === '' ? Math.max(0, size - Number(m[2])) : Number(m[1]);
+  let end = m[1] === '' || m[2] === '' ? size - 1 : Math.min(Number(m[2]), size - 1);
+  if (start > end || start >= size) return new Response(null, { status: 416, headers: { 'Content-Range': `bytes */${size}` } });
+  return new Response(buf.slice(start, end + 1), {
+    status: 206,
+    headers: {
+      'Content-Type': res.headers.get('Content-Type') || 'audio/mpeg',
+      'Content-Range': `bytes ${start}-${end}/${size}`,
+      'Content-Length': String(end - start + 1),
+    },
+  });
+}
+
 async function handle(event, req) {
+  const url = new URL(req.url);
+  if (url.pathname.startsWith(AUDIO_PATH)) return handleAudio(req, url);
   const cache = await caches.open(CACHE);
   const cached = await cache.match(req, { ignoreSearch: true });
   if (cached) return cached;

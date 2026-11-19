@@ -36,3 +36,12 @@ test('manifest: icone elencate nel manifest sono in cache e esistono', () => {
     assert.ok(listed.includes(`./${i.src}`), i.src);
   }
 });
+
+test('sw.js: src/audio.js in precache; audio/ in cache al primo uso, index dalla rete', () => {
+  assert.ok(listed.includes('./src/audio.js'));
+  assert.ok(!listed.some((p) => p.includes('audio/')), 'i file audio non vanno nel precache');
+  assert.match(sw, /AUDIO_PATH/);
+  assert.match(sw, /audio\/index\.json|'index\.json'/);
+  assert.match(sw, /res\.ok && res\.status === 200 && res\.type === 'basic'/);
+  assert.match(sw, /status: 206/);
+});

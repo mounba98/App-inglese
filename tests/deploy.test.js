@@ -26,3 +26,13 @@ test('pages.yml: ha workflow_dispatch e il segnaposto è sostituito solo in sw.j
   assert.match(pages, /^\s*workflow_dispatch:/m);
   assert.match(pages, /sed -i .*_site\/sw\.js/);
 });
+
+test('pages.yml: genera l\'audio con Piper in _site/audio, con voce in cache', () => {
+  assert.match(pages, /actions\/setup-python@v5/);
+  assert.match(pages, /python-version: '3\.11'/);
+  assert.match(pages, /pip install piper-tts/);
+  assert.match(pages, /actions\/cache@v4/);
+  assert.match(pages, /key: .*en_US-ljspeech-high/);
+  assert.match(pages, /rhasspy\/piper-voices\/resolve\/main\/en\/en_US\/ljspeech\/high/);
+  assert.match(pages, /scripts\/genera_audio\.py _site\/audio /);
+});
