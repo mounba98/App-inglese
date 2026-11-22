@@ -169,6 +169,11 @@ test('ogni lezione nuova ha la teoria', () => {
   assert.deepEqual(bad, [], `Manca la «teoria» in: ${bad.join(', ')}`);
 });
 
+test('ogni lezione di ogni livello ha la teoria', () => {
+  const bad = levels.flatMap((g) => g.lessons).filter((l) => !l.teoria || !l.teoria.it || !l.teoria.en).map((l) => l.id);
+  assert.deepEqual(bad, [], `Manca la «teoria» (it ed en) in: ${bad.join(', ')}`);
+});
+
 test('Coda: caselle spuntate = livelli aggiunti dopo l6 e argomenti aggiunti dopo i 7 iniziali', () => {
   const md = readFileSync(new URL('../docs/CONTENUTI.md', import.meta.url), 'utf8');
   const sec = (name) => {
