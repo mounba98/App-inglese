@@ -21,3 +21,18 @@ export const STATUS_LABEL = {
 export function paragraphs(text) {
   return String(text ?? '').split(/\n+/).map((s) => s.trim()).filter(Boolean);
 }
+
+// Opzioni sbagliate della scelta multipla: solo parole che la studentessa ha già visto.
+// - se la lezione ha almeno 3 parole, bastano le sue;
+// - altrimenti si usano le parole delle lezioni del gruppo fino a questa inclusa;
+// - se ancora meno di 3, tutte le parole del gruppo.
+export function distractorPool(lesson, groupLessons) {
+  const own = lesson.items ?? [];
+  if (own.length >= 3) return own;
+  const group = groupLessons ?? [lesson];
+  const idx = group.findIndex((l) => l === lesson || l.id === lesson.id);
+  const upTo = idx >= 0 ? group.slice(0, idx + 1) : [lesson];
+  const seen = upTo.flatMap((l) => l.items ?? []);
+  if (seen.length >= 3) return seen;
+  return group.flatMap((l) => l.items ?? []);
+}

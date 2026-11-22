@@ -7,7 +7,7 @@ import { numberItems } from './numbers.js';
 import { pickPractice, nextMode } from './practice.js';
 import { hasSpeech, whenVoicesReady, speak } from './speech.js';
 import { loadAudioIndex, createPlayer } from './audio.js';
-import { lessonStatus, STATUS_LABEL, paragraphs } from './stato.js';
+import { lessonStatus, STATUS_LABEL, paragraphs, distractorPool } from './stato.js';
 
 const REVIEW_MAX = 8;
 // Blocco dei pulsanti dopo ogni cambio schermata: è questa la guardia anti doppio tocco
@@ -217,10 +217,10 @@ function renderAll() {
   show(...nodes);
 }
 
-// Le opzioni sbagliate della scelta multipla vengono da tutte le lezioni dello stesso gruppo.
+// Le opzioni sbagliate della scelta multipla vengono solo da parole già viste (vedi distractorPool).
 function poolFor(lesson, topic) {
   const group = topic ? topic.lessons : (levels.find((lv) => lv.lessons.includes(lesson))?.lessons ?? [lesson]);
-  return group.flatMap((l) => l.items);
+  return distractorPool(lesson, group);
 }
 
 function startLesson(lesson, topic = null, fromAll = false) {
