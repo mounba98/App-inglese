@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { validateContent, loadContent } from '../src/content.js';
+import { validateContent, validateCorso, loadContent, CORSO_DEFAULT } from '../src/content.js';
 
 const item = (id, extra = {}) => ({ id, en: 'A — apple', it: 'si legge «ei»', ...extra });
 const lesson = (id, items) => ({ id, title: 'Lezione', items });
@@ -156,7 +156,7 @@ test('loadContent carica e imposta accept di default', async () => {
     return resp(url === 'content/levels.json' ? ok() : []);
   };
   const { levels, topics } = await loadContent(fetchFn);
-  assert.deepEqual(calls.sort(), ['content/levels.json', 'content/topics.json']);
+  assert.deepEqual(calls.sort(), ['content/corso.json', 'content/levels.json', 'content/topics.json']);
   assert.deepEqual(levels[0].lessons[0].items[0].accept, ['A — apple']);
   assert.deepEqual(topics, []);
 });
@@ -187,4 +187,60 @@ test('«uguale» facoltativo: accetta un booleano, rifiuta altro', () => {
   assert.deepEqual(validateContent(withUguale(false), []), []);
   assert.match(joined(validateContent(withUguale('sì'), [])), /uguale/);
   assert.match(joined(validateContent(withUguale(1), [])), /uguale/);
+});
+
+const corsoOk = () => ({ lingua: 'en-US', nome: 'inglese', titolo: "Imparo l'inglese", voce_piper: 'en_US-ljspeech-high', regole: 'latino' });
+
+test('validateCorso: il corso di inglese è valido, chiave_progressi è facoltativa', () => {
+  assert.deepEqual(validateCorso(corsoOk()), []);
+  assert.deepEqual(validateCorso({ ...corsoOk(), chiave_progressi: 'giapponese-v1' }), []);
+});
+
+test('validateCorso: rifiuta campi mancanti, vuoti o di tipo sbagliato', () => {
+  assert.notEqual(validateCorso([]).length, 0);
+  assert.notEqual(validateCorso(null).length, 0);
+  for (const campo of ['lingua', 'nome', 'titolo', 'voce_piper', 'regole']) {
+    const senza = corsoOk();
+    delete senza[campo];
+    assert.match(validateCorso(senza).join('\n'), new RegExp(campo), `manca ${campo}`);
+    assert.match(validateCorso({ ...corsoOk(), [campo]: ' ' }).join('\n'), new RegExp(campo));
+  }
+  assert.match(validateCorso({ ...corsoOk(), chiave_progressi: '' }).join('\n'), /chiave_progressi/);
+  assert.match(validateCorso({ ...corsoOk(), chiave_progressi: 5 }).join('\n'), /chiave_progressi/);
+});
+
+test('il file reale content/corso.json è valido e uguale ai valori di default', () => {
+  const corso = JSON.parse(readFileSync(new URL('../content/corso.json', import.meta.url), 'utf8'));
+  assert.deepEqual(validateCorso(corso), []);
+  assert.deepEqual(corso, { lingua: 'en-US', nome: 'inglese', titolo: "Imparo l'inglese", voce_piper: 'en_US-ljspeech-high', regole: 'latino' });
+  assert.equal(corso.chiave_progressi, undefined);
+  assert.equal(readFileSync(new URL('../content/corso.json', import.meta.url), 'utf8'), JSON.stringify(corso, null, 1) + '\n');
+});
+
+test('loadContent restituisce anche il corso, con chiave dei progressi di default', async () => {
+  const fetchFn = async (url) => resp(url === 'content/levels.json' ? ok() : url === 'content/corso.json' ? corsoOk() : []);
+  const { corso } = await loadContent(fetchFn);
+  assert.deepEqual(corso, { ...corsoOk(), chiave_progressi: 'inglese-v1' });
+});
+
+test('loadContent: chiave_progressi del corso viene rispettata', async () => {
+  const fetchFn = async (url) => resp(url === 'content/levels.json' ? ok() : url === 'content/corso.json' ? { ...corsoOk(), chiave_progressi: 'giapponese-v1' } : []);
+  const { corso } = await loadContent(fetchFn);
+  assert.equal(corso.chiave_progressi, 'giapponese-v1');
+});
+
+test('loadContent: se corso.json non si carica si usano i valori di inglese', async () => {
+  const fetchFn = async (url) => (url === 'content/corso.json' ? resp(null, false) : resp(url === 'content/levels.json' ? ok() : []));
+  const { corso, levels } = await loadContent(fetchFn);
+  assert.deepEqual(corso, CORSO_DEFAULT);
+  assert.equal(corso.nome, 'inglese');
+  assert.equal(corso.chiave_progressi, 'inglese-v1');
+  assert.equal(levels.length, 1);
+  const lancia = async (url) => { if (url === 'content/corso.json') throw new Error('offline'); return resp(url === 'content/levels.json' ? ok() : []); };
+  assert.deepEqual((await loadContent(lancia)).corso, CORSO_DEFAULT);
+});
+
+test('loadContent: corso.json non valido → valori di inglese', async () => {
+  const fetchFn = async (url) => resp(url === 'content/levels.json' ? ok() : url === 'content/corso.json' ? { nome: 3 } : []);
+  assert.deepEqual((await loadContent(fetchFn)).corso, CORSO_DEFAULT);
 });

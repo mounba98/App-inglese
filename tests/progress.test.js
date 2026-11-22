@@ -146,3 +146,14 @@ test('argomenti: a metà corso (livello 7 presente) restano chiusi finché non �
   p.completeLesson('l6-01');
   assert.equal(p.topicsUnlocked(more), true);
 });
+
+test('chiave di salvataggio: di default «inglese-v1», un corso può averne una sua', () => {
+  const a = memStore();
+  createProgress(a).completeLesson('l1-01');
+  assert.deepEqual([...a.m.keys()], ['inglese-v1']);
+  const b = memStore();
+  createProgress(b, 'giapponese-v1').completeLesson('l1-01');
+  assert.deepEqual([...b.m.keys()], ['giapponese-v1']);
+  assert.deepEqual(createProgress(b, 'giapponese-v1').get().completed, ['l1-01']);
+  assert.deepEqual(createProgress(b).get().completed, []);
+});

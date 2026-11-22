@@ -32,7 +32,13 @@ test('pages.yml: genera l\'audio con Piper in _site/audio, con voce in cache', (
   assert.match(pages, /python-version: '3\.11'/);
   assert.match(pages, /pip install piper-tts==1\.8\.0/);
   assert.match(pages, /actions\/cache@v4/);
-  assert.match(pages, /key: .*en_US-ljspeech-high/);
+  // La voce si legge da content/corso.json (con default) e non è scritta a mano nei passaggi.
+  assert.match(pages, /content\/corso\.json/);
+  assert.match(pages, /voce_piper/);
+  assert.match(pages, /or 'en_US-ljspeech-high'/);
+  assert.match(pages, /key: piper-voce-\$\{\{ steps\.corso\.outputs\.voce \}\}/);
+  assert.match(pages, /voci\/\$VOCE\.onnx/);
+  assert.ok(!/voci\/en_US/.test(pages), 'voce scritta a mano');
   assert.match(pages, /rhasspy\/piper-voices\/resolve\/main\/en\/en_US\/ljspeech\/high/);
   assert.match(pages, /scripts\/genera_audio\.py _site\/audio /);
 });

@@ -1,21 +1,16 @@
 // Logica pura del flusso di una lezione: nessun DOM.
-import { isCorrect } from './check.js';
+import { regoleLingua, maskAnswer } from './lingua.js';
 import { pickOptions } from './choice.js';
 
-// Aiuto: prima lettera di ogni parola, '_' per le altre lettere/cifre;
-// spazi, apostrofi, trattini e punteggiatura restano.
-export function maskAnswer(text) {
-  return String(text).replace(/[\p{L}\p{N}]+(?:['’][\p{L}\p{N}]+)*/gu, (w) => {
-    const [first, ...rest] = Array.from(w);
-    return first + rest.map((c) => (/[\p{L}\p{N}]/u.test(c) ? '_' : c)).join('');
-  });
-}
+// L'aiuto e il confronto stanno in lingua.js; maskAnswer resta esportata da qui.
+export { maskAnswer };
 
 // startAt: 'write' salta teoria, learn e choose (ripasso: prima si prova a scrivere).
 export function createLessonFlow(
   lesson,
-  { startAt = 'learn', dictation = false, pool = null, rng = Math.random } = {},
+  { startAt = 'learn', dictation = false, pool = null, rng = Math.random, regole = 'latino' } = {},
 ) {
+  const { isCorrect, maskAnswer: mask } = regoleLingua(regole);
   const items = lesson.items;
   const fromLearn = startAt !== 'write';
   const firstStep = fromLearn ? 'learn' : 'write';
@@ -54,7 +49,7 @@ export function createLessonFlow(
         }
       } else if (step === 'write') {
         c.showSolution = solutionShown();
-        if (hintLevel === 1) c.hint = maskAnswer(item.en);
+        if (hintLevel === 1) c.hint = mask(item.en);
         if (dictation) c.dictation = true;
       }
       return c;
