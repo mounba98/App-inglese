@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { lessonStatus, paragraphs, distractorPool } from '../src/stato.js';
+import { lessonStatus, paragraphs, distractorPool, choiceMode } from '../src/stato.js';
 
 const lesson = { id: 'a', items: [{ id: 'a1' }, { id: 'a2' }] };
 
@@ -41,4 +41,11 @@ test('distractorPool: lezione piccola usa le lezioni fino a quella inclusa', () 
 test('distractorPool: ancora meno di 3 -> tutto il gruppo', () => {
   const a = mk('a', 1), b = mk('b', 1), c = mk('c', 3);
   assert.deepEqual(distractorPool(a, [a, b, c]), [...a.items, ...b.items, ...c.items]);
+});
+
+test('choiceMode: ascolto solo con scelta "ascolto" e audio disponibile', () => {
+  assert.equal(choiceMode({ scelta: 'ascolto' }, true), 'ascolto');
+  assert.equal(choiceMode({ scelta: 'ascolto' }, false), 'lettura');
+  assert.equal(choiceMode({}, true), 'lettura');
+  assert.equal(choiceMode(undefined, true), 'lettura');
 });

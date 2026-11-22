@@ -7,7 +7,7 @@ import { numberItems } from './numbers.js';
 import { pickPractice, nextMode } from './practice.js';
 import { hasSpeech, whenVoicesReady, speak } from './speech.js';
 import { loadAudioIndex, createPlayer } from './audio.js';
-import { lessonStatus, STATUS_LABEL, paragraphs, distractorPool } from './stato.js';
+import { lessonStatus, STATUS_LABEL, paragraphs, distractorPool, choiceMode } from './stato.js';
 
 const REVIEW_MAX = 8;
 // Blocco dei pulsanti dopo ogni cambio schermata: è questa la guardia anti doppio tocco
@@ -250,7 +250,7 @@ function exitButton() {
   return h('button', { class: 'exit secondary', onclick: leave }, 'Esci');
 }
 
-function listenBlock(item) {
+function listenBlock(item, label = 'Ascolta') {
   if (!player.canPlay(item)) {
     const note = h('p', { class: 'note' }, 'L\'audio non è disponibile su questo telefono');
     note._item = item;
@@ -263,7 +263,7 @@ function listenBlock(item) {
       await player.play(item);
       if (btn.isConnected) btn.disabled = false;
     },
-  }, 'Ascolta');
+  }, label);
   btn._item = item;
   return btn;
 }
@@ -348,11 +348,13 @@ function renderLesson() {
   if (c.step === 'choose') {
     const answered = c.picked !== undefined;
     session.feedback = null;
-    return show(
+    const ascolto = choiceMode(lesson, player.canPlay(c.item)) === 'ascolto';
+    show(
       exitButton(),
       h('div', { class: 'card' },
-        h('p', { class: 'prompt' }, 'Scegli la risposta giusta'),
-        h('p', { class: 'it' }, c.item.it),
+        h('p', { class: 'prompt' }, ascolto ? 'Ascolta e scegli' : 'Scegli la risposta giusta'),
+        ascolto && !answered ? listenBlock(c.item, 'Ascolta di nuovo') : null,
+        !ascolto || answered ? h('p', { class: 'it' }, c.item.it) : null,
         h('div', { class: 'stack options' },
           c.options.map((opt) => {
             const right = answered && opt === c.item.en;
@@ -372,6 +374,9 @@ function renderLesson() {
       ),
       answered ? h('button', { onclick: () => { clearFeedback(session); flow.advance(); renderLesson(); } }, 'Avanti') : null,
     );
+    // Ascolto: la parola parte da sola una volta, quando compare la scelta (non dopo la risposta).
+    if (ascolto && !answered) Promise.resolve(player.play(c.item)).catch(() => {});
+    return;
   }
 
   // write

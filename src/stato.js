@@ -36,3 +36,9 @@ export function distractorPool(lesson, groupLessons) {
   if (seen.length >= 3) return seen;
   return group.flatMap((l) => l.items ?? []);
 }
+
+// Come si presenta la scelta multipla: 'ascolto' (si ascolta, l'italiano resta nascosto fino alla risposta)
+// solo se la lezione lo chiede (scelta: "ascolto") e l'audio si può riprodurre; altrimenti 'lettura'.
+export function choiceMode(lesson, canPlay) {
+  return lesson?.scelta === 'ascolto' && canPlay ? 'ascolto' : 'lettura';
+}
