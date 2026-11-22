@@ -1,6 +1,7 @@
 // Formato dei contenuti e validatore. Gli id degli elementi sono anche gli id delle carte
 // di ripetizione: devono essere unici in tutto il corso.
-const MAX_ITEMS = 8;
+const MAX_ITEMS = 10;
+const MAX_TEORIA = 1500;
 const ID_RE = /^[a-z0-9-]+$/;
 
 const isObj = (x) => x !== null && typeof x === 'object' && !Array.isArray(x);
@@ -49,6 +50,19 @@ export function validateContent(levels, topics) {
     }
     if (lesson.items.length > MAX_ITEMS) {
       errors.push(`Lezione «${lesson.id}»: ha ${lesson.items.length} elementi, il massimo è ${MAX_ITEMS}.`);
+    }
+    if (lesson.teoria !== undefined) {
+      const t = lesson.teoria;
+      if (!isObj(t)) {
+        errors.push(`Lezione «${lesson.id}»: «teoria» deve essere un oggetto con «it» ed «en».`);
+      } else {
+        for (const lang of ['it', 'en']) {
+          if (blank(t[lang])) errors.push(`Lezione «${lesson.id}»: la teoria «${lang}» è vuota.`);
+          else if (t[lang].length > MAX_TEORIA) {
+            errors.push(`Lezione «${lesson.id}»: la teoria «${lang}» ha ${t[lang].length} caratteri, il massimo è ${MAX_TEORIA}.`);
+          }
+        }
+      }
     }
     lesson.items.forEach((it) => checkItem(it, lesson.id));
   }

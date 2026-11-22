@@ -48,14 +48,45 @@ test('en o it vuoti', () => {
   assert.match(s, /l1-01-b/);
 });
 
-test('lezione con più di 8 elementi', () => {
-  const items = Array.from({ length: 9 }, (_, i) => item(`l1-01-${i}`));
+test('lezione con più di 10 elementi', () => {
+  const items = Array.from({ length: 11 }, (_, i) => item(`l1-01-${i}`));
   assert.match(joined(validateContent([level('l1', [lesson('l1-01', items)])], [])), /l1-01/);
 });
 
-test('lezione con 8 elementi va bene', () => {
-  const items = Array.from({ length: 8 }, (_, i) => item(`l1-01-${i}`));
+test('lezione con 10 elementi va bene', () => {
+  const items = Array.from({ length: 10 }, (_, i) => item(`l1-01-${i}`));
   assert.deepEqual(validateContent([level('l1', [lesson('l1-01', items)])], []), []);
+});
+
+const withTeoria = (t) => {
+  const l = ok();
+  l[0].lessons[0].teoria = t;
+  return l;
+};
+
+test('teoria valida: nessun errore', () => {
+  assert.deepEqual(validateContent(withTeoria({ it: 'Spiegazione', en: 'Explanation' }), []), []);
+});
+
+test('teoria al massimo 1500 caratteri va bene', () => {
+  assert.deepEqual(validateContent(withTeoria({ it: 'a'.repeat(1500), en: 'b'.repeat(1500) }), []), []);
+});
+
+test('teoria troppo lunga', () => {
+  assert.match(joined(validateContent(withTeoria({ it: 'a'.repeat(1501), en: 'ok' }), [])), /teoria «it».*1501/);
+  assert.match(joined(validateContent(withTeoria({ it: 'ok', en: 'b'.repeat(1501) }), [])), /teoria «en».*1501/);
+});
+
+test('teoria con «it» o «en» vuoti o mancanti', () => {
+  assert.match(joined(validateContent(withTeoria({ it: '  ', en: 'ok' }), [])), /teoria «it» è vuota/);
+  assert.match(joined(validateContent(withTeoria({ it: 'ok' }), [])), /teoria «en» è vuota/);
+  assert.match(joined(validateContent(withTeoria({ it: 5, en: 'ok' }), [])), /teoria «it» è vuota/);
+});
+
+test('teoria che non è un oggetto', () => {
+  for (const t of ['testo', 3, null, ['a']]) {
+    assert.match(joined(validateContent(withTeoria(t), [])), /«teoria» deve essere un oggetto/);
+  }
 });
 
 test('lezione senza elementi', () => {

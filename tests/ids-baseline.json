@@ -136,10 +136,6 @@
      "id": "l2-01",
      "items": [
       {
-       "id": "l2-01-0",
-       "en": "zero"
-      },
-      {
        "id": "l2-01-1",
        "en": "one"
       },
@@ -166,24 +162,24 @@
       {
        "id": "l2-01-7",
        "en": "seven"
+      },
+      {
+       "id": "l2-01-8",
+       "en": "eight"
+      },
+      {
+       "id": "l2-01-9",
+       "en": "nine"
+      },
+      {
+       "id": "l2-01-10",
+       "en": "ten"
       }
      ]
     },
     {
      "id": "l2-02",
      "items": [
-      {
-       "id": "l2-02-8",
-       "en": "eight"
-      },
-      {
-       "id": "l2-02-9",
-       "en": "nine"
-      },
-      {
-       "id": "l2-02-10",
-       "en": "ten"
-      },
       {
        "id": "l2-02-11",
        "en": "eleven"
@@ -203,6 +199,26 @@
       {
        "id": "l2-02-15",
        "en": "fifteen"
+      },
+      {
+       "id": "l2-02-16",
+       "en": "sixteen"
+      },
+      {
+       "id": "l2-02-17",
+       "en": "seventeen"
+      },
+      {
+       "id": "l2-02-18",
+       "en": "eighteen"
+      },
+      {
+       "id": "l2-02-19",
+       "en": "nineteen"
+      },
+      {
+       "id": "l2-02-20",
+       "en": "twenty"
       }
      ]
     },
@@ -210,24 +226,40 @@
      "id": "l2-03",
      "items": [
       {
-       "id": "l2-03-16",
-       "en": "sixteen"
+       "id": "l2-03-30",
+       "en": "thirty"
       },
       {
-       "id": "l2-03-17",
-       "en": "seventeen"
+       "id": "l2-03-40",
+       "en": "forty"
       },
       {
-       "id": "l2-03-18",
-       "en": "eighteen"
+       "id": "l2-03-50",
+       "en": "fifty"
       },
       {
-       "id": "l2-03-19",
-       "en": "nineteen"
+       "id": "l2-03-60",
+       "en": "sixty"
       },
       {
-       "id": "l2-03-20",
-       "en": "twenty"
+       "id": "l2-03-70",
+       "en": "seventy"
+      },
+      {
+       "id": "l2-03-80",
+       "en": "eighty"
+      },
+      {
+       "id": "l2-03-90",
+       "en": "ninety"
+      },
+      {
+       "id": "l2-03-100",
+       "en": "one hundred"
+      },
+      {
+       "id": "l2-03-0",
+       "en": "zero"
       }
      ]
     },
@@ -235,36 +267,36 @@
      "id": "l2-04",
      "items": [
       {
-       "id": "l2-04-30",
-       "en": "thirty"
+       "id": "l2-04-21",
+       "en": "twenty-one"
       },
       {
-       "id": "l2-04-40",
-       "en": "forty"
+       "id": "l2-04-35",
+       "en": "thirty-five"
       },
       {
-       "id": "l2-04-50",
-       "en": "fifty"
+       "id": "l2-04-47",
+       "en": "forty-seven"
       },
       {
-       "id": "l2-04-60",
-       "en": "sixty"
+       "id": "l2-04-58",
+       "en": "fifty-eight"
       },
       {
-       "id": "l2-04-70",
-       "en": "seventy"
+       "id": "l2-04-64",
+       "en": "sixty-four"
       },
       {
-       "id": "l2-04-80",
-       "en": "eighty"
+       "id": "l2-04-72",
+       "en": "seventy-two"
       },
       {
-       "id": "l2-04-90",
-       "en": "ninety"
+       "id": "l2-04-86",
+       "en": "eighty-six"
       },
       {
-       "id": "l2-04-100",
-       "en": "one hundred"
+       "id": "l2-04-99",
+       "en": "ninety-nine"
       }
      ]
     },
@@ -272,24 +304,32 @@
      "id": "l2-05",
      "items": [
       {
-       "id": "l2-05-21",
-       "en": "twenty-one"
+       "id": "l2-05-200",
+       "en": "two hundred"
       },
       {
-       "id": "l2-05-32",
-       "en": "thirty-two"
+       "id": "l2-05-350",
+       "en": "three hundred fifty"
       },
       {
-       "id": "l2-05-45",
-       "en": "forty-five"
+       "id": "l2-05-500",
+       "en": "five hundred"
       },
       {
-       "id": "l2-05-58",
-       "en": "fifty-eight"
+       "id": "l2-05-1000",
+       "en": "one thousand"
       },
       {
-       "id": "l2-05-99",
-       "en": "ninety-nine"
+       "id": "l2-05-1500",
+       "en": "one thousand five hundred"
+      },
+      {
+       "id": "l2-05-2000",
+       "en": "two thousand"
+      },
+      {
+       "id": "l2-05-2026",
+       "en": "two thousand twenty-six"
       }
      ]
     }

@@ -6,6 +6,10 @@
    {
     "id": "l1-01",
     "title": "Le prime sette lettere: A – G",
+    "teoria": {
+     "it": "Le lettere inglesi si chiamano in modo diverso dall'italiano: A si dice «ei», B «bi», C «si». Per ricordarle, ogni lettera ha con sé una parola d'esempio, come «A — apple» e «B — banana». Ascolta, ripeti ad alta voce e poi scrivi la lettera con la sua parola. Piccolo trucco: la E si dice «i» e la G si dice «gi».",
+     "en": "English letters have their own names: A sounds like \"ay\", B like \"bee\", C like \"see\". Each letter has an example word to help you remember, like \"A — apple\" and \"B — banana\". Listen, say it out loud, then write the letter and its word."
+    },
     "items": [
      {
       "id": "l1-01-a",
@@ -97,6 +101,10 @@
    {
     "id": "l1-02",
     "title": "Altre sette lettere: H – N",
+    "teoria": {
+     "it": "Continuiamo con l'alfabeto: H, I, J, K, L, M, N. Attenzione ai suoni che in italiano sono strani: la H si dice «éich», la J si dice «gei» e la K si dice «chei». Ogni lettera ha la sua parola, come «H — house» e «J — juice». Ripeti ad alta voce: la pronuncia si impara con la bocca, non solo con gli occhi.",
+     "en": "We continue with the alphabet: H, I, J, K, L, M, N. Some names sound new: H is \"aitch\", J is \"jay\", K is \"kay\". Each letter has an example word, like \"H — house\" and \"J — juice\". Say each one out loud."
+    },
     "items": [
      {
       "id": "l1-02-h",
@@ -192,6 +200,10 @@
    {
     "id": "l1-03",
     "title": "Sei lettere: O – T",
+    "teoria": {
+     "it": "Altre sei lettere: O, P, Q, R, S, T. La O si dice «ou», come il suono finale di «no», e la Q si dice «chiu». La R in inglese è più morbida della R italiana: la lingua non vibra. Gli esempi sono «O — orange», «R — red» e «T — tea».",
+     "en": "Six more letters: O, P, Q, R, S, T. O sounds like \"oh\" and Q sounds like \"cue\". The English R is soft: your tongue does not roll. The examples are \"O — orange\", \"R — red\" and \"T — tea\"."
+    },
     "items": [
      {
       "id": "l1-03-o",
@@ -271,6 +283,10 @@
    {
     "id": "l1-04",
     "title": "Le ultime sei lettere: U – Z",
+    "teoria": {
+     "it": "Ultime sei lettere: U, V, W, X, Y, Z. La W si dice «dàbliu» e la Y si dice «uài»: sono le più difficili, quindi ripetile più volte. La Z in America si dice «zi», nel Regno Unito «zed». Gli esempi sono «W — water», «Y — yes» e «Z — zebra».",
+     "en": "The last six letters: U, V, W, X, Y, Z. W is \"double-u\" and Y is \"why\": these are the hardest, so repeat them a few times. In American English Z is \"zee\", in British English it is \"zed\". The examples are \"W — water\", \"Y — yes\" and \"Z — zebra\"."
+    },
     "items": [
      {
       "id": "l1-04-u",
@@ -355,16 +371,12 @@
   "lessons": [
    {
     "id": "l2-01",
-    "title": "Da 0 a 7",
+    "title": "Da 1 a 10",
+    "teoria": {
+     "it": "Questi sono i numeri più importanti: da uno a dieci. Si dicono con una parola sola: «one», «two», «three». Imparali bene, perché sono la base di tutti gli altri numeri. Ascolta e ripeti ad alta voce, anche mentre conti le cose che hai intorno: i gradini, le dita, le pillole.",
+     "en": "These are the most important numbers: one to ten. Each one is a single word: \"one\", \"two\", \"three\". Learn them well, because every other number is built from them. Listen and say them out loud, even while you count things around you."
+    },
     "items": [
-     {
-      "id": "l2-01-0",
-      "en": "zero",
-      "it": "0",
-      "accept": [
-       "zero"
-      ]
-     },
      {
       "id": "l2-01-1",
       "en": "one",
@@ -420,15 +432,9 @@
       "accept": [
        "seven"
       ]
-     }
-    ]
-   },
-   {
-    "id": "l2-02",
-    "title": "Da 8 a 15",
-    "items": [
+     },
      {
-      "id": "l2-02-8",
+      "id": "l2-01-8",
       "en": "eight",
       "it": "8 — otto",
       "accept": [
@@ -436,7 +442,7 @@
       ]
      },
      {
-      "id": "l2-02-9",
+      "id": "l2-01-9",
       "en": "nine",
       "it": "9 — nove",
       "accept": [
@@ -444,13 +450,23 @@
       ]
      },
      {
-      "id": "l2-02-10",
+      "id": "l2-01-10",
       "en": "ten",
       "it": "10 — dieci",
       "accept": [
        "ten"
       ]
-     },
+     }
+    ]
+   },
+   {
+    "id": "l2-02",
+    "title": "Da 11 a 20",
+    "teoria": {
+     "it": "Da 13 a 19 i numeri finiscono tutti in «-teen»: «thirteen», «fourteen», «fifteen». Il suono forte è sulla fine, quindi «-teen» si sente chiaramente. Undici e dodici sono diversi: «eleven» e «twelve» vanno solo imparati a memoria. Il venti, «twenty», finisce invece in «-ty».",
+     "en": "From 13 to 19 the numbers all end in \"-teen\": \"thirteen\", \"fourteen\", \"fifteen\". The strong sound is at the end, so you hear \"-teen\" clearly. Eleven and twelve are different: just learn \"eleven\" and \"twelve\" by heart. Twenty ends in \"-ty\"."
+    },
+    "items": [
      {
       "id": "l2-02-11",
       "en": "eleven",
@@ -490,15 +506,9 @@
       "accept": [
        "fifteen"
       ]
-     }
-    ]
-   },
-   {
-    "id": "l2-03",
-    "title": "Da 16 a 20",
-    "items": [
+     },
      {
-      "id": "l2-03-16",
+      "id": "l2-02-16",
       "en": "sixteen",
       "it": "16 — sedici",
       "accept": [
@@ -506,7 +516,7 @@
       ]
      },
      {
-      "id": "l2-03-17",
+      "id": "l2-02-17",
       "en": "seventeen",
       "it": "17 — diciassette",
       "accept": [
@@ -514,7 +524,7 @@
       ]
      },
      {
-      "id": "l2-03-18",
+      "id": "l2-02-18",
       "en": "eighteen",
       "it": "18 — diciotto",
       "accept": [
@@ -522,7 +532,7 @@
       ]
      },
      {
-      "id": "l2-03-19",
+      "id": "l2-02-19",
       "en": "nineteen",
       "it": "19 — diciannove",
       "accept": [
@@ -530,7 +540,7 @@
       ]
      },
      {
-      "id": "l2-03-20",
+      "id": "l2-02-20",
       "en": "twenty",
       "it": "20 — venti",
       "accept": [
@@ -540,11 +550,15 @@
     ]
    },
    {
-    "id": "l2-04",
-    "title": "Le decine, fino a cento",
+    "id": "l2-03",
+    "title": "Le decine e lo zero",
+    "teoria": {
+     "it": "Le decine (30, 40, 50…) finiscono tutte in «-ty»: «thirty», «forty», «fifty». Attenzione alla differenza con i numeri in «-teen»: «thirteen» (13) ha l'accento sulla fine, «thirty» (30) ha l'accento all'inizio. Il cento si dice «one hundred» o «a hundred». Lo zero si dice «zero»; nei numeri di telefono si sente spesso anche «oh».",
+     "en": "The tens (30, 40, 50…) all end in \"-ty\": \"thirty\", \"forty\", \"fifty\". Do not mix them with the \"-teen\" numbers: in \"thirteen\" (13) the stress is at the end, in \"thirty\" (30) the stress is at the start. One hundred is \"one hundred\" or \"a hundred\". Zero is \"zero\"; in phone numbers people often say \"oh\" too."
+    },
     "items": [
      {
-      "id": "l2-04-30",
+      "id": "l2-03-30",
       "en": "thirty",
       "it": "30 — trenta (30: «-ty» si sente alla fine, diverso da thirteen = 13)",
       "accept": [
@@ -552,7 +566,7 @@
       ]
      },
      {
-      "id": "l2-04-40",
+      "id": "l2-03-40",
       "en": "forty",
       "it": "40 — quaranta",
       "accept": [
@@ -560,7 +574,7 @@
       ]
      },
      {
-      "id": "l2-04-50",
+      "id": "l2-03-50",
       "en": "fifty",
       "it": "50 — cinquanta",
       "accept": [
@@ -568,7 +582,7 @@
       ]
      },
      {
-      "id": "l2-04-60",
+      "id": "l2-03-60",
       "en": "sixty",
       "it": "60 — sessanta",
       "accept": [
@@ -576,7 +590,7 @@
       ]
      },
      {
-      "id": "l2-04-70",
+      "id": "l2-03-70",
       "en": "seventy",
       "it": "70 — settanta",
       "accept": [
@@ -584,7 +598,7 @@
       ]
      },
      {
-      "id": "l2-04-80",
+      "id": "l2-03-80",
       "en": "eighty",
       "it": "80 — ottanta",
       "accept": [
@@ -592,7 +606,7 @@
       ]
      },
      {
-      "id": "l2-04-90",
+      "id": "l2-03-90",
       "en": "ninety",
       "it": "90 — novanta",
       "accept": [
@@ -600,22 +614,35 @@
       ]
      },
      {
-      "id": "l2-04-100",
+      "id": "l2-03-100",
       "en": "one hundred",
       "it": "100 — cento",
       "accept": [
        "one hundred",
        "a hundred"
       ]
+     },
+     {
+      "id": "l2-03-0",
+      "en": "zero",
+      "it": "0",
+      "accept": [
+       "zero",
+       "oh"
+      ]
      }
     ]
    },
    {
-    "id": "l2-05",
-    "title": "Numeri composti",
+    "id": "l2-04",
+    "title": "Come si formano i numeri",
+    "teoria": {
+     "it": "Per i numeri tra le decine si dice prima la decina e poi l'unità, con un trattino in mezzo: 21 è «twenty-one», 35 è «thirty-five». In italiano si scrive tutto attaccato (ventuno, trentacinque), in inglese sono due parole unite dal trattino. Basta conoscere le decine e i numeri da 1 a 9. Anche 99 funziona così: «ninety-nine».",
+     "en": "For numbers between the tens, say the ten first and then the unit, with a hyphen in the middle: 21 is \"twenty-one\", 35 is \"thirty-five\". It is just two numbers joined together. You only need the tens and the numbers from 1 to 9. 99 works the same way: \"ninety-nine\"."
+    },
     "items": [
      {
-      "id": "l2-05-21",
+      "id": "l2-04-21",
       "en": "twenty-one",
       "it": "21 — ventuno",
       "accept": [
@@ -624,25 +651,25 @@
       ]
      },
      {
-      "id": "l2-05-32",
-      "en": "thirty-two",
-      "it": "32 — trentadue",
+      "id": "l2-04-35",
+      "en": "thirty-five",
+      "it": "35 — trentacinque",
       "accept": [
-       "thirty-two",
-       "thirty two"
+       "thirty-five",
+       "thirty five"
       ]
      },
      {
-      "id": "l2-05-45",
-      "en": "forty-five",
-      "it": "45 — quarantacinque",
+      "id": "l2-04-47",
+      "en": "forty-seven",
+      "it": "47 — quarantasette",
       "accept": [
-       "forty-five",
-       "forty five"
+       "forty-seven",
+       "forty seven"
       ]
      },
      {
-      "id": "l2-05-58",
+      "id": "l2-04-58",
       "en": "fifty-eight",
       "it": "58 — cinquantotto",
       "accept": [
@@ -651,12 +678,115 @@
       ]
      },
      {
-      "id": "l2-05-99",
+      "id": "l2-04-64",
+      "en": "sixty-four",
+      "it": "64 — sessantaquattro",
+      "accept": [
+       "sixty-four",
+       "sixty four"
+      ]
+     },
+     {
+      "id": "l2-04-72",
+      "en": "seventy-two",
+      "it": "72 — settantadue",
+      "accept": [
+       "seventy-two",
+       "seventy two"
+      ]
+     },
+     {
+      "id": "l2-04-86",
+      "en": "eighty-six",
+      "it": "86 — ottantasei",
+      "accept": [
+       "eighty-six",
+       "eighty six"
+      ]
+     },
+     {
+      "id": "l2-04-99",
       "en": "ninety-nine",
       "it": "99 — novantanove",
       "accept": [
        "ninety-nine",
        "ninety nine"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l2-05",
+    "title": "Centinaia e migliaia",
+    "teoria": {
+     "it": "Con le centinaia e le migliaia si dice prima quante sono, poi «hundred» o «thousand»: «two hundred» (200), «five hundred» (500), «two thousand» (2000). Attenzione: «hundred» e «thousand» non prendono mai la «s», anche se sono più di uno. Dopo «hundred» si può aggiungere «and»: «three hundred fifty» o «three hundred and fifty». Gli anni si leggono a due a due: 2026 è «two thousand twenty-six» oppure «twenty twenty-six».",
+     "en": "With hundreds and thousands, say how many first, then \"hundred\" or \"thousand\": \"two hundred\" (200), \"five hundred\" (500), \"two thousand\" (2000). Never add an \"s\" to \"hundred\" or \"thousand\", even when there are many. After \"hundred\" you can add \"and\": \"three hundred fifty\" or \"three hundred and fifty\". Years can be said in two parts: 2026 is \"two thousand twenty-six\" or \"twenty twenty-six\"."
+    },
+    "items": [
+     {
+      "id": "l2-05-200",
+      "en": "two hundred",
+      "it": "200 — duecento",
+      "accept": [
+       "two hundred"
+      ]
+     },
+     {
+      "id": "l2-05-350",
+      "en": "three hundred fifty",
+      "it": "350 — trecentocinquanta",
+      "accept": [
+       "three hundred fifty",
+       "three hundred and fifty"
+      ]
+     },
+     {
+      "id": "l2-05-500",
+      "en": "five hundred",
+      "it": "500 — cinquecento",
+      "accept": [
+       "five hundred"
+      ]
+     },
+     {
+      "id": "l2-05-1000",
+      "en": "one thousand",
+      "it": "1000 — mille",
+      "accept": [
+       "one thousand",
+       "a thousand"
+      ]
+     },
+     {
+      "id": "l2-05-1500",
+      "en": "one thousand five hundred",
+      "it": "1500 — millecinquecento",
+      "accept": [
+       "one thousand five hundred",
+       "fifteen hundred",
+       "a thousand five hundred",
+       "one thousand and five hundred"
+      ]
+     },
+     {
+      "id": "l2-05-2000",
+      "en": "two thousand",
+      "it": "2000 — duemila",
+      "accept": [
+       "two thousand"
+      ]
+     },
+     {
+      "id": "l2-05-2026",
+      "en": "two thousand twenty-six",
+      "it": "2026 — duemilaventisei (un anno)",
+      "accept": [
+       "two thousand twenty-six",
+       "two thousand twenty six",
+       "two thousand and twenty-six",
+       "two thousand and twenty six",
+       "twenty twenty-six",
+       "twenty twenty six"
       ]
      }
     ]
@@ -670,6 +800,10 @@
    {
     "id": "l3-01",
     "title": "Salutare",
+    "teoria": {
+     "it": "Per salutare dipende dall'ora. «Hello» va bene sempre, a ogni ora. «Good morning» si dice la mattina, «Good afternoon» nel pomeriggio e «Good evening» la sera. «Good night» si dice solo quando si va a dormire o ci si lascia a tarda ora. Per andare via si dice «Goodbye» o, più amichevole, «See you later».",
+     "en": "What you say depends on the time of day. \"Hello\" is always fine. Say \"Good morning\", \"Good afternoon\" and \"Good evening\" at the right time. \"Good night\" is for going to bed or leaving late. To leave, say \"Goodbye\" or, more friendly, \"See you later\"."
+    },
     "items": [
      {
       "id": "l3-01-hello",
@@ -724,6 +858,10 @@
    {
     "id": "l3-02",
     "title": "Come stai?",
+    "teoria": {
+     "it": "«How are you?» è la domanda che si fa per prima, e vuol dire «Come stai?». Si risponde «I'm fine, thank you» e subito dopo si chiede «And you?». Una risposta più rilassata è «Not bad», cioè «non c'è male». Con un paziente puoi chiedere «How do you feel today?», che significa «Come ti senti oggi?».",
+     "en": "\"How are you?\" is the first question people ask. You answer \"I'm fine, thank you\" and then ask \"And you?\". A more relaxed answer is \"Not bad\". With a patient you can ask \"How do you feel today?\"."
+    },
     "items": [
      {
       "id": "l3-02-how-are-you",
@@ -769,6 +907,10 @@
    {
     "id": "l3-03",
     "title": "Presentarsi",
+    "teoria": {
+     "it": "Per presentarti dici «My name is» e poi il tuo nome: «My name is Anna». Per chiedere il nome a un'altra persona: «What's your name?». Quando ci si conosce si dice «Nice to meet you» e l'altro risponde «Nice to meet you too». Per dire il tuo lavoro si usa «I'm a» davanti: «I'm a nurse».",
+     "en": "To introduce yourself, say \"My name is\" and your name: \"My name is Anna\". To ask someone's name: \"What's your name?\". When you meet, say \"Nice to meet you\" and the other person says \"Nice to meet you too\". To say your job, use \"I'm a\": \"I'm a nurse\"."
+    },
     "items": [
      {
       "id": "l3-03-my-name-is",
@@ -825,6 +967,10 @@
    {
     "id": "l3-04",
     "title": "Da dove vieni?",
+    "teoria": {
+     "it": "Per chiedere da dove viene una persona si dice «Where are you from?». Si risponde con «I'm from» e il Paese: «I'm from Italy». Per dire la nazionalità basta «I'm» e l'aggettivo: «I'm Italian». Per dare il benvenuto a un cliente si dice semplicemente «Welcome», senza differenza tra uomo e donna.",
+     "en": "To ask where someone is from, say \"Where are you from?\". Answer with \"I'm from\" and the country: \"I'm from Italy\". For nationality, say \"I'm\" and the word: \"I'm Italian\". To welcome a client, just say \"Welcome\": it is the same for men and women."
+    },
     "items": [
      {
       "id": "l3-04-where-are-you-from",
@@ -864,6 +1010,10 @@
    {
     "id": "l3-05",
     "title": "Parole gentili",
+    "teoria": {
+     "it": "Le parole gentili aprono tutte le porte. «Please» è «per favore» e «Thank you» è «grazie»: per dire «grazie mille» si aggiunge «very much». Quando qualcuno ti ringrazia rispondi «You're welcome». Per chiedere scusa si dice «Sorry». Per attirare l'attenzione, o passare in mezzo a qualcuno, si dice «Excuse me».",
+     "en": "Polite words open every door. \"Please\" and \"Thank you\": add \"very much\" for \"thank you very much\". When someone thanks you, say \"You're welcome\". To say you are sorry, say \"Sorry\". To get someone's attention, or to pass by, say \"Excuse me\"."
+    },
     "items": [
      {
       "id": "l3-05-please",
@@ -926,6 +1076,10 @@
    {
     "id": "l4-01",
     "title": "Essere: io, tu, lui, lei",
+    "teoria": {
+     "it": "In inglese «essere» ha forme corte che si dicono con un apostrofo: «I'm» (io sono), «you're» (tu sei), «he's» (lui è), «she's» (lei è), «it's» (è, per le cose). Davanti ci va sempre la persona: non si può dire solo «sono». Anche per dire «ho fame» si usa «essere»: «I'm hungry», cioè letteralmente «sono affamata». Esempio: «I'm happy», «She's my friend».",
+     "en": "In English \"to be\" has short forms with an apostrophe: \"I'm\", \"you're\", \"he's\", \"she's\", \"it's\" (for things). The person always comes first. For feelings like hunger, English also uses \"to be\": \"I'm hungry\", \"I'm tired\". Example: \"I'm happy\", \"She's my friend\"."
+    },
     "items": [
      {
       "id": "l4-01-im-happy",
@@ -1003,6 +1157,10 @@
    {
     "id": "l4-02",
     "title": "Essere: noi e loro, e il negativo",
+    "teoria": {
+     "it": "Per «noi» e «loro» le forme corte sono «we're» e «they're». Per dire di no, dopo «is» e «are» aggiungi «not»: «I'm not tired». Spesso si accorcia così: «he isn't», «she isn't», «it isn't», «you aren't». Esempi: «We're friends», «They're nurses», «He isn't here».",
+     "en": "For \"we\" and \"they\" the short forms are \"we're\" and \"they're\". To say no, add \"not\": \"I'm not tired\". It is often shortened: \"he isn't\", \"she isn't\", \"it isn't\", \"you aren't\". Examples: \"We're friends\", \"They're nurses\", \"He isn't here\"."
+    },
     "items": [
      {
       "id": "l4-02-were-friends",
@@ -1076,6 +1234,10 @@
    {
     "id": "l4-03",
     "title": "Essere: le domande",
+    "teoria": {
+     "it": "Per fare una domanda con «essere» si cambia l'ordine: «Are you tired?» è la domanda di «You're tired». La parola «are» o «is» va per prima. Con «where» si chiede un luogo: «Where is the bathroom?». Per l'età si dice «How old are you?», che letto alla lettera sarebbe «Quanto vecchia sei?» ma significa «Quanti anni hai?».",
+     "en": "To ask a question with \"to be\", change the order: \"Are you tired?\" comes from \"You're tired\". \"Are\" or \"is\" goes first. Use \"where\" to ask about a place: \"Where is the bathroom?\". For age, say \"How old are you?\"."
+    },
     "items": [
      {
       "id": "l4-03-are-you-ok",
@@ -1127,6 +1289,10 @@
    {
     "id": "l4-04",
     "title": "Avere",
+    "teoria": {
+     "it": "«Avere» in inglese è «have». Per «io», «tu», «noi» e «loro» si dice «have»: «I have a dog», «We have time». Per «lui» e «lei» cambia in «has»: «He has a car», «She has a sister». Davanti a una cosa si mette «a» (un, una): «a dog», «a car».",
+     "en": "\"To have\" is \"have\". Use \"have\" with I, you, we, they: \"I have a dog\", \"We have time\". With \"he\" and \"she\" it changes to \"has\": \"He has a car\", \"She has a sister\". Use \"a\" before one thing: \"a dog\", \"a car\"."
+    },
     "items": [
      {
       "id": "l4-04-i-have-a-dog",
@@ -1172,6 +1338,10 @@
    {
     "id": "l4-05",
     "title": "Avere: negativo e domande",
+    "teoria": {
+     "it": "Per dire di no con «avere» si usa «don't» o, per lui e lei, «doesn't»: «I don't have a car», «She doesn't have time». Anche per le domande servono «do» e «does»: «Do you have time?», «Does he have a car?». Dopo «don't», «doesn't» e «does» la parola resta «have», senza «has». Attenzione: è diverso da «essere», qui non si cambia l'ordine ma si aggiunge «do».",
+     "en": "To say no with \"have\", use \"don't\" or, for he and she, \"doesn't\": \"I don't have a car\", \"She doesn't have time\". Questions also need \"do\" and \"does\": \"Do you have time?\", \"Does he have a car?\". After \"doesn't\" and \"does\" the word stays \"have\", never \"has\"."
+    },
     "items": [
      {
       "id": "l4-05-i-dont-have-a-car",
@@ -1233,6 +1403,10 @@
    {
     "id": "l5-01",
     "title": "Go e want",
+    "teoria": {
+     "it": "Con «he» e «she» (lui e lei) la parola che dice cosa fai prende una «s» alla fine: «I go» diventa «she goes», «I want» diventa «he wants». Per le domande si usa «do»: «Do you want tea?». Dopo «want» si può mettere un'altra azione con «to»: «I want to go home». Esempi: «I go to work», «I want a coffee».",
+     "en": "With \"he\" and \"she\" the action word gets an \"s\" at the end: \"I go\" becomes \"she goes\", \"I want\" becomes \"he wants\". For questions use \"do\": \"Do you want tea?\". After \"want\" you can add another action with \"to\": \"I want to go home\"."
+    },
     "items": [
      {
       "id": "l5-01-i-go-to-work",
@@ -1288,6 +1462,10 @@
    {
     "id": "l5-02",
     "title": "Like e eat",
+    "teoria": {
+     "it": "«Like» vuol dire «piacere». Si dice «I like pizza» (a me piace la pizza) e per la domanda «Do you like coffee?». Per dire di no si usa «don't»: «I don't like fish». Per «lui» e «lei» si aggiunge la «s»: «She likes to cook», «He eats a lot». Dopo «like» puoi mettere «to» e un'azione: «What do you like to eat?».",
+     "en": "\"Like\" means you enjoy something. You say \"I like pizza\" and, for questions, \"Do you like coffee?\". To say no, use \"don't\": \"I don't like fish\". For \"he\" and \"she\" add an \"s\": \"She likes to cook\", \"He eats a lot\". After \"like\" you can add \"to\" and an action: \"What do you like to eat?\"."
+    },
     "items": [
      {
       "id": "l5-02-i-like-pizza",
@@ -1342,6 +1520,10 @@
    {
     "id": "l5-03",
     "title": "Live e work",
+    "teoria": {
+     "it": "«Live» è «abitare» e «work» è «lavorare». Per dire dove: «in» davanti al luogo, «I live in Italy», «I work in a hospital». Per lui e lei si aggiunge la «s»: «She lives with her sister», «He works a lot». Per le domande: «Where do you live?», «Where do you work?». «What do you do?» vuol dire «Che lavoro fai?».",
+     "en": "\"Live\" is where you stay and \"work\" is your job. Use \"in\" before a place: \"I live in Italy\", \"I work in a hospital\". For he and she add an \"s\": \"She lives with her sister\", \"He works a lot\". Questions: \"Where do you live?\", \"Where do you work?\". \"What do you do?\" means \"What is your job?\"."
+    },
     "items": [
      {
       "id": "l5-03-i-live-in-italy",
@@ -1394,6 +1576,10 @@
    {
     "id": "l5-04",
     "title": "Need e have",
+    "teoria": {
+     "it": "«Need» vuol dire «avere bisogno». Si dice «I need help» (ho bisogno di aiuto), senza nessuna parola per «di». Per la domanda si usa «do»: «Do you need help?». Per lui e lei si aggiunge la «s»: «She needs time». Anche «have» può voler dire «mangiare»: «I have lunch at one» è «Pranzo all'una».",
+     "en": "\"Need\" means you must have something. Say \"I need help\", with no word between \"need\" and the thing. For a question use \"do\": \"Do you need help?\". For she and he add an \"s\": \"She needs time\". \"Have\" can also mean \"eat\": \"I have lunch at one\"."
+    },
     "items": [
      {
       "id": "l5-04-i-need-help",
@@ -1455,6 +1641,10 @@
    {
     "id": "l5-05",
     "title": "See e speak",
+    "teoria": {
+     "it": "«See» vuol dire «vedere» e «speak» vuol dire «parlare». Per lui e lei si aggiunge la «s»: «She sees her friend», «He speaks English». Per la domanda si usa «do»: «Do you speak English?». Con «a little» (un po') puoi dire cosa sai fare: «I speak a little English». È una frase molto utile da dire ai clienti!",
+     "en": "\"See\" and \"speak\" are everyday actions. For she and he add an \"s\": \"She sees her friend\", \"He speaks English\". For a question use \"do\": \"Do you speak English?\". With \"a little\" you can show what you know: \"I speak a little English\". It is a very useful sentence to say to clients."
+    },
     "items": [
      {
       "id": "l5-05-i-see-you",
@@ -1515,6 +1705,10 @@
    {
     "id": "l6-01",
     "title": "Non ho capito",
+    "teoria": {
+     "it": "Quando non capisci, non ti vergognare: chiedi aiuto. «Can you repeat, please?» vuol dire «Puoi ripetere?» e «Can you speak slowly, please?» vuol dire «Puoi parlare lentamente?». Per dire cosa capisci, «I understand» e «I don't understand». Per chiedere il significato di una parola, «What does it mean?».",
+     "en": "When you do not understand, ask for help. \"Can you repeat, please?\" and \"Can you speak slowly, please?\" are polite and clear. Use \"I understand\" and \"I don't understand\" to say what you know. To ask about a word: \"What does it mean?\"."
+    },
     "items": [
      {
       "id": "l6-01-can-you-repeat",
@@ -1569,6 +1763,10 @@
    {
     "id": "l6-02",
     "title": "Altre domande utili",
+    "teoria": {
+     "it": "Queste frasi ti aiutano a imparare mentre parli. «How do you spell that?» vuol dire «Come si scrive?». «How do you say this in English?» vuol dire «Come si dice questo in inglese?». «Just a moment, please» serve quando ti serve tempo per pensare. Per dire di te: «I'm learning English», «My English isn't very good».",
+     "en": "These sentences help you learn while you talk. \"How do you spell that?\" and \"How do you say this in English?\" are very useful. \"Just a moment, please\" gives you time to think. To talk about yourself: \"I'm learning English\", \"My English isn't very good\"."
+    },
     "items": [
      {
       "id": "l6-02-how-do-you-spell-that",
@@ -1631,6 +1829,10 @@
    {
     "id": "l6-03",
     "title": "Posso aiutarti?",
+    "teoria": {
+     "it": "Con «can» si chiede e si offre aiuto: «Can I help you?» (posso aiutarti?), «Can you help me?» (puoi aiutarmi?). «Can» vuol dire «posso» e «puoi»: l'azione dopo non cambia mai. Per rispondere: «Yes, of course», «No problem». Se non sai cosa dire: «I don't know».",
+     "en": "With \"can\" you ask for and offer help: \"Can I help you?\", \"Can you help me?\". \"Can\" means both \"I am able\" and \"is it OK\": the action after it never changes. To answer: \"Yes, of course\", \"No problem\". If you do not know: \"I don't know\"."
+    },
     "items": [
      {
       "id": "l6-03-can-i-help-you",
@@ -1691,6 +1893,10 @@
    {
     "id": "l6-04",
     "title": "Frasi con and e but",
+    "teoria": {
+     "it": "Per unire due frasi usa «and» («e») e «but» («ma»). Si mette in mezzo: «I'm tired and hungry», «I'm tired, but I'm happy». Con «and» puoi unire due cose: «tea and coffee». Se la persona è la stessa, puoi non ripeterla: «I'm tired but happy».",
+     "en": "Use \"and\" and \"but\" to join two ideas. They go in the middle: \"I'm tired and hungry\", \"I'm tired, but I'm happy\". With \"and\" you can join two things: \"tea and coffee\". If the person is the same, you can say it only once: \"I'm tired but happy\"."
+    },
     "items": [
      {
       "id": "l6-04-tired-and-hungry",
@@ -1750,6 +1956,10 @@
    {
     "id": "l6-05",
     "title": "Frasi con because e when",
+    "teoria": {
+     "it": "«Why?» vuol dire «Perché?» e «because» vuol dire «perché» quando rispondi: «I'm tired because I work a lot». Con «when» («quando») si fa una domanda o si dà un momento: «When do you work?», «I eat when I'm hungry». Per «quando sei libera» si dice «When are you free?». Sono parole piccole ma ti fanno parlare in modo più lungo e più naturale.",
+     "en": "\"Why?\" asks the reason and \"because\" gives the reason: \"I'm tired because I work a lot\". \"When\" asks about time or gives a time: \"When do you work?\", \"I eat when I'm hungry\". These small words help you make longer, more natural sentences."
+    },
     "items": [
      {
       "id": "l6-05-why",

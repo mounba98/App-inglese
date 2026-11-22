@@ -96,3 +96,44 @@ input[type="text"] {
 .lesson-btn { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; text-align: left; }
 .done-mark { font-size: 1.25rem; font-weight: 500; color: var(--ok); white-space: nowrap; }
 .hint { font-size: 1.25rem; color: var(--muted); }
+
+/* Teoria */
+.teoria h1 { font-size: 1.875rem; }
+.teoria-text { display: flex; flex-direction: column; gap: 0.9375rem; }
+.teoria-text p { font-size: 1.25rem; line-height: 1.5; overflow-wrap: anywhere; }
+
+/* Scelta multipla */
+.options { gap: 0.75rem; }
+button.option {
+  text-align: left;
+  font-size: 1.375rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  background: #fff;
+  color: var(--ink);
+  border: 2px solid var(--accent);
+}
+button.option.right { background: #dff1e4; border-color: var(--ok); color: #0f3d20; opacity: 1; }
+button.option.wrong { background: #f8e0e0; border-color: #a12626; color: #5c1010; opacity: 1; }
+button.option:disabled:not(.right):not(.wrong) { opacity: 0.55; }
+.mark { font-weight: 800; }
+
+/* Aiuto */
+.hint-text {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  overflow-wrap: anywhere;
+  background: var(--soft);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+
+/* Fine lezione e elenco lezioni */
+.weak { margin: 0; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 1.25rem; }
+.tag { font-size: 1.25rem; font-weight: 600; white-space: nowrap; padding: 0.125rem 0.625rem; border-radius: 8px; border: 2px solid currentColor; }
+.tag-da-fare { color: var(--accent); }
+.tag-fatta { color: var(--ok); }
+.tag-da-ripassare { color: var(--warn); }
+.tag-bloccata { color: var(--muted); }
+.lesson-btn .tag + .done-mark { display: none; }

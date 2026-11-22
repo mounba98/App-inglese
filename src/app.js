@@ -7,6 +7,7 @@ import { numberItems } from './numbers.js';
 import { pickPractice, nextMode } from './practice.js';
 import { hasSpeech, whenVoicesReady, speak } from './speech.js';
 import { loadAudioIndex, createPlayer } from './audio.js';
+import { lessonStatus, STATUS_LABEL, paragraphs, distractorPool } from './stato.js';
 
 const REVIEW_MAX = 8;
 // Blocco dei pulsanti dopo ogni cambio schermata: è questa la guardia anti doppio tocco
@@ -58,7 +59,7 @@ function show(...nodes) {
   document.body.setAttribute('data-pronta', ''); // dice a index.html che l'app è partita
   root.replaceChildren(...nodes.filter((n) => n));
   // Niente doppi tocchi durante la transizione.
-  const buttons = [...root.querySelectorAll('button')];
+  const buttons = [...root.querySelectorAll('button')].filter((b) => !b.disabled); // quelli già spenti (es. lezione bloccata) restano spenti
   buttons.forEach((b) => { b.disabled = true; });
   setTimeout(() => buttons.forEach((b) => { if (b.isConnected) b.disabled = false; }), LOCK_MS);
   window.scrollTo(0, 0);
@@ -81,6 +82,7 @@ function reviewItems() {
 
 function renderHome() {
   session = null;
+  stopAudio();
   const today = todaysLesson();
   const review = reviewItems();
   const nodes = [h('h1', {}, 'Imparo l\'inglese')];
@@ -111,6 +113,11 @@ function renderHome() {
       h('button', { class: 'secondary', onclick: () => startLesson({ id: 'ripasso', title: 'Ripasso', isReview: true, items: review.slice(0, REVIEW_MAX) }) }, 'Ripassa'),
     ));
   }
+  nodes.push(h('div', { class: 'card' },
+    h('h2', {}, 'Tutte le lezioni'),
+    h('p', {}, 'Rivedi o ripeti qualsiasi lezione.'),
+    h('button', { class: 'secondary', onclick: renderAll }, 'Tutte le lezioni'),
+  ));
   nodes.push(topicsBlock());
   if (level2Complete()) {
     nodes.push(h('div', { class: 'card' },
@@ -173,6 +180,7 @@ function topicsBlock() {
 
 function renderTopic(topic) {
   session = null;
+  stopAudio();
   const done = progress.get().completed;
   show(
     h('h1', {}, topic.title),
@@ -188,13 +196,49 @@ function renderTopic(topic) {
   );
 }
 
-function startLesson(lesson, topic = null) {
-  session = { lesson, topic, flow: createLessonFlow(lesson, (lesson.isReview || lesson.isPractice || lesson.isTraining) ? { startAt: 'write', dictation: !!lesson.dictation } : undefined), feedback: null, recorded: false, lastAnswer: '' };
+function renderAll() {
+  session = null;
+  stopAudio();
+  const state = progress.get();
+  const nodes = [h('h1', {}, 'Tutte le lezioni')];
+  levels.forEach((lv, i) => {
+    nodes.push(h('h2', {}, `Livello ${i + 1} — ${lv.title}`));
+    nodes.push(h('div', { class: 'card' },
+      lv.lessons.map((lesson) => {
+        const st = lessonStatus(lesson, state, progress.isLessonUnlocked(lesson.id, levels));
+        return h('button', {
+          class: `secondary lesson-btn st-${st}`,
+          disabled: st === 'bloccata',
+          onclick: () => startLesson(lesson, null, true),
+        }, h('span', {}, lesson.title), h('span', { class: `tag tag-${st}` }, STATUS_LABEL[st]));
+      })));
+  });
+  nodes.push(h('button', { onclick: renderHome }, 'Indietro'));
+  show(...nodes);
+}
+
+// Le opzioni sbagliate della scelta multipla vengono solo da parole già viste (vedi distractorPool).
+function poolFor(lesson, topic) {
+  const group = topic ? topic.lessons : (levels.find((lv) => lv.lessons.includes(lesson))?.lessons ?? [lesson]);
+  return distractorPool(lesson, group);
+}
+
+function startLesson(lesson, topic = null, fromAll = false) {
+  const special = lesson.isReview || lesson.isPractice || lesson.isTraining;
+  const opts = special ? { startAt: 'write', dictation: !!lesson.dictation } : { pool: poolFor(lesson, topic) };
+  session = { lesson, topic, fromAll, flow: createLessonFlow(lesson, opts), feedback: null, recorded: false, lastAnswer: '', teoriaLang: 'it' };
   renderLesson();
 }
 
+function stopAudio() {
+  try { player.stop(); } catch { /* ignora */ }
+  try { window.speechSynthesis?.cancel?.(); } catch { /* ignora */ }
+}
+
 function leave() {
-  if (session && session.topic) renderTopic(session.topic);
+  stopAudio();
+  if (session && session.fromAll) renderAll();
+  else if (session && session.topic) renderTopic(session.topic);
   else renderHome();
 }
 
@@ -220,11 +264,66 @@ function listenBlock(item) {
   return btn;
 }
 
+const hasItalianVoice = () => {
+  try { return Array.from(window.speechSynthesis?.getVoices?.() ?? []).some((v) => String(v.lang).toLowerCase().replace('_', '-').startsWith('it')); } catch { return false; }
+};
+
+// «Ascolta» per la teoria: inglese con Piper (o voce inglese), italiano solo con una voce italiana.
+function teoriaListen(lang) {
+  const lesson = session.lesson;
+  const t = lesson.teoria;
+  if (lang === 'en') {
+    const item = { id: `${lesson.id}-teoria`, en: t.en };
+    if (!player.canPlay(item)) return null;
+    return h('button', { class: 'secondary', onclick: () => { player.play(item).catch(() => {}); } }, 'Ascolta');
+  }
+  if (!hasItalianVoice()) return null;
+  return h('button', { class: 'secondary', onclick: () => { stopAudio(); speak(t.it, window, 'it-IT').catch(() => {}); } }, 'Ascolta');
+}
+
+function renderTeoria(c) {
+  const { flow, lesson } = session;
+  const lang = session.teoriaLang;
+  const t = c.teoria;
+  const text = lang === 'en' ? t.en : t.it;
+  const slot = h('div', { class: 'stack' });
+  const fill = () => {
+    const btn = teoriaListen(session.teoriaLang);
+    slot.replaceChildren(...(btn ? [btn] : []));
+  };
+  fill();
+  show(
+    exitButton(),
+    h('div', { class: 'card teoria' },
+      h('h1', {}, lesson.title),
+      h('div', { class: 'teoria-text', lang: lang === 'en' ? 'en' : null }, paragraphs(text).map((p) => h('p', {}, p))),
+      h('button', {
+        class: 'secondary',
+        onclick: () => { stopAudio(); session.teoriaLang = lang === 'en' ? 'it' : 'en'; renderLesson(); },
+      }, lang === 'en' ? 'Leggi in italiano' : 'Leggi in inglese'),
+      slot,
+    ),
+    h('button', { onclick: () => { stopAudio(); flow.advance(); renderLesson(); } }, 'Inizia'),
+  );
+  // Voci caricate dopo: il pulsante in italiano compare da solo.
+  try {
+    const synth = window.speechSynthesis;
+    if (lang === 'it' && synth && !hasItalianVoice()) {
+      const onv = () => {
+        if (!slot.isConnected) { synth.removeEventListener?.('voiceschanged', onv); return; }
+        if (hasItalianVoice()) { synth.removeEventListener?.('voiceschanged', onv); fill(); }
+      };
+      synth.addEventListener?.('voiceschanged', onv);
+    }
+  } catch { /* ignora */ }
+}
+
 function renderLesson() {
   const { flow, lesson } = session;
   const c = flow.current();
 
   if (c.step === 'done') return renderDone();
+  if (c.step === 'teoria') return renderTeoria(c);
 
   if (c.step === 'learn') {
     const ok = session.feedback === 'ok';
@@ -233,6 +332,7 @@ function renderLesson() {
       exitButton(),
       h('div', { class: 'card' },
         ok && h('p', { class: 'feedback ok' }, 'Giusto!'),
+        h('p', { class: 'prompt' }, 'Ascolta e ripeti ad alta voce'),
         h('p', { class: 'en', lang: 'en' }, c.item.en),
         h('p', { class: 'it' }, c.item.it),
         listenBlock(c.item),
@@ -241,16 +341,32 @@ function renderLesson() {
     );
   }
 
-  if (c.step === 'repeat') {
+  if (c.step === 'choose') {
+    const answered = c.picked !== undefined;
+    session.feedback = null;
     return show(
       exitButton(),
       h('div', { class: 'card' },
-        h('p', { class: 'prompt' }, 'Ripeti ad alta voce'),
-        h('p', { class: 'en', lang: 'en' }, c.item.en),
+        h('p', { class: 'prompt' }, 'Scegli la risposta giusta'),
         h('p', { class: 'it' }, c.item.it),
-        listenBlock(c.item),
+        h('div', { class: 'stack options' },
+          c.options.map((opt) => {
+            const right = answered && opt === c.item.en;
+            const wrong = answered && opt === c.picked;
+            return h('button', {
+              class: `secondary option${right ? ' right' : ''}${wrong ? ' wrong' : ''}`,
+              lang: 'en',
+              disabled: answered,
+              onclick: () => {
+                const ok = flow.choose(opt);
+                if (ok) session.feedback = 'ok';
+                renderLesson();
+              },
+            }, right ? h('span', { class: 'mark', 'aria-hidden': 'true' }, '✓ ') : wrong ? h('span', { class: 'mark', 'aria-hidden': 'true' }, '✗ ') : null, opt);
+          })),
+        answered ? h('p', { class: 'solution', lang: 'en' }, `La risposta giusta è: ${c.item.en}`) : null,
       ),
-      h('button', { onclick: () => { clearFeedback(session); flow.advance(); renderLesson(); } }, 'L\'ho detto'),
+      answered ? h('button', { onclick: () => { clearFeedback(session); flow.advance(); renderLesson(); } }, 'Avanti') : null,
     );
   }
 
@@ -288,16 +404,21 @@ function renderLesson() {
     input,
     h('button', { type: 'submit' }, 'Controlla'),
   );
+  const giusto = session.feedback === 'ok';
+  if (giusto) session.feedback = null;
   const fb = session.feedback === 'retry' ? h('p', { class: 'feedback retry' }, 'Non ancora, riprova') : null;
   show(
     exitButton(),
     h('div', { class: 'card' },
+      giusto ? h('p', { class: 'feedback ok' }, 'Giusto!') : null,
       h('p', { class: 'prompt' }, c.dictation ? 'Ascolta e scrivi' : 'Scrivi in inglese'),
       c.dictation ? null : h('p', { class: 'it' }, c.item.it),
       (lesson.isReview || c.dictation) ? listenBlock(c.item) : null,
+      c.hint ? h('p', { class: 'hint-text', lang: 'en' }, `Aiuto: ${c.hint}`) : null,
       fb,
     ),
     form,
+    h('button', { type: 'button', class: 'secondary', onclick: () => { flow.hint(); renderLesson(); } }, 'Non lo so'),
   );
   if (session.feedback === 'retry' && session.lastAnswer) {
     input.value = session.lastAnswer;
@@ -305,7 +426,7 @@ function renderLesson() {
   }
   input.focus();
   // Dettato: la frase parte da sola una volta; sui tentativi successivi c'è il pulsante.
-  if (c.dictation && session.feedback !== 'retry') Promise.resolve(player.play(c.item)).catch(() => {});
+  if (c.dictation && session.feedback !== 'retry' && !c.hint) Promise.resolve(player.play(c.item)).catch(() => {});
 }
 
 function renderDone() {
@@ -318,6 +439,8 @@ function renderDone() {
       if (!lesson.isReview && !lesson.isTraining) progress.completeLesson(lesson.id);
     }
   }
+  const byId = new Map(lesson.items.map((it) => [it.id, it]));
+  const weak = Object.entries(flow.results()).filter(([, ok]) => ok === false).map(([id]) => byId.get(id)).filter(Boolean);
   const lastOk = session.feedback === 'ok';
   session.feedback = null;
   show(
@@ -326,10 +449,15 @@ function renderDone() {
       h('p', { class: 'prompt' }, lesson.isPractice ? 'Numeri finiti. Bravissima!' : lesson.isTraining ? 'Allenamento finito. Bravissima!' : lesson.isReview ? 'Ripasso finito. Bravissima!' : 'Lezione finita. Bravissima!'),
       h('p', { class: 'muted' }, 'Puoi fermarti qui o continuare.'),
     ),
+    weak.length > 0 ? h('div', { class: 'card' },
+      h('h2', {}, 'Queste le ripassiamo ancora:'),
+      h('ul', { class: 'weak' }, weak.map((it) => h('li', {}, h('span', { lang: 'en' }, it.en), ` — ${it.it}`))),
+    ) : null,
     lesson.isPractice ? h('button', { onclick: startNumbers }, 'Altri numeri') : null,
     lesson.isTraining ? h('button', { onclick: startTraining }, 'Ancora') : null,
+    session.fromAll ? h('button', { onclick: renderAll }, 'Torna alle lezioni') : null,
     session.topic ? h('button', { onclick: () => renderTopic(session.topic) }, 'Torna all\'argomento') : null,
-    h('button', { class: (session.topic || lesson.isPractice || lesson.isTraining) ? 'secondary' : '', onclick: renderHome }, (lesson.isPractice || lesson.isTraining) ? 'Torna all\'inizio' : 'Torna alla home'),
+    h('button', { class: (session.topic || session.fromAll || lesson.isPractice || lesson.isTraining) ? 'secondary' : '', onclick: renderHome }, (lesson.isPractice || lesson.isTraining) ? 'Torna all\'inizio' : 'Torna alla home'),
   );
 }
 

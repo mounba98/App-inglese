@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Genera audio/<id>.mp3 con Piper per ogni item dei contenuti.
+"""Genera audio/<id>.mp3 con Piper per ogni item dei contenuti
+e, per ogni lezione con «teoria», audio/<idLezione>-teoria.mp3 (testo inglese).
 
 Uso: genera_audio.py OUT_DIR VOICE_ONNX
 Un item che fallisce è saltato; esce con codice != 0 solo se non si genera nessun file.
@@ -26,6 +27,9 @@ def raccogli_item(levels, topics):
         for lesson in group["lessons"]:
             for it in lesson["items"]:
                 out.append((it["id"], it["en"]))
+            teoria = lesson.get("teoria")
+            if teoria:
+                out.append((f"{lesson['id']}-teoria", teoria["en"]))
     return out
 
 

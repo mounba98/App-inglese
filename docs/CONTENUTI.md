@@ -10,9 +10,11 @@ Il testo italiano (`it`) è scritto **al femminile**: «stanca», «contenta», 
 
 ## Come viene usato un elemento
 
-1. **Impara**: vede `en` + `it` e sente l'audio.
-2. **Ripete** a voce.
-3. **Scrive**: vede **solo** `it` e deve digitare l'inglese.
+Prima di tutto, **una volta per lezione**, legge (o ascolta) la **teoria**. Poi, per ogni elemento:
+
+1. **Impara**: vede `en` + `it`, sente l'audio e ripete a voce.
+2. **Sceglie** tra tre risposte in inglese. Le altre due vengono da altri elementi della lezione: per questo gli elementi di una lezione devono essere **diversi tra loro**.
+3. **Scrive**: vede **solo** `it` e deve digitare l'inglese. Con il pulsante «Non lo so» vede prima le iniziali e poi la soluzione.
 
 Nella pratica libera può anche arrivare in dettatura: sente `en` e lo scrive.
 
@@ -54,9 +56,21 @@ Il JSON è indentato con **1 spazio** e termina con un a capo.
 {
   "id": "l6-04",
   "title": "Collegare le frasi",
+  "teoria": {
+    "it": "Per unire due frasi usa «but», che vuol dire «ma». Si mette in mezzo: \"I'm tired, but I'm happy\" è «Sono stanca, ma contenta». Se il soggetto è lo stesso, puoi non ripeterlo: \"I'm tired but happy\".",
+    "en": "Use \"but\" to join two ideas. It goes in the middle: \"I'm tired, but I'm happy\". If the person is the same, you can say it only once: \"I'm tired but happy\"."
+  },
   "items": [ /* da 1 a 8 elementi */ ]
 }
 ```
+
+#### Teoria
+
+Il campo `teoria` è **obbligatorio per ogni lezione nuova** (il test lo controlla).
+
+- `it`: italiano semplice, al femminile quando parla di lei, niente gergo grammaticale. 3–6 frasi brevi che spiegano la regola o il trucco della lezione, con 2–3 esempi tra virgolette.
+- `en`: le stesse cose in inglese molto semplice: frasi brevi, parole già insegnate quando possibile.
+- Massimo 1500 caratteri ciascuna.
 
 ### Livello
 
@@ -167,7 +181,7 @@ Elenco delle cose da scrivere, **in ordine**. La sessione automatica scrive **un
 1. Leggi questa guida e, per lo stile e il lessico già insegnato, `content/levels.json` e `content/topics.json`.
 2. **Scegli la voce**: alterna un livello e un argomento, una sola voce per esecuzione. Conta le caselle spuntate: se i Livelli ne hanno spuntate quante gli Argomenti (o meno), prendi la prima casella non spuntata dei **Livelli**; altrimenti la prima dei **Argomenti**. Se una delle due liste non ha più caselle vuote, prendi dall'altra.
 3. **Se entrambe le liste sono senza caselle vuote**: aggiungi **5 nuovi livelli in fondo alla lista Livelli**, che proseguono la progressione dopo l'ultimo, e **5 nuovi argomenti in fondo alla lista Argomenti**, utili con clienti e assistiti. Usa lo stesso formato delle righe vuote (`- [ ] Livello: …`). Poi prosegui dal punto 2.
-4. Scrivi la voce nel file giusto (`content/levels.json` per un livello, `content/topics.json` per un argomento), seguendo formato e regole. Usa solo parole e strutture già insegnate più poche nuove.
+4. Scrivi la voce nel file giusto (`content/levels.json` per un livello, `content/topics.json` per un argomento), seguendo formato e regole. Usa solo parole e strutture già insegnate più poche nuove. Scrivi anche la **teoria** di ogni lezione. Prima di andare avanti rileggi tutto come una revisione: la teoria deve essere **corretta e chiara**, gli esempi giusti, il testo italiano semplice e al femminile.
 5. Spunta la casella nella Coda con la data di oggi (`date +%F`), così: `- [x] Livello: … (fatto 2026-11-21)`.
 6. Lancia `npm test` e correggi i contenuti finché passa tutto. Il test controlla che le caselle spuntate corrispondano ai livelli aggiunti dopo `l6` (spuntati = livelli totali − 6) e agli argomenti aggiunti dopo i 7 iniziali (spuntati = argomenti totali − 7): non spuntare una casella senza scrivere il contenuto, e viceversa.
 7. **Tocca solo** `content/*.json` e `docs/CONTENUTI.md`. Qualunque altro file, e la pull request non viene unita da sola.
