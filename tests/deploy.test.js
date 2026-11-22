@@ -42,3 +42,20 @@ test('pages.yml: genera l\'audio con Piper in _site/audio, con voce in cache', (
   assert.match(pages, /rhasspy\/piper-voices\/resolve\/main\/en\/en_US\/ljspeech\/high/);
   assert.match(pages, /scripts\/genera_audio\.py _site\/audio /);
 });
+
+test('pages.yml: due job, build carica l\'artefatto e deploy lo pubblica con un secondo tentativo', () => {
+  const iDeploy = pages.search(/^  deploy:/m);
+  assert.ok(pages.search(/^  build:/m) >= 0 && iDeploy > pages.search(/^  build:/m));
+  const build = pages.slice(0, iDeploy);
+  const deploy = pages.slice(iDeploy);
+  assert.match(build, /actions\/upload-pages-artifact@v3/);
+  assert.ok(!/deploy-pages/.test(build.replace(/#.*$/gm, '')));
+  assert.match(build, /contents: read/);
+  assert.match(deploy, /needs: build/);
+  assert.match(deploy, /name: github-pages/);
+  assert.match(deploy, /pages: write/);
+  assert.match(deploy, /id-token: write/);
+  assert.equal(deploy.split('actions/deploy-pages@v4').length - 1, 2);
+  assert.match(deploy, /sleep 30/);
+  assert.match(deploy, /id: deployment2/);
+});
