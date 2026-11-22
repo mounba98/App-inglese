@@ -154,6 +154,21 @@ test('baseline degli id: ogni id esistente c\'è ancora, il suo «en» non è ca
   assert.deepEqual(bad, [], `Si può solo aggiungere (in nuovi livelli o argomenti), mai togliere o cambiare.\n${bad.join('\n')}`);
 });
 
+// Lezioni nuove: quelle il cui id non è nella baseline.
+const baseline = JSON.parse(readFileSync(new URL('./ids-baseline.json', import.meta.url), 'utf8'));
+const baselineLessonIds = new Set([...baseline.levels, ...baseline.topics].flatMap((g) => g.lessons.map((l) => l.id)));
+const newLessons = lessons.filter(({ lesson }) => !baselineLessonIds.has(lesson.id));
+
+test('le lezioni nuove hanno al massimo 8 elementi', () => {
+  const bad = newLessons.filter(({ lesson }) => lesson.items.length > 8).map(({ lesson }) => `${lesson.id}: ${lesson.items.length} elementi (massimo 8)`);
+  assert.deepEqual(bad, [], bad.join('\n'));
+});
+
+test('ogni lezione nuova ha la teoria', () => {
+  const bad = newLessons.filter(({ lesson }) => lesson.teoria === undefined).map(({ lesson }) => lesson.id);
+  assert.deepEqual(bad, [], `Manca la «teoria» in: ${bad.join(', ')}`);
+});
+
 test('Coda: caselle spuntate = livelli aggiunti dopo l6 e argomenti aggiunti dopo i 7 iniziali', () => {
   const md = readFileSync(new URL('../docs/CONTENUTI.md', import.meta.url), 'utf8');
   const sec = (name) => {
