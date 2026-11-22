@@ -1,6 +1,7 @@
 // Formato dei contenuti e validatore. Gli id degli elementi sono anche gli id delle carte
 // di ripetizione: devono essere unici in tutto il corso.
 const MAX_ITEMS = 10;
+const MAX_ITEMS_ASCOLTO = 30; // lezioni di solo ascolto (l'alfabeto)
 const MAX_TEORIA = 1500;
 const ID_RE = /^[a-z0-9-]+$/;
 
@@ -48,8 +49,12 @@ export function validateContent(levels, topics) {
       errors.push(`Lezione «${lesson.id}»: non ha elementi.`);
       return;
     }
-    if (lesson.items.length > MAX_ITEMS) {
-      errors.push(`Lezione «${lesson.id}»: ha ${lesson.items.length} elementi, il massimo è ${MAX_ITEMS}.`);
+    if (lesson.tipo !== undefined && lesson.tipo !== 'ascolto') {
+      errors.push(`Lezione «${lesson.id}»: «tipo» può essere solo "ascolto".`);
+    }
+    const max = lesson.tipo === 'ascolto' ? MAX_ITEMS_ASCOLTO : MAX_ITEMS;
+    if (lesson.items.length > max) {
+      errors.push(`Lezione «${lesson.id}»: ha ${lesson.items.length} elementi, il massimo è ${max}.`);
     }
     if (lesson.teoria !== undefined) {
       const t = lesson.teoria;

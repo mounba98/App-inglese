@@ -5,11 +5,11 @@
   "lessons": [
    {
     "id": "l1-01",
-    "scelta": "ascolto",
-    "title": "Le prime sette lettere: A – G",
+    "tipo": "ascolto",
+    "title": "L'alfabeto da ascoltare",
     "teoria": {
-     "it": "Le lettere inglesi si chiamano in modo diverso dall'italiano: A si dice «ei», B «bi», C «si». Per ricordarle, ogni lettera ha con sé una parola d'esempio, come «A — apple» e «B — banana». Ascolta, ripeti ad alta voce e poi scrivi la lettera con la sua parola. Piccolo trucco: la E si dice «i» e la G si dice «gi».",
-     "en": "English letters have their own names: A sounds like \"ay\", B like \"bee\", C like \"see\". Each letter has an example word to help you remember, like \"A — apple\" and \"B — banana\". Listen, say it out loud, then write the letter and its word."
+     "it": "In inglese le lettere hanno un nome diverso dall'italiano. Ascolta ogni lettera e ripetila ad alta voce, con calma: puoi riascoltarla quante volte vuoi.\nQualcuna è un po' difficile: A si dice «ei», E «i», I «ai», G «gi», J «gei», R «ar», Y «uai», W «dabliu».\nNon ci sono domande: ascolta, ripeti e, quando hai finito, tocca «Ho finito».",
+     "en": "In English the letters have names that are different from Italian. Listen to each letter and repeat it out loud, slowly: you can play it as many times as you like.\nA few are tricky: A is said \"ay\", E \"ee\", I \"eye\", G \"jee\", J \"jay\", R \"ar\", Y \"why\", W \"double-you\".\nThere are no questions: listen, repeat, and when you are done tap \"Ho finito\"."
     },
     "items": [
      {
@@ -96,18 +96,7 @@
        "G green",
        "green"
       ]
-     }
-    ]
-   },
-   {
-    "id": "l1-02",
-    "scelta": "ascolto",
-    "title": "Altre sette lettere: H – N",
-    "teoria": {
-     "it": "Continuiamo con l'alfabeto: H, I, J, K, L, M, N. Attenzione ai suoni che in italiano sono strani: la H si dice «éich», la J si dice «gei» e la K si dice «chei». Ogni lettera ha la sua parola, come «H — house» e «J — juice». Ripeti ad alta voce: la pronuncia si impara con la bocca, non solo con gli occhi.",
-     "en": "We continue with the alphabet: H, I, J, K, L, M, N. Some names sound new: H is \"aitch\", J is \"jay\", K is \"kay\". Each letter has an example word, like \"H — house\" and \"J — juice\". Say each one out loud."
-    },
-    "items": [
+     },
      {
       "id": "l1-02-h",
       "en": "H — house",
@@ -196,18 +185,7 @@
        "N name",
        "name"
       ]
-     }
-    ]
-   },
-   {
-    "id": "l1-03",
-    "scelta": "ascolto",
-    "title": "Sei lettere: O – T",
-    "teoria": {
-     "it": "Altre sei lettere: O, P, Q, R, S, T. La O si dice «ou», come il suono finale di «no», e la Q si dice «chiu». La R in inglese è più morbida della R italiana: la lingua non vibra. Gli esempi sono «O — orange», «R — red» e «T — tea».",
-     "en": "Six more letters: O, P, Q, R, S, T. O sounds like \"oh\" and Q sounds like \"cue\". The English R is soft: your tongue does not roll. The examples are \"O — orange\", \"R — red\" and \"T — tea\"."
-    },
-    "items": [
+     },
      {
       "id": "l1-03-o",
       "en": "O — orange",
@@ -280,18 +258,7 @@
        "T tea",
        "tea"
       ]
-     }
-    ]
-   },
-   {
-    "id": "l1-04",
-    "scelta": "ascolto",
-    "title": "Le ultime sei lettere: U – Z",
-    "teoria": {
-     "it": "Ultime sei lettere: U, V, W, X, Y, Z. La W si dice «dàbliu» e la Y si dice «uài»: sono le più difficili, quindi ripetile più volte. La Z in America si dice «zi», nel Regno Unito «zed». Gli esempi sono «W — water», «Y — yes» e «Z — zebra».",
-     "en": "The last six letters: U, V, W, X, Y, Z. W is \"double-u\" and Y is \"why\": these are the hardest, so repeat them a few times. In American English Z is \"zee\", in British English it is \"zed\". The examples are \"W — water\", \"Y — yes\" and \"Z — zebra\"."
-    },
-    "items": [
+     },
      {
       "id": "l1-04-u",
       "en": "U — umbrella",

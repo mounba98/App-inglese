@@ -7,7 +7,7 @@ import { numberItems } from './numbers.js';
 import { pickPractice, nextMode } from './practice.js';
 import { hasSpeech, whenVoicesReady, speak } from './speech.js';
 import { loadAudioIndex, createPlayer } from './audio.js';
-import { lessonStatus, STATUS_LABEL, paragraphs, distractorPool, choiceMode } from './stato.js';
+import { lessonStatus, STATUS_LABEL, paragraphs, distractorPool, choiceMode, isAscolto, reviewableItems } from './stato.js';
 
 const REVIEW_MAX = 8;
 // Blocco dei pulsanti dopo ogni cambio schermata: è questa la guardia anti doppio tocco
@@ -78,10 +78,7 @@ function todaysLesson() {
 
 function reviewItems() {
   const ids = dueCards(progress.get().cards, todayLocal());
-  const byId = new Map();
-  for (const { lesson } of allLessons()) for (const it of lesson.items) byId.set(it.id, it);
-  for (const t of topics) for (const lesson of t.lessons) for (const it of lesson.items) byId.set(it.id, it);
-  return ids.map((id) => byId.get(id)).filter(Boolean);
+  return reviewableItems(ids, [...levels, ...topics]);
 }
 
 function renderHome() {
@@ -130,7 +127,7 @@ function renderHome() {
       h('button', { class: 'secondary', onclick: startNumbers }, 'Numeri senza fine'),
     ));
   }
-  if (progress.get().completed.length > 0) {
+  if (pickPractice(progress.get(), { levels, topics }, Math.random, 1).length > 0) { // ci sono parole studiate (l'alfabeto da ascoltare non conta)
     nodes.push(h('div', { class: 'card' },
       h('h2', {}, 'Allenamento libero'),
       h('p', {}, '8 parole già studiate, scelte a caso.'),
@@ -322,10 +319,31 @@ function renderTeoria(c) {
   } catch { /* ignora */ }
 }
 
+// Lezione di solo ascolto (l'alfabeto): un solo schermo con tutte le righe, nessuna risposta, nessuna carta.
+function renderAscolto() {
+  const { lesson } = session;
+  show(
+    exitButton(),
+    h('h1', {}, 'Ascolta e ripeti'),
+    h('p', { class: 'muted' }, 'Tocca «Ascolta» e ripeti ad alta voce, quante volte vuoi.'),
+    h('div', { class: 'card ascolto-lista' },
+      lesson.items.map((it) => h('div', { class: 'ascolto-riga' },
+        h('div', { class: 'ascolto-testo' },
+          h('p', { class: 'en', lang: langCode() }, it.en),
+          h('p', { class: 'it' }, it.it)),
+        listenBlock(it)))),
+    h('button', { onclick: () => { stopAudio(); session.finito = true; renderLesson(); } }, 'Ho finito'),
+  );
+}
+
 function renderLesson() {
   const { flow, lesson } = session;
   const c = flow.current();
 
+  if (isAscolto(lesson)) {
+    if (c.step === 'teoria') return renderTeoria(c);
+    return session.finito ? renderDone() : renderAscolto();
+  }
   if (c.step === 'done') return renderDone();
   if (c.step === 'teoria') return renderTeoria(c);
 

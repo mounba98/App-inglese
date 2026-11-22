@@ -68,7 +68,11 @@ Il JSON è indentato con **1 spazio** e termina con un a capo.
 
 #### Scelta (facoltativo)
 
-Il campo `scelta` ha un solo valore ammesso: `"ascolto"`. Si usa quando `it` rivelerebbe la risposta (per esempio nell'alfabeto: «lettera A — esempio: mela»). Nella scelta multipla la studentessa allora **ascolta** la parola (parte da sola, con il pulsante «Ascolta di nuovo») e l'italiano compare solo dopo la risposta. Se l'audio non è disponibile si torna alla scelta normale, con `it` in vista.
+Il campo `scelta` ha un solo valore ammesso: `"ascolto"`. Si usa quando `it` rivelerebbe la risposta (per esempio «lettera A — esempio: mela»). Nella scelta multipla la studentessa allora **ascolta** la parola (parte da sola, con il pulsante «Ascolta di nuovo») e l'italiano compare solo dopo la risposta. Se l'audio non è disponibile si torna alla scelta normale, con `it` in vista.
+
+#### Tipo (solo per l'alfabeto)
+
+Il campo `tipo` ha un solo valore ammesso: `"ascolto"`. Serve per le lezioni **solo da ascoltare**, come l'alfabeto del livello 1: un unico schermo con tutte le righe (inglese, italiano, «Ascolta») e il pulsante «Ho finito». Niente domande, niente carte di ripasso, niente allenamento; fino a 30 elementi invece di 8. **Non usarlo per i contenuti normali**: le lezioni nuove restano da 1 a 8 elementi, con le domande (un test lo controlla).
 
 #### Teoria
 

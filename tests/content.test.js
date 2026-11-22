@@ -144,7 +144,9 @@ test('file reali validi', () => {
   assert.deepEqual(validateContent(levels, topics), []);
   assert.ok(levels.length >= 2);
   const lessonsOf = (i) => levels[i].lessons;
-  assert.ok(lessonsOf(0).length >= 3);
+  assert.equal(lessonsOf(0).length, 1); // l1: una sola lezione, da ascoltare
+  assert.equal(lessonsOf(0)[0].tipo, 'ascolto');
+  assert.equal(lessonsOf(0)[0].items.length, 26);
 });
 
 const resp = (data, okFlag = true) => ({ ok: okFlag, status: okFlag ? 200 : 404, json: async () => data });
@@ -249,4 +251,21 @@ test('scelta: "ascolto" è valida, altri valori no', () => {
   const mk = (v) => { const l = structuredClone(withTeoria({ it: 'ok', en: 'ok' })); l[0].lessons[0].scelta = v; return l; };
   assert.equal(validateContent(mk('ascolto'), []).length, 0);
   assert.match(joined(validateContent(mk('lettura'), [])), /«scelta» può essere solo "ascolto"/);
+});
+
+test('tipo: "ascolto" è valido, altri valori no', () => {
+  const mk = (v) => { const l = structuredClone(withTeoria({ it: 'ok', en: 'ok' })); l[0].lessons[0].tipo = v; return l; };
+  assert.equal(validateContent(mk('ascolto'), []).length, 0);
+  assert.match(joined(validateContent(mk('lettura'), [])), /«tipo» può essere solo "ascolto"/);
+});
+
+test('tipo "ascolto": fino a 30 elementi, le altre lezioni restano a 10', () => {
+  const mk = (n, tipo) => {
+    const items = Array.from({ length: n }, (_, i) => item(`l1-01-x${i}`));
+    return [level('l1', [{ ...lesson('l1-01', items), ...(tipo ? { tipo } : {}) }])];
+  };
+  assert.deepEqual(validateContent(mk(26, 'ascolto'), []), []);
+  assert.deepEqual(validateContent(mk(30, 'ascolto'), []), []);
+  assert.match(joined(validateContent(mk(31, 'ascolto'), [])), /ha 31 elementi, il massimo è 30/);
+  assert.match(joined(validateContent(mk(11), [])), /ha 11 elementi, il massimo è 10/);
 });
