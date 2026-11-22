@@ -31,6 +31,7 @@ export function createPlayer({ index, env = globalThis, speakFn, hasSpeechFn, ba
   }
 
   return {
+    stop,
     canPlay: (item) => hasFile(item) || hasVoice(),
     async play(item) {
       stop();

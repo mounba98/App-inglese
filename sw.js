@@ -22,6 +22,7 @@ const ASSETS = [
   './src/range.js',
   './src/speech.js',
   './src/srs.js',
+  './src/stato.js',
   './content/levels.json',
   './content/topics.json',
   './manifest.webmanifest',
