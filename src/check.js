@@ -1,15 +1,2 @@
-// Normalizza una risposta per il confronto.
-export function normalize(s) {
-  return String(s)
-    .toLowerCase()
-    .replace(/[’‘]/g, "'")
-    .replace(/[,.!?]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-export function isCorrect(answer, accepted) {
-  const a = normalize(answer);
-  if (a === '') return false;
-  return accepted.some((x) => normalize(x) === a);
-}
+// Le regole di confronto stanno in lingua.js; qui restano per chi le importa da qui.
+export { normalize, isCorrect } from './lingua.js';

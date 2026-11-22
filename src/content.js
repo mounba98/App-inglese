@@ -97,6 +97,29 @@ export function validateContent(levels, topics) {
   return errors;
 }
 
+// Impostazioni del corso (content/corso.json). Se il file manca o non è valido
+// (per esempio in un'app rimasta in cache) si usano quelle dell'inglese.
+export const CORSO_DEFAULT = Object.freeze({
+  lingua: 'en-US',
+  nome: 'inglese',
+  titolo: "Imparo l'inglese",
+  voce_piper: 'en_US-ljspeech-high',
+  regole: 'latino',
+  chiave_progressi: 'inglese-v1',
+});
+
+export function validateCorso(corso) {
+  if (!isObj(corso)) return ['corso.json deve essere un oggetto.'];
+  const errors = [];
+  for (const campo of ['lingua', 'nome', 'titolo', 'voce_piper', 'regole']) {
+    if (blank(corso[campo])) errors.push(`corso.json: «${campo}» manca o è vuoto.`);
+  }
+  if (corso.chiave_progressi !== undefined && blank(corso.chiave_progressi)) {
+    errors.push('corso.json: «chiave_progressi», se c\'è, deve essere un testo non vuoto.');
+  }
+  return errors;
+}
+
 const withAccept = (group) => ({
   ...group,
   lessons: group.lessons.map((l) => ({
@@ -111,8 +134,15 @@ export async function loadContent(fetchFn = fetch) {
     if (!res || !res.ok) throw new Error(`Non riesco a caricare «${url}».`);
     return res.json();
   }
-  const [levels, topics] = await Promise.all([get('content/levels.json'), get('content/topics.json')]);
+  const [levels, topics, corsoRaw] = await Promise.all([
+    get('content/levels.json'),
+    get('content/topics.json'),
+    get('content/corso.json').catch(() => null),
+  ]);
+  const corso = corsoRaw && validateCorso(corsoRaw).length === 0
+    ? { ...corsoRaw, chiave_progressi: corsoRaw.chiave_progressi ?? CORSO_DEFAULT.chiave_progressi }
+    : { ...CORSO_DEFAULT };
   const errors = validateContent(levels, topics);
   if (errors.length) throw new Error(`Contenuti non validi:\n${errors.join('\n')}`);
-  return { levels: levels.map(withAccept), topics: topics.map(withAccept) };
+  return { corso, levels: levels.map(withAccept), topics: topics.map(withAccept) };
 }

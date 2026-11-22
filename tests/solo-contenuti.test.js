@@ -38,3 +38,12 @@ test('CLI: exit 0 / 1, righe vuote ignorate', () => {
   assert.equal(run(''), 1);
   assert.equal(run('\n\n'), 1);
 });
+
+test('rifiuta content/corso.json, da solo o in una lista mista', () => {
+  assert.equal(soloContenuti(['content/corso.json']), false);
+  assert.equal(soloContenuti(['content/levels.json', 'content/corso.json']), false);
+  assert.equal(soloContenuti(['docs/CONTENUTI.md', 'content/corso.json']), false);
+  const run = (input) =>
+    spawnSync('node', ['scripts/solo-contenuti.mjs'], { input, encoding: 'utf8' }).status;
+  assert.equal(run('content/corso.json\n'), 1);
+});

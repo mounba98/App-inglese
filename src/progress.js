@@ -1,7 +1,8 @@
 // Progressi dell'utente: lezioni completate e carte di ripasso. Salvataggio best-effort.
 import { nextReview } from './srs.js';
 
-const KEY = 'inglese-v1';
+// Chiave di default: quella dell'app di inglese (cambiarla farebbe perdere i progressi).
+export const CHIAVE_DEFAULT = 'inglese-v1';
 // Gli argomenti si aprono quando sono finite tutte le lezioni dei primi 6 livelli.
 export const TOPICS_AFTER_LEVELS = 6;
 const YMD = /^\d{4}-\d{2}-\d{2}$/;
@@ -26,7 +27,7 @@ function sanitize(raw) {
   return { completed, cards, topicsOpen: raw.topicsOpen === true };
 }
 
-function load(storage) {
+function load(storage, KEY) {
   if (!storage) return initial();
   try {
     const raw = storage.getItem(KEY);
@@ -37,8 +38,8 @@ function load(storage) {
   }
 }
 
-export function createProgress(storage) {
-  let state = load(storage);
+export function createProgress(storage, KEY = CHIAVE_DEFAULT) {
+  let state = load(storage, KEY);
 
   const save = () => {
     if (!storage) return;

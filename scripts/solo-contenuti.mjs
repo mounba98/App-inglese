@@ -4,12 +4,15 @@ import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 
 const CONTENUTO = /^content\/[^/]+\.json$/;
+// Le impostazioni del corso non sono contenuti: non passano mai da un merge automatico.
+const RISERVATI = new Set(['content/corso.json']);
 
 export function soloContenuti(files) {
   if (!Array.isArray(files) || files.length === 0) return false;
   return files.every((f) => {
     if (typeof f !== 'string') return false;
     if (f.split('/').includes('..') || f.includes('\\')) return false;
+    if (RISERVATI.has(f)) return false;
     return f === 'docs/CONTENUTI.md' || CONTENUTO.test(f);
   });
 }

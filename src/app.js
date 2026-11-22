@@ -1,5 +1,5 @@
 // Interfaccia: Home, Lezione, Fine lezione.
-import { loadContent } from './content.js';
+import { loadContent, CORSO_DEFAULT } from './content.js';
 import { createProgress, TOPICS_AFTER_LEVELS } from './progress.js';
 import { createLessonFlow, clearFeedback } from './lesson.js';
 import { dueCards, todayLocal } from './srs.js';
@@ -17,22 +17,26 @@ const LOCK_MS = 300;
 const root = document.getElementById('app');
 let levels = [];
 let topics = [];
+let corso = CORSO_DEFAULT; // impostazioni del corso (content/corso.json), sostituite dopo il caricamento
 let progress;
 let audioOk = hasSpeech(window);
 const audioIndex = {}; // riempito in place dopo l'avvio: il player lo legge a ogni chiamata
 const player = createPlayer({
   index: audioIndex,
   env: window,
-  speakFn: (text) => speak(text, window),
+  speakFn: (text) => speak(text, window, corso.lingua),
   hasSpeechFn: () => audioOk,
 });
 let lastSlot = true; // alterna: prima una sessione scritta, poi una a dettato (vedi nextMode)
 let session = null; // { lesson, flow, feedback, recorded }
 
+// Codice breve della lingua per gli attributi lang (es. «en-US» → «en»).
+const langCode = () => String(corso.lingua).split('-')[0];
+
 function safeStorage() {
   try {
     const s = window.localStorage;
-    s.getItem('inglese-v1');
+    s.getItem(corso.chiave_progressi);
     return s;
   } catch {
     return null;
@@ -85,7 +89,7 @@ function renderHome() {
   stopAudio();
   const today = todaysLesson();
   const review = reviewItems();
-  const nodes = [h('h1', {}, 'Imparo l\'inglese')];
+  const nodes = [h('h1', {}, corso.titolo)];
   const total = levels.length;
 
   if (today) {
@@ -122,7 +126,7 @@ function renderHome() {
   if (level2Complete()) {
     nodes.push(h('div', { class: 'card' },
       h('h2', {}, 'Numeri senza fine'),
-      h('p', {}, 'Scrivi in inglese numeri sempre nuovi.'),
+      h('p', {}, `Scrivi in ${corso.nome} numeri sempre nuovi.`),
       h('button', { class: 'secondary', onclick: startNumbers }, 'Numeri senza fine'),
     ));
   }
@@ -226,7 +230,7 @@ function poolFor(lesson, topic) {
 function startLesson(lesson, topic = null, fromAll = false) {
   const special = lesson.isReview || lesson.isPractice || lesson.isTraining;
   const opts = special ? { startAt: 'write', dictation: !!lesson.dictation } : { pool: poolFor(lesson, topic) };
-  session = { lesson, topic, fromAll, flow: createLessonFlow(lesson, opts), feedback: null, recorded: false, lastAnswer: '', teoriaLang: 'it' };
+  session = { lesson, topic, fromAll, flow: createLessonFlow(lesson, { ...opts, regole: corso.regole }), feedback: null, recorded: false, lastAnswer: '', teoriaLang: 'it' };
   renderLesson();
 }
 
@@ -296,11 +300,11 @@ function renderTeoria(c) {
     exitButton(),
     h('div', { class: 'card teoria' },
       h('h1', {}, lesson.title),
-      h('div', { class: 'teoria-text', lang: lang === 'en' ? 'en' : null }, paragraphs(text).map((p) => h('p', {}, p))),
+      h('div', { class: 'teoria-text', lang: lang === 'en' ? langCode() : null }, paragraphs(text).map((p) => h('p', {}, p))),
       h('button', {
         class: 'secondary',
         onclick: () => { stopAudio(); session.teoriaLang = lang === 'en' ? 'it' : 'en'; renderLesson(); },
-      }, lang === 'en' ? 'Leggi in italiano' : 'Leggi in inglese'),
+      }, lang === 'en' ? 'Leggi in italiano' : `Leggi in ${corso.nome}`),
       slot,
     ),
     h('button', { onclick: () => { stopAudio(); flow.advance(); renderLesson(); } }, 'Inizia'),
@@ -333,7 +337,7 @@ function renderLesson() {
       h('div', { class: 'card' },
         ok && h('p', { class: 'feedback ok' }, 'Giusto!'),
         h('p', { class: 'prompt' }, 'Ascolta e ripeti ad alta voce'),
-        h('p', { class: 'en', lang: 'en' }, c.item.en),
+        h('p', { class: 'en', lang: langCode() }, c.item.en),
         h('p', { class: 'it' }, c.item.it),
         listenBlock(c.item),
       ),
@@ -355,7 +359,7 @@ function renderLesson() {
             const wrong = answered && opt === c.picked;
             return h('button', {
               class: `secondary option${right ? ' right' : ''}${wrong ? ' wrong' : ''}`,
-              lang: 'en',
+              lang: langCode(),
               disabled: answered,
               onclick: () => {
                 const ok = flow.choose(opt);
@@ -364,7 +368,7 @@ function renderLesson() {
               },
             }, right ? h('span', { class: 'mark', 'aria-hidden': 'true' }, '✓ ') : wrong ? h('span', { class: 'mark', 'aria-hidden': 'true' }, '✗ ') : null, opt);
           })),
-        answered ? h('p', { class: 'solution', lang: 'en' }, `La risposta giusta è: ${c.item.en}`) : null,
+        answered ? h('p', { class: 'solution', lang: langCode() }, `La risposta giusta è: ${c.item.en}`) : null,
       ),
       answered ? h('button', { onclick: () => { clearFeedback(session); flow.advance(); renderLesson(); } }, 'Avanti') : null,
     );
@@ -377,7 +381,7 @@ function renderLesson() {
       h('div', { class: 'card' },
         c.dictation ? null : h('p', { class: 'it' }, c.item.it),
         h('p', { class: 'feedback retry' }, 'Non ancora.'),
-        h('p', { class: 'solution', lang: 'en' }, `La risposta è: ${c.item.en}`),
+        h('p', { class: 'solution', lang: langCode() }, `La risposta è: ${c.item.en}`),
         c.dictation ? h('p', { class: 'it' }, `Significa: ${c.item.it}`) : null,
         c.dictation ? listenBlock(c.item) : null,
       ),
@@ -386,8 +390,8 @@ function renderLesson() {
   }
 
   const input = h('input', {
-    type: 'text', id: 'risposta', lang: 'en', autocapitalize: 'none', autocorrect: 'off',
-    spellcheck: 'false', autocomplete: 'off', 'aria-label': 'Scrivi in inglese',
+    type: 'text', id: 'risposta', lang: langCode(), autocapitalize: 'none', autocorrect: 'off',
+    spellcheck: 'false', autocomplete: 'off', 'aria-label': `Scrivi in ${corso.nome}`,
   });
   const form = h('form', {
     class: 'stack',
@@ -411,10 +415,10 @@ function renderLesson() {
     exitButton(),
     h('div', { class: 'card' },
       giusto ? h('p', { class: 'feedback ok' }, 'Giusto!') : null,
-      h('p', { class: 'prompt' }, c.dictation ? 'Ascolta e scrivi' : 'Scrivi in inglese'),
+      h('p', { class: 'prompt' }, c.dictation ? 'Ascolta e scrivi' : `Scrivi in ${corso.nome}`),
       c.dictation ? null : h('p', { class: 'it' }, c.item.it),
       (lesson.isReview || c.dictation) ? listenBlock(c.item) : null,
-      c.hint ? h('p', { class: 'hint-text', lang: 'en' }, `Aiuto: ${c.hint}`) : null,
+      c.hint ? h('p', { class: 'hint-text', lang: langCode() }, `Aiuto: ${c.hint}`) : null,
       fb,
     ),
     form,
@@ -451,7 +455,7 @@ function renderDone() {
     ),
     weak.length > 0 ? h('div', { class: 'card' },
       h('h2', {}, 'Queste le ripassiamo ancora:'),
-      h('ul', { class: 'weak' }, weak.map((it) => h('li', {}, h('span', { lang: 'en' }, it.en), ` — ${it.it}`))),
+      h('ul', { class: 'weak' }, weak.map((it) => h('li', {}, h('span', { lang: langCode() }, it.en), ` — ${it.it}`))),
     ) : null,
     lesson.isPractice ? h('button', { onclick: startNumbers }, 'Altri numeri') : null,
     lesson.isTraining ? h('button', { onclick: startTraining }, 'Ancora') : null,
@@ -469,13 +473,14 @@ function refreshListenBlocks() {
 
 async function main() {
   try {
-    ({ levels, topics } = await loadContent());
+    ({ corso, levels, topics } = await loadContent());
+    document.title = corso.titolo;
   } catch (err) {
     console.error(err);
     show(h('p', { class: 'error' }, 'Non riesco a caricare le lezioni. Controlla la connessione e riapri la pagina.'));
     return;
   }
-  progress = createProgress(safeStorage());
+  progress = createProgress(safeStorage(), corso.chiave_progressi);
   renderHome();
   try { navigator.storage?.persist?.(); } catch { /* ignora */ }
   // L'indice dell'audio arriva dopo: non blocca l'avvio; quando c'è, le note diventano pulsanti.
@@ -484,7 +489,7 @@ async function main() {
     refreshListenBlocks();
   });
   // Voci caricate in ritardo: «Ascolta» compare subito, senza toccare input né stato.
-  whenVoicesReady(window).then((ok) => {
+  whenVoicesReady(window, undefined, corso.lingua).then((ok) => {
     if (!ok) return;
     audioOk = true;
     refreshListenBlocks();

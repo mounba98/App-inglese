@@ -27,6 +27,8 @@ I contenuti stanno in due file, **non** altrove:
 - `content/levels.json`: un elenco di livelli, **in ordine**.
 - `content/topics.json`: un elenco di argomenti.
 
+Esiste anche `content/corso.json` (lingua, voce, titolo): **la sessione automatica non lo tocca mai** e non passa dal merge automatico.
+
 Il JSON è indentato con **1 spazio** e termina con un a capo.
 
 ### Elemento

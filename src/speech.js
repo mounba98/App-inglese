@@ -15,19 +15,19 @@ function pickVoice(env, lang = 'en-US') {
   const want = norm(lang);
   return (
     voices.find((v) => norm(v.lang) === want) ??
-    voices.find((v) => norm(v.lang).startsWith('en')) ??
+    voices.find((v) => norm(v.lang).startsWith(norm(lang).split('-')[0])) ??
     null
   );
 }
 
-export function hasSpeech(env = globalThis) {
-  return !!env?.speechSynthesis && pickVoice(env, 'en') !== null;
+export function hasSpeech(env = globalThis, lang = 'en') {
+  return !!env?.speechSynthesis && pickVoice(env, lang) !== null;
 }
 
-export function whenVoicesReady(env = globalThis, timeoutMs = 1500) {
+export function whenVoicesReady(env = globalThis, timeoutMs = 1500, lang = 'en') {
   const synth = env?.speechSynthesis;
   if (!synth) return Promise.resolve(false);
-  if (hasSpeech(env)) return Promise.resolve(true);
+  if (hasSpeech(env, lang)) return Promise.resolve(true);
   // Voci già caricate ma nessuna inglese: inutile aspettare.
   if (voicesOf(env).length > 0) return Promise.resolve(false);
   return new Promise((resolve) => {
@@ -42,12 +42,12 @@ export function whenVoicesReady(env = globalThis, timeoutMs = 1500) {
       if (synth.onvoiceschanged === onChange) synth.onvoiceschanged = prevHandler ?? null;
       resolve(ok);
     };
-    const onChange = () => { if (hasSpeech(env)) finish(true); };
+    const onChange = () => { if (hasSpeech(env, lang)) finish(true); };
     try {
       if (typeof synth.addEventListener === 'function') synth.addEventListener('voiceschanged', onChange);
       else synth.onvoiceschanged = onChange;
     } catch { /* ignore */ }
-    timer = setTimeout(() => finish(hasSpeech(env)), timeoutMs);
+    timer = setTimeout(() => finish(hasSpeech(env, lang)), timeoutMs);
   });
 }
 

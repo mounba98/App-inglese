@@ -34,26 +34,36 @@ jobs:
         run: |
           pip install piper-tts==1.8.0
           command -v ffmpeg >/dev/null || { sudo apt-get update && sudo apt-get install -y ffmpeg; }
+      - name: Legge la voce dal corso
+        id: corso
+        run: |
+          # La voce Piper sta in content/corso.json; senza il campo vale quella di sempre.
+          VOCE=$(python3 -c "import json; print(json.load(open('content/corso.json')).get('voce_piper') or 'en_US-ljspeech-high')" 2>/dev/null || echo en_US-ljspeech-high)
+          echo "voce=$VOCE" >> "$GITHUB_OUTPUT"
       - name: Cache della voce
         id: voce-cache
         uses: actions/cache@v4
         with:
           path: voci
-          key: piper-voce-en_US-ljspeech-high
+          key: piper-voce-${{ steps.corso.outputs.voce }}
       - name: Scarica la voce
         if: steps.voce-cache.outputs.cache-hit != 'true'
+        env:
+          VOCE: ${{ steps.corso.outputs.voce }}
         run: |
           mkdir -p voci
           BASE=https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/ljspeech/high
-          curl -fsSL -o voci/en_US-ljspeech-high.onnx "$BASE/en_US-ljspeech-high.onnx"
-          curl -fsSL -o voci/en_US-ljspeech-high.onnx.json "$BASE/en_US-ljspeech-high.onnx.json"
+          curl -fsSL -o "voci/$VOCE.onnx" "$BASE/$VOCE.onnx"
+          curl -fsSL -o "voci/$VOCE.onnx.json" "$BASE/$VOCE.onnx.json"
       - name: Prepara il sito
+        env:
+          VOCE: ${{ steps.corso.outputs.voce }}
         run: |
           SITE_FILES="index.html styles.css manifest.webmanifest sw.js src content icons"
           mkdir _site
           cp -r $SITE_FILES _site/
           sed -i "s/__VERSIONE__/${GITHUB_SHA::12}/" _site/sw.js
-          python3 scripts/genera_audio.py _site/audio voci/en_US-ljspeech-high.onnx
+          python3 scripts/genera_audio.py _site/audio "voci/$VOCE.onnx"
           if grep -rq "__VERSIONE__" _site; then
             echo "Segnaposto __VERSIONE__ ancora presente in _site" >&2
             exit 1
