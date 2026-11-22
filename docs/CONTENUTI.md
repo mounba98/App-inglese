@@ -66,6 +66,10 @@ Il JSON è indentato con **1 spazio** e termina con un a capo.
 }
 ```
 
+#### Scelta (facoltativo)
+
+Il campo `scelta` ha un solo valore ammesso: `"ascolto"`. Si usa quando `it` rivelerebbe la risposta (per esempio nell'alfabeto: «lettera A — esempio: mela»). Nella scelta multipla la studentessa allora **ascolta** la parola (parte da sola, con il pulsante «Ascolta di nuovo») e l'italiano compare solo dopo la risposta. Se l'audio non è disponibile si torna alla scelta normale, con `it` in vista.
+
 #### Teoria
 
 Il campo `teoria` è **obbligatorio per ogni lezione nuova** (il test lo controlla).

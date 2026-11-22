@@ -5,6 +5,7 @@
   "lessons": [
    {
     "id": "l1-01",
+    "scelta": "ascolto",
     "title": "Le prime sette lettere: A – G",
     "teoria": {
      "it": "Le lettere inglesi si chiamano in modo diverso dall'italiano: A si dice «ei», B «bi», C «si». Per ricordarle, ogni lettera ha con sé una parola d'esempio, come «A — apple» e «B — banana». Ascolta, ripeti ad alta voce e poi scrivi la lettera con la sua parola. Piccolo trucco: la E si dice «i» e la G si dice «gi».",
@@ -100,6 +101,7 @@
    },
    {
     "id": "l1-02",
+    "scelta": "ascolto",
     "title": "Altre sette lettere: H – N",
     "teoria": {
      "it": "Continuiamo con l'alfabeto: H, I, J, K, L, M, N. Attenzione ai suoni che in italiano sono strani: la H si dice «éich», la J si dice «gei» e la K si dice «chei». Ogni lettera ha la sua parola, come «H — house» e «J — juice». Ripeti ad alta voce: la pronuncia si impara con la bocca, non solo con gli occhi.",
@@ -199,6 +201,7 @@
    },
    {
     "id": "l1-03",
+    "scelta": "ascolto",
     "title": "Sei lettere: O – T",
     "teoria": {
      "it": "Altre sei lettere: O, P, Q, R, S, T. La O si dice «ou», come il suono finale di «no», e la Q si dice «chiu». La R in inglese è più morbida della R italiana: la lingua non vibra. Gli esempi sono «O — orange», «R — red» e «T — tea».",
@@ -282,6 +285,7 @@
    },
    {
     "id": "l1-04",
+    "scelta": "ascolto",
     "title": "Le ultime sei lettere: U – Z",
     "teoria": {
      "it": "Ultime sei lettere: U, V, W, X, Y, Z. La W si dice «dàbliu» e la Y si dice «uài»: sono le più difficili, quindi ripetile più volte. La Z in America si dice «zi», nel Regno Unito «zed». Gli esempi sono «W — water», «Y — yes» e «Z — zebra».",

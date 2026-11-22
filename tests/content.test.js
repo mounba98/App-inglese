@@ -244,3 +244,9 @@ test('loadContent: corso.json non valido → valori di inglese', async () => {
   const fetchFn = async (url) => resp(url === 'content/levels.json' ? ok() : url === 'content/corso.json' ? { nome: 3 } : []);
   assert.deepEqual((await loadContent(fetchFn)).corso, CORSO_DEFAULT);
 });
+
+test('scelta: "ascolto" è valida, altri valori no', () => {
+  const mk = (v) => { const l = structuredClone(withTeoria({ it: 'ok', en: 'ok' })); l[0].lessons[0].scelta = v; return l; };
+  assert.equal(validateContent(mk('ascolto'), []).length, 0);
+  assert.match(joined(validateContent(mk('lettura'), [])), /«scelta» può essere solo "ascolto"/);
+});

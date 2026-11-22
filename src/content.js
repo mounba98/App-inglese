@@ -64,6 +64,9 @@ export function validateContent(levels, topics) {
         }
       }
     }
+    if (lesson.scelta !== undefined && lesson.scelta !== 'ascolto') {
+      errors.push(`Lezione «${lesson.id}»: «scelta» può essere solo "ascolto".`);
+    }
     lesson.items.forEach((it) => checkItem(it, lesson.id));
   }
 
