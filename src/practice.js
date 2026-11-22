@@ -1,3 +1,5 @@
+import { isAscolto } from './stato.js';
+
 // Allenamento libero: sceglie parole già studiate, più spesso quelle deboli. Nessun DOM.
 export function pickPractice(state, content, rng = Math.random, n = 8) {
   const done = new Set(state.completed);
@@ -6,7 +8,7 @@ export function pickPractice(state, content, rng = Math.random, n = 8) {
   const groups = [...(content.levels ?? []), ...(content.topics ?? [])];
   for (const g of groups) {
     for (const lesson of g.lessons) {
-      if (!done.has(lesson.id)) continue;
+      if (!done.has(lesson.id) || isAscolto(lesson)) continue;
       for (const it of lesson.items) {
         if (seen.has(it.id)) continue;
         seen.add(it.id);

@@ -76,3 +76,10 @@ test('nextMode: scritta, dettato, scritta; il giro avanza anche senza audio', ()
   assert.equal(slot, true); // dopo 4 giri senza audio il giro è avanzato 4 volte
   assert.equal(nextMode(true, false).slot, false);
 });
+
+test('le lezioni di ascolto non entrano nell\'allenamento', () => {
+  const c = { levels: [{ id: 'l1', lessons: [{ id: 'al', tipo: 'ascolto', items: mk('z', 6) }, { id: 'a', items: mk('a', 3) }] }], topics: [] };
+  const r = pickPractice(state(['al', 'a']), c, lcg(5));
+  assert.equal(r.length, 3);
+  assert.ok(r.every((i) => i.id.startsWith('a')));
+});

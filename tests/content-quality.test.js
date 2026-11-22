@@ -107,9 +107,11 @@ test('i titoli delle lezioni sono diversi nello stesso livello/argomento', () =>
   assert.deepEqual(bad, [], bad.join('\n'));
 });
 
-test('numero di lezioni: 3–5 per livello, 2–3 per argomento', () => {
+const soloAscolto = (g) => g.lessons.every((l) => l.tipo === 'ascolto');
+
+test('numero di lezioni: 3–5 per livello (un livello di solo ascolto può averne meno), 2–3 per argomento', () => {
   const bad = [];
-  for (const g of levels) if (g.lessons.length < 3 || g.lessons.length > 5) bad.push(`${g.id}: ${g.lessons.length} lezioni (servono 3–5)`);
+  for (const g of levels) if (!soloAscolto(g) && (g.lessons.length < 3 || g.lessons.length > 5)) bad.push(`${g.id}: ${g.lessons.length} lezioni (servono 3–5)`);
   for (const g of topics) if (g.lessons.length < 2 || g.lessons.length > 3) bad.push(`${g.id}: ${g.lessons.length} lezioni (servono 2–3)`);
   assert.deepEqual(bad, [], bad.join('\n'));
 });
@@ -120,7 +122,9 @@ test('formato degli id: lezioni «<gruppo>-NN», elementi «<lezione>-slug»', (
     g.lessons.forEach((l, i) => {
       const expected = `${g.id}-${String(i + 1).padStart(2, '0')}`;
       if (l.id !== expected) bad.push(`lezione «${l.id}»: ci si aspetta «${expected}»`);
-      for (const it of l.items) if (!it.id.startsWith(`${l.id}-`) || it.id === `${l.id}-`) bad.push(`elemento «${it.id}»: deve iniziare con «${l.id}-»`);
+      // Lezione di solo ascolto: gli id dell'alfabeto vengono dalle vecchie lezioni (audio già generato), bastano «<gruppo>-».
+      const prefix = l.tipo === 'ascolto' ? `${g.id}-` : `${l.id}-`;
+      for (const it of l.items) if (!it.id.startsWith(prefix) || it.id === prefix) bad.push(`elemento «${it.id}»: deve iniziare con «${prefix}»`);
     });
   }
   assert.deepEqual(bad, [], bad.join('\n'));
@@ -159,8 +163,8 @@ const baseline = JSON.parse(readFileSync(new URL('./ids-baseline.json', import.m
 const baselineLessonIds = new Set([...baseline.levels, ...baseline.topics].flatMap((g) => g.lessons.map((l) => l.id)));
 const newLessons = lessons.filter(({ lesson }) => !baselineLessonIds.has(lesson.id));
 
-test('le lezioni nuove hanno al massimo 8 elementi', () => {
-  const bad = newLessons.filter(({ lesson }) => lesson.items.length > 8).map(({ lesson }) => `${lesson.id}: ${lesson.items.length} elementi (massimo 8)`);
+test('le lezioni nuove hanno al massimo 8 elementi (tranne quelle di solo ascolto)', () => {
+  const bad = newLessons.filter(({ lesson }) => lesson.tipo !== 'ascolto' && lesson.items.length > 8).map(({ lesson }) => `${lesson.id}: ${lesson.items.length} elementi (massimo 8)`);
   assert.deepEqual(bad, [], bad.join('\n'));
 });
 
@@ -183,4 +187,11 @@ test('Coda: caselle spuntate = livelli aggiunti dopo l6 e argomenti aggiunti dop
   };
   assert.equal(sec('Livelli'), levels.length - 6, 'livelli spuntati diversi dai livelli aggiunti');
   assert.equal(sec('Argomenti'), topics.length - 7, 'argomenti spuntati diversi dagli argomenti aggiunti');
+});
+
+test('«tipo»: "ascolto" solo nel livello 1 (alfabeto), con la teoria e senza «scelta»', () => {
+  const bad = lessons.filter(({ lesson }) => lesson.tipo !== undefined && (lesson.tipo !== 'ascolto' || lesson.scelta !== undefined || !lesson.teoria)).map(({ lesson }) => lesson.id);
+  assert.deepEqual(bad, []);
+  const fuori = lessons.filter(({ group, lesson }) => lesson.tipo === 'ascolto' && group.id !== 'l1').map(({ lesson }) => lesson.id);
+  assert.deepEqual(fuori, [], '«tipo: ascolto» è solo per l\'alfabeto, non per contenuti nuovi normali');
 });

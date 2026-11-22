@@ -137,3 +137,13 @@ button.option:disabled:not(.right):not(.wrong) { opacity: 0.55; }
 .tag-da-ripassare { color: var(--warn); }
 .tag-bloccata { color: var(--muted); }
 .lesson-btn .tag + .done-mark { display: none; }
+
+/* Lezione di solo ascolto (alfabeto): una riga per elemento */
+.ascolto-lista { gap: 0; padding: 0.25rem 1.25rem; }
+.ascolto-riga { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.875rem 0; border-bottom: 1px solid var(--line); }
+.ascolto-riga:last-child { border-bottom: 0; }
+.ascolto-testo { flex: 1 1 8rem; min-width: 0; display: flex; flex-direction: column; gap: 0.125rem; }
+.ascolto-riga .en { font-size: 1.625rem; }
+.ascolto-riga .it { font-size: 1.0625rem; }
+.ascolto-riga button { width: 8.5rem; flex: none; }
+.ascolto-riga .note { flex: 1 1 100%; font-size: 1rem; padding: 0.5rem 0.75rem; }
