@@ -13,6 +13,7 @@ const ASSETS = [
   './src/app.js',
   './src/audio.js',
   './src/check.js',
+  './src/choice.js',
   './src/content.js',
   './src/lesson.js',
   './src/numbers.js',
