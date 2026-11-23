@@ -1992,5 +1992,331 @@
     ]
    }
   ]
+ },
+ {
+  "id": "l7",
+  "title": "Il passato di essere",
+  "lessons": [
+   {
+    "id": "l7-01",
+    "title": "Io ero…",
+    "teoria": {
+     "it": "Per parlare di ieri, di una settimana fa o di tanto tempo fa, «sono» diventa «was» quando parli di te. «I am» diventa «I was»: \"I was tired\" è «Ero stanca». Per dire quando, aggiungi «yesterday», che vuol dire «ieri»: \"I was tired yesterday\". Si usa anche per dire dove eri: \"I was at home\" è «Ero a casa». Nuove: «late» (in ritardo) e «sure» (sicura).",
+     "en": "Use \"was\" to talk about the past. \"I am\" becomes \"I was\". \"I was tired\" means you were tired before today. Add \"yesterday\" to say when: \"I was tired yesterday\". You can also say where you were: \"I was at home\"."
+    },
+    "items": [
+     {
+      "id": "l7-01-tired-yesterday",
+      "en": "I was tired yesterday",
+      "it": "Ieri ero stanca",
+      "accept": [
+       "I was tired yesterday",
+       "Yesterday I was tired"
+      ]
+     },
+     {
+      "id": "l7-01-happy",
+      "en": "I was happy",
+      "it": "Ero contenta"
+     },
+     {
+      "id": "l7-01-at-home",
+      "en": "I was at home",
+      "it": "Ero a casa",
+      "accept": [
+       "I was at home",
+       "I was home"
+      ]
+     },
+     {
+      "id": "l7-01-hungry",
+      "en": "I was hungry",
+      "it": "Avevo fame"
+     },
+     {
+      "id": "l7-01-at-work",
+      "en": "I was at work",
+      "it": "Ero al lavoro"
+     },
+     {
+      "id": "l7-01-late",
+      "en": "I was late",
+      "it": "Ero in ritardo"
+     },
+     {
+      "id": "l7-01-sure",
+      "en": "I was sure",
+      "it": "Ero sicura"
+     }
+    ]
+   },
+   {
+    "id": "l7-02",
+    "title": "Lui, lei, esso era…",
+    "teoria": {
+     "it": "Per lui, lei e le cose si usa sempre «was». «He is» diventa «he was», «she is» diventa «she was», «it is» diventa «it was». \"She was my friend\" è «Era mia amica». \"It was a nice day\" è «Era una bella giornata». Una parola nuova: «patient» è la persona che curi, il paziente.",
+     "en": "Use \"was\" with he, she and it. \"He is\" becomes \"he was\". \"She is\" becomes \"she was\". \"It is\" becomes \"it was\". \"She was my friend.\" \"It was a nice day.\" A new word: \"patient\" is a person you take care of."
+    },
+    "items": [
+     {
+      "id": "l7-02-my-patient",
+      "en": "He was my patient",
+      "it": "Lui era un mio paziente",
+      "accept": [
+       "He was my patient",
+       "He was a patient of mine"
+      ]
+     },
+     {
+      "id": "l7-02-my-friend",
+      "en": "She was my friend",
+      "it": "Lei era mia amica"
+     },
+     {
+      "id": "l7-02-he-at-home",
+      "en": "He was at home",
+      "it": "Lui era a casa",
+      "accept": [
+       "He was at home",
+       "He was home"
+      ]
+     },
+     {
+      "id": "l7-02-nice-day",
+      "en": "It was a nice day",
+      "it": "Era una bella giornata",
+      "accept": [
+       "It was a nice day",
+       "It was a beautiful day"
+      ]
+     },
+     {
+      "id": "l7-02-very-kind",
+      "en": "She was very kind",
+      "it": "Lei era molto gentile"
+     },
+     {
+      "id": "l7-02-food-good",
+      "en": "The food was good",
+      "it": "Il cibo era buono",
+      "accept": [
+       "The food was good",
+       "The food was great"
+      ]
+     },
+     {
+      "id": "l7-02-it-far",
+      "en": "It was far",
+      "it": "Era lontano"
+     },
+     {
+      "id": "l7-02-at-hospital",
+      "en": "She was at the hospital",
+      "it": "Lei era in ospedale",
+      "accept": [
+       "She was at the hospital",
+       "She was in the hospital"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l7-03",
+    "title": "Tu, noi e loro eravate…",
+    "teoria": {
+     "it": "Con «you», «we» e «they» si usa «were»: \"You were kind\" è «Eri gentile», \"We were friends\" è «Eravamo amici», \"They were nurses\" è «Erano infermieri». «You were» vale sia per una persona sia per tante. Ricorda: «was» solo con I, he, she, it; «were» con tutti gli altri. Una parola nuova: «right» (ragione): \"You were right\" è «Avevi ragione».",
+     "en": "Use \"were\" with you, we and they. \"You were kind.\" \"We were friends.\" \"They were nurses.\" \"You were\" is for one person or many people. Remember: \"was\" is for I, he, she and it. \"Were\" is for the others."
+    },
+    "items": [
+     {
+      "id": "l7-03-you-kind",
+      "en": "You were very kind",
+      "it": "Eri molto gentile",
+      "accept": [
+       "You were very kind",
+       "You were kind"
+      ]
+     },
+     {
+      "id": "l7-03-we-friends",
+      "en": "We were friends",
+      "it": "Eravamo amici"
+     },
+     {
+      "id": "l7-03-they-nurses",
+      "en": "They were nurses",
+      "it": "Loro erano infermieri"
+     },
+     {
+      "id": "l7-03-we-hospital",
+      "en": "We were at the hospital",
+      "it": "Eravamo in ospedale",
+      "accept": [
+       "We were at the hospital",
+       "We were in the hospital"
+      ]
+     },
+     {
+      "id": "l7-03-they-here",
+      "en": "They were here",
+      "it": "Erano qui"
+     },
+     {
+      "id": "l7-03-you-right",
+      "en": "You were right",
+      "it": "Avevi ragione"
+     },
+     {
+      "id": "l7-03-we-late",
+      "en": "We were late",
+      "it": "Eravamo in ritardo"
+     },
+     {
+      "id": "l7-03-they-happy",
+      "en": "They were happy",
+      "it": "Erano contenti"
+     }
+    ]
+   },
+   {
+    "id": "l7-04",
+    "title": "Non ero, non era…",
+    "teoria": {
+     "it": "Per dire di no, aggiungi «not»: «was not» e «were not». Di solito si accorcia: «wasn't» e «weren't». \"I wasn't tired\" è «Non ero stanca». \"They weren't happy\" è «Non erano contenti». Come al solito: «wasn't» con I, he, she, it; «weren't» con you, we, they. Una parola nuova: «ready» è «pronta».",
+     "en": "To say no, add \"not\": \"was not\" and \"were not\". We often say \"wasn't\" and \"weren't\". \"I wasn't tired.\" \"They weren't happy.\" Use \"wasn't\" with I, he, she and it. Use \"weren't\" with you, we and they."
+    },
+    "items": [
+     {
+      "id": "l7-04-not-tired",
+      "en": "I wasn't tired",
+      "it": "Non ero stanca",
+      "accept": [
+       "I wasn't tired",
+       "I was not tired"
+      ]
+     },
+     {
+      "id": "l7-04-he-not-home",
+      "en": "He wasn't at home",
+      "it": "Lui non era a casa",
+      "accept": [
+       "He wasn't at home",
+       "He was not at home",
+       "He wasn't home",
+       "He was not home"
+      ]
+     },
+     {
+      "id": "l7-04-she-not-here",
+      "en": "She wasn't here",
+      "it": "Lei non era qui",
+      "accept": [
+       "She wasn't here",
+       "She was not here"
+      ]
+     },
+     {
+      "id": "l7-04-not-far",
+      "en": "It wasn't far",
+      "it": "Non era lontano",
+      "accept": [
+       "It wasn't far",
+       "It was not far"
+      ]
+     },
+     {
+      "id": "l7-04-we-not-alone",
+      "en": "We weren't alone",
+      "it": "Non eravamo soli",
+      "accept": [
+       "We weren't alone",
+       "We were not alone"
+      ]
+     },
+     {
+      "id": "l7-04-they-not-happy",
+      "en": "They weren't happy",
+      "it": "Non erano contenti",
+      "accept": [
+       "They weren't happy",
+       "They were not happy"
+      ]
+     },
+     {
+      "id": "l7-04-not-ready",
+      "en": "I wasn't ready",
+      "it": "Non ero pronta",
+      "accept": [
+       "I wasn't ready",
+       "I was not ready"
+      ]
+     },
+     {
+      "id": "l7-04-we-not-late",
+      "en": "We weren't late",
+      "it": "Non eravamo in ritardo",
+      "accept": [
+       "We weren't late",
+       "We were not late"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "l7-05",
+    "title": "Domande al passato",
+    "teoria": {
+     "it": "Per fare una domanda, metti «was» o «were» all'inizio: \"Were you at home?\" è «Eri a casa?». \"Was she here?\" è «Era qui?». Con «where» chiedi dove: \"Where were you?\" è «Dove eri?» e \"Where was he?\" è «Dov'era lui?». Con «you» e «they» usa «were», con I, he, she e it usa «was».",
+     "en": "To ask a question, put \"was\" or \"were\" first. \"Were you at home?\" \"Was she here?\" Use \"where\" to ask about a place: \"Where were you?\" \"Where was he?\" Use \"were\" with you, we and they. Use \"was\" with I, he, she and it."
+    },
+    "items": [
+     {
+      "id": "l7-05-were-you-home",
+      "en": "Were you at home yesterday?",
+      "it": "Ieri eri a casa?",
+      "accept": [
+       "Were you at home yesterday?",
+       "Were you home yesterday",
+       "Were you at home"
+      ]
+     },
+     {
+      "id": "l7-05-where-were-you",
+      "en": "Where were you?",
+      "it": "Dove eri?"
+     },
+     {
+      "id": "l7-05-was-he-work",
+      "en": "Was he at work?",
+      "it": "Lui era al lavoro?"
+     },
+     {
+      "id": "l7-05-was-she-here",
+      "en": "Was she here?",
+      "it": "Lei era qui?"
+     },
+     {
+      "id": "l7-05-was-it-good",
+      "en": "Was it good?",
+      "it": "Era buono?"
+     },
+     {
+      "id": "l7-05-was-it-far",
+      "en": "Was it far?",
+      "it": "Era lontano?"
+     },
+     {
+      "id": "l7-05-were-you-late",
+      "en": "Were you late?",
+      "it": "Eri in ritardo?"
+     },
+     {
+      "id": "l7-05-where-was-he",
+      "en": "Where was he?",
+      "it": "Dov'era lui?"
+     }
+    ]
+   }
+  ]
  }
 ]

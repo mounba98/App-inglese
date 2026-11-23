@@ -157,7 +157,7 @@ Elenco delle cose da scrivere, **in ordine**. La sessione automatica scrive **un
 
 ### Livelli
 
-- [ ] Livello: Il passato di essere (was / were)
+- [x] Livello: Il passato di essere (was / were) (fatto 2026-11-23)
 - [ ] Livello: Il passato regolare (-ed: worked, called, helped)
 - [ ] Livello: Il passato irregolare (went, saw, had, made…)
 - [ ] Livello: Il futuro con will
