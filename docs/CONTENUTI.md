@@ -172,7 +172,7 @@ Elenco delle cose da scrivere, **in ordine**. La sessione automatica scrive **un
 
 ### Argomenti
 
-- [ ] Argomento: I vestiti
+- [x] Argomento: I vestiti (fatto 2026-11-26)
 - [ ] Argomento: I negozi
 - [ ] Argomento: La città e le indicazioni
 - [ ] Argomento: I viaggi
