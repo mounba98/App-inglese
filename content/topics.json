@@ -1415,5 +1415,274 @@
     ]
    }
   ]
+ },
+ {
+  "id": "vestiti",
+  "title": "I vestiti",
+  "lessons": [
+   {
+    "id": "vestiti-01",
+    "title": "Cosa mi metto?",
+    "teoria": {
+     "it": "Per «mettersi» un vestito si dice «put on». Per «toglierselo» si dice «take off». Esempi: \"Put on your coat\" è «Mettiti il cappotto» e \"Take off your jacket\" è «Togliti la giacca». «Your» vuol dire «tuo, tua, tuoi, tue». Attenzione: «pants», «socks» e «shoes» sono sempre al plurale, quindi si dice \"These are my pants\" e \"Where are my shoes?\".",
+     "en": "Use \"put on\" when you wear something new. Use \"take off\" when you remove it. \"Put on your coat\". \"Take off your jacket\". Pants, socks and shoes are always plural: \"These are my pants\". \"Where are my shoes?\"."
+    },
+    "items": [
+     {
+      "id": "vestiti-01-coat",
+      "en": "Put on your coat",
+      "it": "Mettiti il cappotto",
+      "accept": [
+       "Put on your coat",
+       "Put your coat on"
+      ]
+     },
+     {
+      "id": "vestiti-01-jacket",
+      "en": "Take off your jacket",
+      "it": "Togliti la giacca",
+      "accept": [
+       "Take off your jacket",
+       "Take your jacket off"
+      ]
+     },
+     {
+      "id": "vestiti-01-sweater",
+      "en": "This is my sweater",
+      "it": "Questo è il mio maglione",
+      "accept": [
+       "This is my sweater",
+       "This is my jumper"
+      ]
+     },
+     {
+      "id": "vestiti-01-pants",
+      "en": "These are my pants",
+      "it": "Questi sono i miei pantaloni",
+      "accept": [
+       "These are my pants",
+       "These are my trousers"
+      ]
+     },
+     {
+      "id": "vestiti-01-socks",
+      "en": "Here are your socks",
+      "it": "Ecco i tuoi calzini",
+      "accept": [
+       "Here are your socks"
+      ]
+     },
+     {
+      "id": "vestiti-01-shoes",
+      "en": "Where are my shoes?",
+      "it": "Dove sono le mie scarpe?",
+      "accept": [
+       "Where are my shoes?"
+      ]
+     },
+     {
+      "id": "vestiti-01-hat",
+      "en": "Do you want your hat?",
+      "it": "Vuoi il tuo cappello?",
+      "accept": [
+       "Do you want your hat?",
+       "Would you like your hat?"
+      ]
+     },
+     {
+      "id": "vestiti-01-scarf",
+      "en": "Put on a scarf, it's cold",
+      "it": "Mettiti una sciarpa, fa freddo",
+      "accept": [
+       "Put on a scarf, it's cold",
+       "Put on a scarf, it is cold",
+       "Put a scarf on, it's cold"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "vestiti-02",
+    "title": "Aiutare a vestirsi",
+    "teoria": {
+     "it": "Quando aiuti una persona a vestirsi, usa frasi brevi e gentili. \"Can I help you get dressed?\" è «Posso aiutarti a vestirti?». Con «too» si dice che qualcosa è «troppo»: \"Is it too tight?\" è «È troppo stretto?» e \"Is it too loose?\" è «È troppo largo?». In inglese ogni domanda come queste comincia con «Is it»: la risposta è un semplice «yes» o «no».",
+     "en": "When you help someone get dressed, use short and kind sentences. \"Can I help you get dressed?\". \"Too\" means \"more than you want\". \"Is it too tight?\" \"Is it too loose?\" These questions start with \"Is it\". The answer is \"yes\" or \"no\"."
+    },
+    "items": [
+     {
+      "id": "vestiti-02-help",
+      "en": "Can I help you get dressed?",
+      "it": "Posso aiutarti a vestirti?",
+      "accept": [
+       "Can I help you get dressed?",
+       "Can I help you dress?",
+       "Do you want me to help you get dressed?"
+      ]
+     },
+     {
+      "id": "vestiti-02-arm",
+      "en": "Lift your arm, please",
+      "it": "Alza il braccio, per favore",
+      "accept": [
+       "Lift your arm, please",
+       "Raise your arm, please",
+       "Please lift your arm",
+       "Please raise your arm"
+      ]
+     },
+     {
+      "id": "vestiti-02-sleeve",
+      "en": "Put your arm in here",
+      "it": "Infila il braccio qui",
+      "accept": [
+       "Put your arm in here",
+       "Put your arm in here, please",
+       "Put your arm through here"
+      ]
+     },
+     {
+      "id": "vestiti-02-tight",
+      "en": "Is it too tight?",
+      "it": "È troppo stretto?",
+      "accept": [
+       "Is it too tight?",
+       "Is it too tight for you?",
+       "Is this too tight?"
+      ]
+     },
+     {
+      "id": "vestiti-02-loose",
+      "en": "Is it too loose?",
+      "it": "È troppo largo?",
+      "accept": [
+       "Is it too loose?",
+       "Is it too big?",
+       "Is this too loose?",
+       "Is it too baggy?"
+      ]
+     },
+     {
+      "id": "vestiti-02-comfy",
+      "en": "Is it comfortable?",
+      "it": "È comodo?",
+      "accept": [
+       "Is it comfortable?",
+       "Is this comfortable?",
+       "Are you comfortable?"
+      ]
+     },
+     {
+      "id": "vestiti-02-buttons",
+      "en": "Do you need help with the buttons?",
+      "it": "Hai bisogno di aiuto con i bottoni?",
+      "accept": [
+       "Do you need help with the buttons?",
+       "Do you need help with your buttons?",
+       "Do you need some help with the buttons?"
+      ]
+     },
+     {
+      "id": "vestiti-02-laces",
+      "en": "Let me tie your shoes",
+      "it": "Lascia che ti allacci le scarpe",
+      "accept": [
+       "Let me tie your shoes",
+       "Let me do up your shoes",
+       "Can I tie your shoes?"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "vestiti-03",
+    "title": "Taglia e misura",
+    "teoria": {
+     "it": "Per chiedere la misura si dice \"What size are you?\", cioè «Che taglia porti?». Si risponde \"My size is medium\" (la mia taglia è la media). Se qualcosa non va bene, usa «too»: \"It's too small\" è «È troppo piccolo». Con le cose al plurale usa «are»: \"These shoes are too tight\" è «Queste scarpe sono troppo strette». Per sapere se qualcuno ha freddo, chiedi \"Are you warm enough?\".",
+     "en": "Ask about size with \"What size are you?\". The answer can be \"My size is medium\". Use \"too\" when something is not right: \"It's too small\". For more than one thing, use \"are\": \"These shoes are too tight\". To check if someone is cold, ask \"Are you warm enough?\"."
+    },
+    "items": [
+     {
+      "id": "vestiti-03-size",
+      "en": "What size are you?",
+      "it": "Che taglia porti?",
+      "accept": [
+       "What size are you?",
+       "What's your size?",
+       "What size do you wear?",
+       "What is your size?"
+      ]
+     },
+     {
+      "id": "vestiti-03-medium",
+      "en": "My size is medium",
+      "it": "La mia taglia è la media",
+      "accept": [
+       "My size is medium",
+       "I'm a medium",
+       "I am a medium",
+       "My size is M"
+      ]
+     },
+     {
+      "id": "vestiti-03-small",
+      "en": "It's too small",
+      "it": "È troppo piccolo",
+      "accept": [
+       "It's too small",
+       "It is too small",
+       "This is too small"
+      ]
+     },
+     {
+      "id": "vestiti-03-shoes-tight",
+      "en": "These shoes are too tight",
+      "it": "Queste scarpe sono troppo strette",
+      "accept": [
+       "These shoes are too tight"
+      ]
+     },
+     {
+      "id": "vestiti-03-wet",
+      "en": "Your pants are wet",
+      "it": "I tuoi pantaloni sono bagnati",
+      "accept": [
+       "Your pants are wet",
+       "Your trousers are wet"
+      ]
+     },
+     {
+      "id": "vestiti-03-change",
+      "en": "Let's change your clothes",
+      "it": "Cambiamo i tuoi vestiti",
+      "accept": [
+       "Let's change your clothes",
+       "Let us change your clothes",
+       "Let's get you changed"
+      ]
+     },
+     {
+      "id": "vestiti-03-nice",
+      "en": "What a nice sweater!",
+      "it": "Che bel maglione!",
+      "accept": [
+       "What a nice sweater!",
+       "What a nice jumper!",
+       "What a lovely sweater!",
+       "That's a nice sweater",
+       "That is a nice sweater"
+      ]
+     },
+     {
+      "id": "vestiti-03-warm",
+      "en": "Are you warm enough?",
+      "it": "Hai abbastanza caldo?",
+      "accept": [
+       "Are you warm enough?",
+       "Do you feel warm enough?"
+      ]
+     }
+    ]
+   }
+  ]
  }
 ]
